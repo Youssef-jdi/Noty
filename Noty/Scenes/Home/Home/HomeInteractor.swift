@@ -92,7 +92,7 @@ private extension HomeInteractor {
 
 extension HomeInteractor: SpeechTranscriptionDelegate {
     func transcriptor(failedWithError error: Error) {
-        print("failed with error: \(error)")
+        Console.log(type: .error, error.localizedDescription)
     }
 
     func transcriptor(didTranscript transcription: String, completed: Bool) {

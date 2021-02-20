@@ -18,7 +18,7 @@ protocol HomeViewControllerProtocol: class, UIViewControllerRouting {
     func set(router: HomeRouterProtocol)
     func set(alertPresenter: AlertPresenterProtocol)
 
-    // add the functions that are called from the presenter
+    
     func display(error: Error)
     func displayPermissionError(error: HomeModels.PermissionError)
     func displayTranscriptedText(text: String)
@@ -100,8 +100,6 @@ extension HomeViewController {
                 guard let stringLength: Int = self?.textMemoView.text.count else { return }
                 self?.textMemoView.scrollRangeToVisible(NSRange(location: stringLength - 1, length: 0))
             }
-            // self.timeInSilece = 0
-        // self.isEmpty = (transcription == nil || transcription?.isEmpty ?? true)
     }
 
     func displayRecordingState(state: HomeModels.RecordState) {
@@ -138,7 +136,6 @@ private extension HomeViewController {
             self.recordButton.isSelected = true
             self.startAmplitudeRecorder()
             self.recordingStateLabel.text = "Listening..."
-            // self?.isEmpty = false
         }
     }
 
@@ -149,7 +146,6 @@ private extension HomeViewController {
             self.recordButton.isSelected = false
             self.stopAmplitudeRecorder()
             self.recordingStateLabel.text = "Paused"
-            // self.timeInSilece = 0
         }
     }
 
