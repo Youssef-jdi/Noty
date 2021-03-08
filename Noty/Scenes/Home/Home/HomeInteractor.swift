@@ -17,7 +17,9 @@ protocol HomeInteractorProtocol {
     func handleViewDidLoad()
     func startRecording()
     func pauseRecording()
+    func clearRecording()
     func getCurrentAmplitude()
+    func handleViewWillDisappear()
 }
 
 class HomeInteractor: HomeInteractorProtocol {
@@ -39,9 +41,11 @@ class HomeInteractor: HomeInteractorProtocol {
 }
 
 extension HomeInteractor {
+    #warning("Handle resume after pause")
     func startRecording() {
         self.checkPermission { [weak self] in
             guard let self = self else { return }
+           // self.handleViewDidLoad()
             self.transcriptorManager.startRecording()
             self.presenter.presentRecordingState(.isRecoding)
         }
@@ -52,6 +56,12 @@ extension HomeInteractor {
         presenter.presentRecordingState(.isPaused)
     }
 
+    func clearRecording() {
+        transcriptorManager.tearDown()
+        transcriptorManager.delegate = nil
+        presenter.presentRecordingState(.isCleared)
+    }
+
     func handleViewDidLoad() {
         transcriptorManager.delegate = self
         transcriptorManager.prepare()
@@ -59,6 +69,11 @@ extension HomeInteractor {
 
     func getCurrentAmplitude() {
         presenter.presentCurrentAmplitude(with: transcriptorManager.getCurrentAmplitude())
+    }
+
+    func handleViewWillDisappear() {
+        transcriptorManager.tearDown()
+        transcriptorManager.delegate = nil
     }
 }
 

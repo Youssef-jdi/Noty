@@ -480,13 +480,13 @@ Please check your inbox and follow the instructions </string>
                                 <rect key="frame" x="32" y="76" width="350" height="754"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" axis="vertical" distribution="fillProportionally" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BOC-00-nlu">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="382"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="382.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" image="confirm" translatesAutoresizingMaskIntoConstraints="NO" id="pN7-rT-ftX">
                                                 <rect key="frame" x="0.0" y="0.0" width="114" height="107"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ViW-WG-w71">
-                                                <rect key="frame" x="0.0" y="123" width="223" height="93.5"/>
+                                                <rect key="frame" x="0.0" y="123" width="226.5" height="94"/>
                                                 <string key="text">Please allow
 access</string>
                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="40"/>
@@ -494,13 +494,13 @@ access</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Noty allows you to create new notes through voice to memo recording" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qYG-UW-lAm">
-                                                <rect key="frame" x="0.0" y="232.5" width="313.5" height="44.5"/>
+                                                <rect key="frame" x="0.0" y="233" width="313.5" height="44.5"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="We need access to your camera microphone, and storage in order to record your memos. We will make sure to respect your privacy." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="z7q-3r-SPY">
-                                                <rect key="frame" x="0.0" y="293" width="334" height="89"/>
+                                                <rect key="frame" x="0.0" y="293.5" width="334" height="89"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -603,7 +603,7 @@ access</string>
             <size key="intrinsicContentSize" width="95" height="42"/>
         </designable>
         <designable name="dBc-oS-gKF">
-            <size key="intrinsicContentSize" width="169" height="41"/>
+            <size key="intrinsicContentSize" width="164" height="41"/>
         </designable>
         <designable name="lPa-zQ-uZz">
             <size key="intrinsicContentSize" width="152.5" height="19.5"/>

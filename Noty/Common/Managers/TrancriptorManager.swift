@@ -17,6 +17,7 @@ protocol TranscriptorManagerProtocol {
     func startRecording()
     func pauseRecording()
     func getCurrentAmplitude() -> Double
+    func tearDown()
 }
 
 protocol SpeechTranscriptionDelegate: class {
@@ -117,6 +118,13 @@ class TranscriptorManager: TranscriptorManagerProtocol {
         } else {
             print("It's running bitch")
         }
+    }
+
+    func tearDown() {
+        recorderManager.clear()
+        self.speechRecognizer = nil
+        self.audioEngine.reset()
+        self.audioEngine.stop()
     }
 }
 

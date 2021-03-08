@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tqN-YI-Lxo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sze-YP-1iX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -36,10 +36,16 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEr-90-dw4">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                                                         <state key="normal" image="clear_button"/>
+                                                        <connections>
+                                                            <action selector="clearButtonClicked:" destination="Mjy-XA-5gp" eventType="touchUpInside" id="k9U-tw-rHI"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3I-OB-bun">
                                                         <rect key="frame" x="0.0" y="46" width="60" height="22"/>
                                                         <state key="normal" image="ic_alert_blue"/>
+                                                        <connections>
+                                                            <action selector="reminderButtonClicked:" destination="Mjy-XA-5gp" eventType="touchUpInside" id="bM5-zT-g7w"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -58,26 +64,62 @@
                                                 <color key="textColor" name="vonoBlueDark"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btu-9v-qWD">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="IBe-as-Wla">
                                                 <rect key="frame" x="172" y="29" width="70" height="70"/>
                                                 <subviews>
-                                                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JH-2d-tER" customClass="RoundView" customModule="Noty" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btu-9v-qWD">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                        <color key="backgroundColor" name="vonoBlueDark"/>
-                                                        <color key="tintColor" systemColor="systemFillColor"/>
+                                                        <subviews>
+                                                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JH-2d-tER" customClass="RoundView" customModule="Noty" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                                <color key="backgroundColor" name="vonoBlueDark"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="0JH-2d-tER" secondAttribute="height" id="FPb-8E-fZm"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucu-JV-ZMK" customClass="AppButton" customModule="Noty" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="70" id="vIz-7L-uzj"/>
+                                                                    <constraint firstAttribute="width" secondItem="ucu-JV-ZMK" secondAttribute="height" id="zXZ-dA-lqb"/>
+                                                                </constraints>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" image="ic_microphone_black_big"/>
+                                                                <state key="selected" image="ic_pause_grey_small_big"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                                        <color key="value" name="vonoBlueDark"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="30"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="recordButtonClicked:" destination="Mjy-XA-5gp" eventType="touchUpInside" id="fnb-W4-K3x"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="0JH-2d-tER" secondAttribute="height" id="Ucq-Sc-sbw"/>
+                                                            <constraint firstItem="ucu-JV-ZMK" firstAttribute="centerX" secondItem="0JH-2d-tER" secondAttribute="centerX" id="7Cp-UM-Tfr"/>
+                                                            <constraint firstItem="ucu-JV-ZMK" firstAttribute="top" secondItem="btu-9v-qWD" secondAttribute="top" id="9q1-8d-6vO"/>
+                                                            <constraint firstItem="0JH-2d-tER" firstAttribute="width" secondItem="ucu-JV-ZMK" secondAttribute="width" id="I8g-bu-uh2"/>
+                                                            <constraint firstItem="ucu-JV-ZMK" firstAttribute="leading" secondItem="btu-9v-qWD" secondAttribute="leading" id="T5r-v8-c3P"/>
+                                                            <constraint firstItem="ucu-JV-ZMK" firstAttribute="centerY" secondItem="0JH-2d-tER" secondAttribute="centerY" id="aMF-oF-H1a"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ucu-JV-ZMK" secondAttribute="trailing" id="eXX-Su-oNo"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ucu-JV-ZMK" secondAttribute="bottom" id="kQb-8j-3nT"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucu-JV-ZMK" customClass="AppButton" customModule="Noty" customModuleProvider="target">
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAv-kV-n0D" customClass="AppButton" customModule="Noty" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="70" id="vIz-7L-uzj"/>
-                                                            <constraint firstAttribute="width" secondItem="ucu-JV-ZMK" secondAttribute="height" id="zXZ-dA-lqb"/>
+                                                            <constraint firstAttribute="height" constant="70" id="HsF-MJ-g8z"/>
+                                                            <constraint firstAttribute="width" secondItem="JAv-kV-n0D" secondAttribute="height" id="xqL-ue-SAX"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="ic_microphone_black_big"/>
+                                                        <state key="normal" image="ic_add_white"/>
                                                         <state key="selected" image="ic_pause_grey_small_big"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
@@ -88,21 +130,12 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="recordButtonClicked:" destination="Mjy-XA-5gp" eventType="touchUpInside" id="fnb-W4-K3x"/>
+                                                            <action selector="recordButtonClicked:" destination="Mjy-XA-5gp" eventType="touchUpInside" id="U0R-JA-6jV"/>
+                                                            <action selector="sendButtonClicked:" destination="Mjy-XA-5gp" eventType="touchUpInside" id="dRM-Wr-5Qi"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="ucu-JV-ZMK" firstAttribute="centerX" secondItem="0JH-2d-tER" secondAttribute="centerX" id="7Cp-UM-Tfr"/>
-                                                    <constraint firstItem="ucu-JV-ZMK" firstAttribute="top" secondItem="btu-9v-qWD" secondAttribute="top" id="9q1-8d-6vO"/>
-                                                    <constraint firstItem="ucu-JV-ZMK" firstAttribute="width" secondItem="0JH-2d-tER" secondAttribute="width" id="I8g-bu-uh2"/>
-                                                    <constraint firstItem="ucu-JV-ZMK" firstAttribute="leading" secondItem="btu-9v-qWD" secondAttribute="leading" id="T5r-v8-c3P"/>
-                                                    <constraint firstItem="ucu-JV-ZMK" firstAttribute="centerY" secondItem="0JH-2d-tER" secondAttribute="centerY" id="aMF-oF-H1a"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ucu-JV-ZMK" secondAttribute="trailing" id="eXX-Su-oNo"/>
-                                                    <constraint firstAttribute="bottom" secondItem="ucu-JV-ZMK" secondAttribute="bottom" id="kQb-8j-3nT"/>
-                                                </constraints>
-                                            </view>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -172,34 +205,97 @@
                     <navigationItem key="navigationItem" id="thW-k6-KeU"/>
                     <connections>
                         <outlet property="amplitudeConstraint" destination="I8g-bu-uh2" id="LSj-PD-ZHB"/>
+                        <outlet property="buttonStackView" destination="3pC-2M-Erc" id="xRd-jf-C2s"/>
+                        <outlet property="clearButton" destination="sEr-90-dw4" id="rzd-ZR-7Ob"/>
                         <outlet property="recordButton" destination="ucu-JV-ZMK" id="iAE-5v-NSR"/>
                         <outlet property="recordingStateLabel" destination="Lhx-8a-u83" id="Ze4-aY-qsj"/>
+                        <outlet property="reminderButton" destination="s3I-OB-bun" id="QYX-i3-jX1"/>
+                        <outlet property="sendButton" destination="JAv-kV-n0D" id="6Gy-2a-WRM"/>
                         <outlet property="textMemoView" destination="7VH-ar-P8M" id="Nav-bu-ew3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fk-t9-tHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1081.1594202898552" y="100.44642857142857"/>
+            <point key="canvasLocation" x="1991.3043478260872" y="100.44642857142857"/>
+        </scene>
+        <!--Notys View Controller-->
+        <scene sceneID="Zr3-e2-o6J">
+            <objects>
+                <viewController storyboardIdentifier="NotysViewController" id="Aft-w3-Wbs" customClass="NotysViewController" customModule="Noty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iut-8S-M8L">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="X6p-ch-b3b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qik-yC-Qqd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1991" y="-635"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="epX-VT-eu3">
+            <objects>
+                <viewController storyboardIdentifier="RootViewController" modalPresentationStyle="fullScreen" id="non-zL-Kgd" customClass="RootViewController" customModule="Noty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eL0-dj-G0u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kw-Xr-YVd" customClass="RootTabView" customModule="Noty" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ojd-VS-oaY"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBO-pW-kyE">
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UF1-dM-WjX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UF1-dM-WjX" firstAttribute="trailing" secondItem="kBO-pW-kyE" secondAttribute="trailing" id="7Hw-0a-3wg"/>
+                            <constraint firstItem="UF1-dM-WjX" firstAttribute="trailing" secondItem="4kw-Xr-YVd" secondAttribute="trailing" id="HUy-NK-ASr"/>
+                            <constraint firstItem="kBO-pW-kyE" firstAttribute="leading" secondItem="UF1-dM-WjX" secondAttribute="leading" id="eVG-Cb-oTP"/>
+                            <constraint firstItem="kBO-pW-kyE" firstAttribute="top" secondItem="4kw-Xr-YVd" secondAttribute="bottom" id="fhM-cc-SLB"/>
+                            <constraint firstItem="UF1-dM-WjX" firstAttribute="bottom" secondItem="kBO-pW-kyE" secondAttribute="bottom" id="lJN-Nn-P3P"/>
+                            <constraint firstItem="4kw-Xr-YVd" firstAttribute="leading" secondItem="UF1-dM-WjX" secondAttribute="leading" id="qaf-VX-IAM"/>
+                            <constraint firstItem="4kw-Xr-YVd" firstAttribute="top" secondItem="UF1-dM-WjX" secondAttribute="top" id="rrp-mw-faT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="p3I-eD-ZLr"/>
+                    <connections>
+                        <outlet property="containerView" destination="kBO-pW-kyE" id="gGb-gS-aqc"/>
+                        <outlet property="rootTabView" destination="4kw-Xr-YVd" id="hxc-NN-iSB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uOi-1Z-e9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997" y="-254"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="wCG-i2-AVJ">
+        <scene sceneID="4K9-zP-7NA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="tqN-YI-Lxo" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="sze-YP-1iX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xuW-L3-E3T">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pyk-gy-RXD">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Mjy-XA-5gp" kind="relationship" relationship="rootViewController" id="g6q-OE-rEK"/>
+                        <segue destination="non-zL-Kgd" kind="relationship" relationship="rootViewController" id="8uK-CW-ACE"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ya-41-dgw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0g-iL-gwK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171.01449275362319" y="100.44642857142857"/>
+            <point key="canvasLocation" x="32" y="-254"/>
         </scene>
     </scenes>
     <designables>
+        <designable name="JAv-kV-n0D">
+            <size key="intrinsicContentSize" width="44" height="34"/>
+        </designable>
         <designable name="ucu-JV-ZMK">
             <size key="intrinsicContentSize" width="38" height="34"/>
         </designable>
@@ -207,6 +303,7 @@
     <resources>
         <image name="Settings_icon" width="20" height="20"/>
         <image name="clear_button" width="60" height="30"/>
+        <image name="ic_add_white" width="24" height="24"/>
         <image name="ic_alert_blue" width="19" height="21"/>
         <image name="ic_microphone_black_big" width="18" height="24"/>
         <image name="ic_pause_grey_small_big" width="17" height="24"/>
@@ -218,9 +315,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

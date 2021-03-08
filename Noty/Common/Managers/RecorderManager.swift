@@ -13,6 +13,7 @@ protocol RecorderManagerProtocol {
     func startRecording()
     func pauseRecording()
     func getCurrentAmplitude() -> Double
+    func clear()
 }
 
 class RecorderManager: RecorderManagerProtocol {
@@ -76,7 +77,7 @@ class RecorderManager: RecorderManagerProtocol {
         }
     }
 
-    private func clear() {
+    func clear() {
         do {
             self.recorder?.stop()
             try self.recorder?.reset()

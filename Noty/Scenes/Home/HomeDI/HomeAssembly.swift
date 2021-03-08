@@ -9,6 +9,7 @@ import Swinject
 import SwinjectAutoregistration
 
 class HomeAssembly: Assembly {
+    // swiftlint:disable function_body_length
     func assemble(container: Container) {
         // MARK: home vc
         container.register(HomeRouterProtocol.self) { resolver in
@@ -32,6 +33,52 @@ class HomeAssembly: Assembly {
             vc.set(router: router)
             vc.set(interactor: interactor)
             vc.set(alertPresenter: alertPresenter)
+        }
+
+        // MARK: Root vc
+        container.register(RootRouterProtocol.self) { resolver in
+            return RootRouter(
+                rootNavigator: resolver ~> (RootNavigatorProtocol.self),
+                homeStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.home.name))
+        }
+
+        container.autoregister(RootPresenterProtocol.self, initializer: RootPresenter.init)
+        container.autoregister(RootInteractorProtocol.self, initializer: RootInteractor.init)
+
+        container.storyboardInitCompleted(RootViewController.self) { resolver, vc in
+            let router = resolver ~> (RootRouterProtocol.self)
+            let presenter = resolver ~> (RootPresenterProtocol.self)
+            let interactor = resolver ~> (RootInteractorProtocol.self)
+            let homeStoryboard = resolver ~> (Storyboard.self, name: R.storyboard.home.name)
+
+            router.set(viewController: vc)
+            presenter.set(viewController: vc)
+            presenter.set(homeStoryboard: homeStoryboard)
+
+            vc.set(router: router)
+            vc.set(interactor: interactor)
+        }
+
+        // MARK: Notys vc
+        container.register(NotysRouterProtocol.self) { resolver in
+            return NotysRouter(
+                rootNavigator: resolver ~> (RootNavigatorProtocol.self),
+                homeStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.home.name))
+        }
+
+        container.autoregister(NotysPresenterProtocol.self, initializer: NotysPresenter.init)
+        container.autoregister(NotysInteractorProtocol.self, initializer: NotysInteractor.init)
+
+        container.storyboardInitCompleted(NotysViewController.self) { resolver, vc in
+            let router = resolver ~> (NotysRouterProtocol.self)
+            let presenter = resolver ~> (NotysPresenterProtocol.self)
+            let interactor = resolver ~> (NotysInteractorProtocol.self)
+
+            router.set(viewController: vc)
+            presenter.set(viewController: vc)
+
+            vc.set(router: router)
+            vc.set(interactor: interactor)
         }
     }
 }

@@ -21,6 +21,7 @@ class VTextView: UITextView {
     var textDidChange: (() -> Void)?
     var startEditing: (() -> Void)?
     var endEditing: (() -> Void)?
+    var isEmpty: Bool = true
 
     func setPlaceholder() {
         self.text = placeholderText
@@ -44,6 +45,7 @@ extension VTextView: UITextViewDelegate {
             textView.text = ""
             textView.textColor = .black
         }
+        isEmpty = textView.text == placeholderText || textView.text.isEmpty
         textIsEmpty?(textView.textColor == .lightGray || textView.text.isEmpty)
     }
 
@@ -52,6 +54,7 @@ extension VTextView: UITextViewDelegate {
             textView.text = placeholderText
             textView.textColor = .lightGray
         }
+        isEmpty = textView.text == placeholderText || textView.text.isEmpty
         textIsEmpty?(textView.textColor == .lightGray || textView.text.isEmpty)
     }
 
@@ -65,6 +68,7 @@ extension VTextView: UITextViewDelegate {
     }
 
     func textViewDidChange(_ textView: UITextView) {
+        isEmpty = textView.text == placeholderText || textView.text.isEmpty
         textIsEmpty?(textView.textColor == .lightGray || textView.text.isEmpty)
         textDidChange?()
     }

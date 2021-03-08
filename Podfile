@@ -6,17 +6,27 @@ target 'Noty' do
   use_frameworks!
 
   # Pods for Noty
+
+  # Settings
 	pod 'R.swift'
+  pod 'SwiftLint'
+
+  # Dependency injection
   pod 'Swinject'
   pod 'SwinjectStoryboard'
   pod 'SwinjectAutoregistration'
-  pod 'SwiftLint'
+
+  # Animation
   pod 'lottie-ios'
+
+  # Firebase
   pod 'Firebase/Auth'
   pod 'Firebase/DynamicLinks'
   pod 'Firebase/Database'
   pod 'Firebase/Firestore'
   pod 'Firebase/Analytics'
+
+  # 
   pod 'AudioKit'
   pod 'FlagKit'
   pod 'GoogleSignIn'

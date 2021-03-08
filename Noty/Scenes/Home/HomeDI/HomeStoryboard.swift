@@ -30,11 +30,13 @@ class HomeStoryboard: Storyboard {
 }
 
 enum HomeStoryboardId: StoryboardId {
-    case home
+    case new
+    case notys
 
     var identifier: String {
         switch self {
-        case .home: return R.storyboard.home.homeViewController.identifier
+        case .new: return R.storyboard.home.homeViewController.identifier
+        case .notys: return R.storyboard.home.notysViewController.identifier
         }
     }
 }

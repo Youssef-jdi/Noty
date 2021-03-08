@@ -59,6 +59,17 @@
 		AA855DA225DAE673008A3294 /* UIView+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855DA125DAE673008A3294 /* UIView+shake.swift */; };
 		AA855DAA25DAE69F008A3294 /* UITextField+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855DA925DAE69F008A3294 /* UITextField+Error.swift */; };
 		AA855DD325DAE88E008A3294 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855DD225DAE88E008A3294 /* AppTextField.swift */; };
+		AA9272FA25F6559300D0A4D9 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F625F6559300D0A4D9 /* RootPresenter.swift */; };
+		AA9272FB25F6559300D0A4D9 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F725F6559300D0A4D9 /* RootRouter.swift */; };
+		AA9272FC25F6559300D0A4D9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F825F6559300D0A4D9 /* RootViewController.swift */; };
+		AA9272FD25F6559300D0A4D9 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F925F6559300D0A4D9 /* RootInteractor.swift */; };
+		AA92733825F65B5100D0A4D9 /* RootTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA92733725F65B5100D0A4D9 /* RootTabView.xib */; };
+		AA92733D25F65B6100D0A4D9 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92733C25F65B6100D0A4D9 /* RootTabView.swift */; };
+		AA92734225F65D7000D0A4D9 /* CALayer + applyShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92734125F65D7000D0A4D9 /* CALayer + applyShadow.swift */; };
+		AA92734B25F6604600D0A4D9 /* NotysPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92734725F6604600D0A4D9 /* NotysPresenter.swift */; };
+		AA92734C25F6604600D0A4D9 /* NotysRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92734825F6604600D0A4D9 /* NotysRouter.swift */; };
+		AA92734D25F6604600D0A4D9 /* NotysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92734925F6604600D0A4D9 /* NotysViewController.swift */; };
+		AA92734E25F6604600D0A4D9 /* NotysInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92734A25F6604600D0A4D9 /* NotysInteractor.swift */; };
 		AA95D7AF25D94E5B00F94553 /* LanguagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA95D7AB25D94E5B00F94553 /* LanguagePresenter.swift */; };
 		AA95D7B025D94E5B00F94553 /* LanguageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA95D7AC25D94E5B00F94553 /* LanguageRouter.swift */; };
 		AA95D7B125D94E5B00F94553 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA95D7AD25D94E5B00F94553 /* LanguageViewController.swift */; };
@@ -181,6 +192,17 @@
 		AA855DA125DAE673008A3294 /* UIView+shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shake.swift"; sourceTree = "<group>"; };
 		AA855DA925DAE69F008A3294 /* UITextField+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Error.swift"; sourceTree = "<group>"; };
 		AA855DD225DAE88E008A3294 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
+		AA9272F625F6559300D0A4D9 /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
+		AA9272F725F6559300D0A4D9 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		AA9272F825F6559300D0A4D9 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		AA9272F925F6559300D0A4D9 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
+		AA92733725F65B5100D0A4D9 /* RootTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootTabView.xib; sourceTree = "<group>"; };
+		AA92733C25F65B6100D0A4D9 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		AA92734125F65D7000D0A4D9 /* CALayer + applyShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer + applyShadow.swift"; sourceTree = "<group>"; };
+		AA92734725F6604600D0A4D9 /* NotysPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotysPresenter.swift; sourceTree = "<group>"; };
+		AA92734825F6604600D0A4D9 /* NotysRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotysRouter.swift; sourceTree = "<group>"; };
+		AA92734925F6604600D0A4D9 /* NotysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotysViewController.swift; sourceTree = "<group>"; };
+		AA92734A25F6604600D0A4D9 /* NotysInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotysInteractor.swift; sourceTree = "<group>"; };
 		AA95D7AB25D94E5B00F94553 /* LanguagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePresenter.swift; sourceTree = "<group>"; };
 		AA95D7AC25D94E5B00F94553 /* LanguageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageRouter.swift; sourceTree = "<group>"; };
 		AA95D7AD25D94E5B00F94553 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +291,7 @@
 		AA52772E25DC1B7600AE880D /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				AA92733625F65B4000D0A4D9 /* RootTabView */,
 				AA52773025DC1BA100AE880D /* Toast */,
 			);
 			path = Xib;
@@ -549,8 +572,40 @@
 				AA855DA925DAE69F008A3294 /* UITextField+Error.swift */,
 				AA52775225DC339600AE880D /* UIViewController+Spinner.swift */,
 				AA52775725DC368700AE880D /* UITapGestureRecognizer+TextInLabel.swift */,
+				AA92734125F65D7000D0A4D9 /* CALayer + applyShadow.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AA9272F525F6557A00D0A4D9 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				AA9272F625F6559300D0A4D9 /* RootPresenter.swift */,
+				AA9272F725F6559300D0A4D9 /* RootRouter.swift */,
+				AA9272F825F6559300D0A4D9 /* RootViewController.swift */,
+				AA9272F925F6559300D0A4D9 /* RootInteractor.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		AA92733625F65B4000D0A4D9 /* RootTabView */ = {
+			isa = PBXGroup;
+			children = (
+				AA92733725F65B5100D0A4D9 /* RootTabView.xib */,
+				AA92733C25F65B6100D0A4D9 /* RootTabView.swift */,
+			);
+			path = RootTabView;
+			sourceTree = "<group>";
+		};
+		AA92734625F6603400D0A4D9 /* Notys */ = {
+			isa = PBXGroup;
+			children = (
+				AA92734725F6604600D0A4D9 /* NotysPresenter.swift */,
+				AA92734825F6604600D0A4D9 /* NotysRouter.swift */,
+				AA92734925F6604600D0A4D9 /* NotysViewController.swift */,
+				AA92734A25F6604600D0A4D9 /* NotysInteractor.swift */,
+			);
+			path = Notys;
 			sourceTree = "<group>";
 		};
 		AA95D7AA25D94E3100F94553 /* Language */ = {
@@ -575,6 +630,8 @@
 		AAB50F5325D6A63500980169 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AA92734625F6603400D0A4D9 /* Notys */,
+				AA9272F525F6557A00D0A4D9 /* Root */,
 				AAB50F5A25D6A65600980169 /* Home */,
 				AAB50F5925D6A64900980169 /* HomeDI */,
 				AAB50F5425D6A64400980169 /* Home.storyboard */,
@@ -780,6 +837,7 @@
 				AA76A36125D594A600903401 /* GoogleService-Info.plist in Resources */,
 				AA52774925DC240A00AE880D /* Toast.xib in Resources */,
 				AACAF58C25D69F63009DE27C /* LaunchScreen.storyboard in Resources */,
+				AA92733825F65B5100D0A4D9 /* RootTabView.xib in Resources */,
 				AAB50F5525D6A64400980169 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -986,6 +1044,7 @@
 				AA855D7625DAC165008A3294 /* ConfirmViewController.swift in Sources */,
 				AAA0749525E0036C0061347E /* DeepLinkError.swift in Sources */,
 				AAB50F7A25D6AA3000980169 /* WelcomePresenter.swift in Sources */,
+				AA92734B25F6604600D0A4D9 /* NotysPresenter.swift in Sources */,
 				AA9A8B0D25D6F54800D12C3E /* AlertPresenter.swift in Sources */,
 				AA855D7425DAC165008A3294 /* ConfirmPresenter.swift in Sources */,
 				AAB50FC925D6C75300980169 /* PermissionManager.swift in Sources */,
@@ -995,9 +1054,11 @@
 				AA52772725DC177D00AE880D /* AuthManager.swift in Sources */,
 				AA52775825DC368700AE880D /* UITapGestureRecognizer+TextInLabel.swift in Sources */,
 				AA7EDBFF25D7230B004E415D /* TrancriptorManager.swift in Sources */,
+				AA92734225F65D7000D0A4D9 /* CALayer + applyShadow.swift in Sources */,
 				AA855D6925DAC156008A3294 /* LoginInteractor.swift in Sources */,
 				AA855DA225DAE673008A3294 /* UIView+shake.swift in Sources */,
 				AA52774125DC1EF300AE880D /* ToastManager.swift in Sources */,
+				AA9272FA25F6559300D0A4D9 /* RootPresenter.swift in Sources */,
 				AAB50FBC25D6C35200980169 /* PermissionViewController.swift in Sources */,
 				AA76A18225D5645500903401 /* Noty.xcdatamodeld in Sources */,
 				AA76A32125D5903500903401 /* OnBoardingAssembly.swift in Sources */,
@@ -1012,10 +1073,12 @@
 				AA855D7525DAC165008A3294 /* ConfirmRouter.swift in Sources */,
 				AA855D6725DAC156008A3294 /* LoginRouter.swift in Sources */,
 				AA52773C25DC1C7B00AE880D /* CustomViewProtocol.swift in Sources */,
+				AA9272FD25F6559300D0A4D9 /* RootInteractor.swift in Sources */,
 				AA95D7B025D94E5B00F94553 /* LanguageRouter.swift in Sources */,
 				AAB50F7D25D6AA3000980169 /* WelcomeInteractor.swift in Sources */,
 				AAA074C325E01D830061347E /* DeepLinkRouter.swift in Sources */,
 				AA95D7B225D94E5B00F94553 /* LanguageInteractor.swift in Sources */,
+				AA92734D25F6604600D0A4D9 /* NotysViewController.swift in Sources */,
 				AAB50F6F25D6A80300980169 /* HomeAssembly.swift in Sources */,
 				AA76A28325D56E4D00903401 /* SplashScreenRouter.swift in Sources */,
 				AAB50F7B25D6AA3000980169 /* WelcomeRouter.swift in Sources */,
@@ -1027,6 +1090,7 @@
 				AA76A1FC25D567D300903401 /* SharedAssembly.swift in Sources */,
 				AAB50F6125D6A6E700980169 /* HomeViewController.swift in Sources */,
 				AAA0749025E0026F0061347E /* ErrorHandler.swift in Sources */,
+				AA92734E25F6604600D0A4D9 /* NotysInteractor.swift in Sources */,
 				AAB50F6A25D6A75200980169 /* HomeStoryboard.swift in Sources */,
 				AA52775325DC339600AE880D /* UIViewController+Spinner.swift in Sources */,
 				AAA074BE25E01A210061347E /* FirebaseError.swift in Sources */,
@@ -1035,6 +1099,7 @@
 				AAB50FBA25D6C35200980169 /* PermissionPresenter.swift in Sources */,
 				AA9D4EF025E157C900AF70EA /* Notif.swift in Sources */,
 				AA855D9725DADAD7008A3294 /* DataValidationError.swift in Sources */,
+				AA9272FC25F6559300D0A4D9 /* RootViewController.swift in Sources */,
 				AA95D7B125D94E5B00F94553 /* LanguageViewController.swift in Sources */,
 				AA76A20B25D568B100903401 /* UIViewControllerRouting.swift in Sources */,
 				AACAF55325D6990B009DE27C /* AppButton.swift in Sources */,
@@ -1043,6 +1108,8 @@
 				AA76A29D25D5704500903401 /* SplashScreenAssembly.swift in Sources */,
 				AA855DD325DAE88E008A3294 /* AppTextField.swift in Sources */,
 				AA855D7725DAC165008A3294 /* ConfirmInteractor.swift in Sources */,
+				AA92733D25F65B6100D0A4D9 /* RootTabView.swift in Sources */,
+				AA92734C25F6604600D0A4D9 /* NotysRouter.swift in Sources */,
 				AA76A31C25D58F8F00903401 /* OnBoardingStoryboard.swift in Sources */,
 				AA76A1EF25D5674C00903401 /* Noty.swift in Sources */,
 				AAB50FBD25D6C35200980169 /* PermissionInteractor.swift in Sources */,
@@ -1053,6 +1120,7 @@
 				AA76A22C25D56AB600903401 /* R.generated.swift in Sources */,
 				AA76A21025D568DC00903401 /* StoryboardProtocol.swift in Sources */,
 				AA855D7D25DAC38F008A3294 /* ConsoleLogger.swift in Sources */,
+				AA9272FB25F6559300D0A4D9 /* RootRouter.swift in Sources */,
 				AA95D7AF25D94E5B00F94553 /* LanguagePresenter.swift in Sources */,
 				AAB50F5F25D6A6E700980169 /* HomePresenter.swift in Sources */,
 			);

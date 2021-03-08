@@ -18,7 +18,6 @@ protocol HomeViewControllerProtocol: class, UIViewControllerRouting {
     func set(router: HomeRouterProtocol)
     func set(alertPresenter: AlertPresenterProtocol)
 
-    
     func display(error: Error)
     func displayPermissionError(error: HomeModels.PermissionError)
     func displayTranscriptedText(text: String)
@@ -63,6 +62,14 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol {
         }
     }
     @IBOutlet weak var amplitudeConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sendButton: AppButton!
+    @IBOutlet weak var buttonStackView: UIStackView! {
+        didSet {
+            buttonStackView.alpha = 0
+        }
+    }
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var reminderButton: UIButton!
 
     // MARK: Properties
     private var timer: Timer?
@@ -74,9 +81,26 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol {
         interactor?.handleViewDidLoad()
     }
 
+    #warning("Check if message is empty if so display an alert to discard memo and set AudioKit to nil")
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        interactor?.handleViewWillDisappear()
+    }
+
     // MARK: Actions
     @IBAction func recordButtonClicked(_ sender: Any) {
         handleRecordButtonClicked()
+    }
+
+    @IBAction func sendButtonClicked(_ sender: Any) {
+    }
+
+    #warning("Add discard popup")
+    @IBAction func clearButtonClicked(_ sender: Any) {
+        interactor?.clearRecording()
+    }
+
+    @IBAction func reminderButtonClicked(_ sender: Any) {
     }
 }
 
@@ -93,20 +117,22 @@ extension HomeViewController {
     }
 
     func displayTranscriptedText(text: String) {
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                // self?.buttonsStackView.alpha = 1
-                self?.textMemoView.textColor = .black
-                self?.textMemoView.text = text
-                guard let stringLength: Int = self?.textMemoView.text.count else { return }
-                self?.textMemoView.scrollRangeToVisible(NSRange(location: stringLength - 1, length: 0))
-            }
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            guard let self = self else { return }
+            self.buttonStackView.alpha = 1
+            self.textMemoView.textColor = .black
+            self.textMemoView.text = text
+            self.textMemoView.scrollRangeToVisible(
+                NSRange(location: self.textMemoView.text.count - 1,
+                        length: 0))
+        }
     }
 
     func displayRecordingState(state: HomeModels.RecordState) {
         switch state {
         case .isRecoding: handleStartingRecording()
         case .isPaused: handlePauseRecording()
-        case .isCleared: break
+        case .isCleared: handleClearRecording()
         }
     }
 
@@ -136,6 +162,7 @@ private extension HomeViewController {
             self.recordButton.isSelected = true
             self.startAmplitudeRecorder()
             self.recordingStateLabel.text = "Listening..."
+            self.sendButton.isHidden = true
         }
     }
 
@@ -146,11 +173,23 @@ private extension HomeViewController {
             self.recordButton.isSelected = false
             self.stopAmplitudeRecorder()
             self.recordingStateLabel.text = "Paused"
+            self.sendButton.isHidden = !self.textMemoView.isEmpty
         }
     }
 
-    private func startAmplitudeRecorder() {
+    func handleClearRecording() {
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            guard let self = self else { return }
+            self.textMemoView.setPlaceholder()
+            self.buttonStackView.alpha = 0
+            self.recordingStateLabel.alpha = 0
+            self.recordButton.isSelected = false
+            self.stopAmplitudeRecorder()
+            self.sendButton.isHidden = true
+        }
+    }
 
+    func startAmplitudeRecorder() {
         if let timer = timer {
             timer.invalidate()
             self.timer = nil
@@ -160,6 +199,7 @@ private extension HomeViewController {
             guard let self = self else { return }
             self.interactor?.getCurrentAmplitude()
             guard let currentAmplitude = self.currentAmplitude else { return }
+            Console.log(type: .message, "\(currentAmplitude)")
             self.amplitudeConstraint.constant = CGFloat(200 * currentAmplitude + 5)
             UIView.animate(withDuration: 0.1, animations: {
                 self.view.layoutIfNeeded()
@@ -170,13 +210,13 @@ private extension HomeViewController {
         }
     }
 
-    private func stopAmplitudeRecorder() {
+    func stopAmplitudeRecorder() {
         timer?.invalidate()
         timer = nil
         restoreAmplitudeView()
     }
 
-    private func restoreAmplitudeView() {
+    func restoreAmplitudeView() {
         self.amplitudeConstraint.constant = 0
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.4, animations: {
