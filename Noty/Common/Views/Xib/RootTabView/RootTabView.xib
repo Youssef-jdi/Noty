@@ -44,6 +44,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
+                            <color key="backgroundColor" name="vonoBlue"/>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zh6-aL-Ksd">
                             <rect key="frame" x="0.0" y="55" width="199.5" height="5"/>
@@ -53,7 +54,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" name="appDimGray"/>
+                    <color key="backgroundColor" name="vonoBlue"/>
                     <constraints>
                         <constraint firstItem="DCq-jo-a14" firstAttribute="width" secondItem="flS-kt-erB" secondAttribute="width" id="3hY-NG-DBn"/>
                         <constraint firstItem="DCq-jo-a14" firstAttribute="centerX" secondItem="flS-kt-erB" secondAttribute="centerX" id="FsG-e9-ctl"/>
@@ -77,8 +78,8 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="appDimGray">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="vonoBlue">
+            <color red="0.34901960784313724" green="0.81960784313725488" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

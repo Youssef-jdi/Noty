@@ -55,7 +55,7 @@ extension SplashScreenRouter {
             guard let vc = onBoardingStoryboard.initial() as? UINavigationController else { return }
             viewController?.present(vc, animated: true, completion: nil)
         case .home:
-            guard let vc = homeStoryboard.initial() as? UINavigationController else { return }
+            guard let vc = homeStoryboard.initial() as? HomeNavigationController else { return }
             viewController?.present(vc, animated: true, completion: nil)
         }
     }

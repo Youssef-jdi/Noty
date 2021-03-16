@@ -42,14 +42,14 @@ class RootRouter: NSObject, RootRouterProtocol {
 extension RootRouter {
 
     enum Scene {
-        case destination1
+        case settings
     }
 
     func route(to scene: RootRouter.Scene) {
         switch scene {
-        case .destination1:
-            /// TODO: Implement routing
-            break
+        case .settings:
+            guard let vc = homeStoryboard.viewController(identifier: HomeStoryboardId.settings) as? SettingsViewController else { return assertionFailure() }
+            viewController?.show(vc, sender: nil)
         }
     }
 }

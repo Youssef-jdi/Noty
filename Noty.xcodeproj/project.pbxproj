@@ -17,6 +17,17 @@
 		AA52774E25DC24E100AE880D /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52774D25DC24E100AE880D /* RoundedView.swift */; };
 		AA52775325DC339600AE880D /* UIViewController+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52775225DC339600AE880D /* UIViewController+Spinner.swift */; };
 		AA52775825DC368700AE880D /* UITapGestureRecognizer+TextInLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52775725DC368700AE880D /* UITapGestureRecognizer+TextInLabel.swift */; };
+		AA6EBA2F25F7939500FFF099 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EBA2B25F7939500FFF099 /* SettingsPresenter.swift */; };
+		AA6EBA3025F7939500FFF099 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EBA2C25F7939500FFF099 /* SettingsRouter.swift */; };
+		AA6EBA3125F7939500FFF099 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EBA2D25F7939500FFF099 /* SettingsViewController.swift */; };
+		AA6EBA3225F7939500FFF099 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EBA2E25F7939500FFF099 /* SettingsInteractor.swift */; };
+		AA7613AE25FBCAC100E0B4E2 /* EmptyBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7613AD25FBCAC100E0B4E2 /* EmptyBackgroundView.xib */; };
+		AA7613B325FBCAD000E0B4E2 /* EmptyBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7613B225FBCAD000E0B4E2 /* EmptyBackgroundView.swift */; };
+		AA7613E025FBD4A500E0B4E2 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7613DF25FBD4A500E0B4E2 /* CoreDataController.swift */; };
+		AA7613E625FBD55F00E0B4E2 /* NSManagedObject + Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7613E525FBD55F00E0B4E2 /* NSManagedObject + Extra.swift */; };
+		AA7613F725FBD81D00E0B4E2 /* Note + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7613F625FBD81D00E0B4E2 /* Note + Extension.swift */; };
+		AA7613FD25FBD8C400E0B4E2 /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7613FC25FBD8C400E0B4E2 /* NoteService.swift */; };
+		AA76140225FBD99000E0B4E2 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76140125FBD99000E0B4E2 /* NoteModel.swift */; };
 		AA76A17825D5645400903401 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76A17725D5645400903401 /* AppDelegate.swift */; };
 		AA76A18225D5645500903401 /* Noty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA76A18025D5645500903401 /* Noty.xcdatamodeld */; };
 		AA76A19225D5645600903401 /* NotyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76A19125D5645600903401 /* NotyTests.swift */; };
@@ -41,6 +52,8 @@
 		AA76A31C25D58F8F00903401 /* OnBoardingStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76A31B25D58F8F00903401 /* OnBoardingStoryboard.swift */; };
 		AA76A32125D5903500903401 /* OnBoardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76A32025D5903500903401 /* OnBoardingAssembly.swift */; };
 		AA76A36125D594A600903401 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA76A36025D594A600903401 /* GoogleService-Info.plist */; };
+		AA7978AB2600FCA30071297C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978AA2600FCA30071297C /* NoteCell.swift */; };
+		AA7978B32600FCAE0071297C /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7978B22600FCAE0071297C /* NoteCell.xib */; };
 		AA7EDBFF25D7230B004E415D /* TrancriptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7EDBFE25D7230B004E415D /* TrancriptorManager.swift */; };
 		AA7EDC0425D72C58004E415D /* RecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7EDC0325D72C58004E415D /* RecorderManager.swift */; };
 		AA855D6625DAC156008A3294 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855D6225DAC156008A3294 /* LoginPresenter.swift */; };
@@ -59,6 +72,8 @@
 		AA855DA225DAE673008A3294 /* UIView+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855DA125DAE673008A3294 /* UIView+shake.swift */; };
 		AA855DAA25DAE69F008A3294 /* UITextField+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855DA925DAE69F008A3294 /* UITextField+Error.swift */; };
 		AA855DD325DAE88E008A3294 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855DD225DAE88E008A3294 /* AppTextField.swift */; };
+		AA88FE2825F78B1000DCD844 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA88FE2425F78B1000DCD844 /* HomeNavigationViewController.swift */; };
+		AA8E54B125FFD0DB0034697D /* NotysDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8E54B025FFD0DB0034697D /* NotysDataSource.swift */; };
 		AA9272FA25F6559300D0A4D9 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F625F6559300D0A4D9 /* RootPresenter.swift */; };
 		AA9272FB25F6559300D0A4D9 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F725F6559300D0A4D9 /* RootRouter.swift */; };
 		AA9272FC25F6559300D0A4D9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F825F6559300D0A4D9 /* RootViewController.swift */; };
@@ -144,6 +159,17 @@
 		AA52774D25DC24E100AE880D /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		AA52775225DC339600AE880D /* UIViewController+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Spinner.swift"; sourceTree = "<group>"; };
 		AA52775725DC368700AE880D /* UITapGestureRecognizer+TextInLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+TextInLabel.swift"; sourceTree = "<group>"; };
+		AA6EBA2B25F7939500FFF099 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		AA6EBA2C25F7939500FFF099 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		AA6EBA2D25F7939500FFF099 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AA6EBA2E25F7939500FFF099 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		AA7613AD25FBCAC100E0B4E2 /* EmptyBackgroundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyBackgroundView.xib; sourceTree = "<group>"; };
+		AA7613B225FBCAD000E0B4E2 /* EmptyBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBackgroundView.swift; sourceTree = "<group>"; };
+		AA7613DF25FBD4A500E0B4E2 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		AA7613E525FBD55F00E0B4E2 /* NSManagedObject + Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject + Extra.swift"; sourceTree = "<group>"; };
+		AA7613F625FBD81D00E0B4E2 /* Note + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note + Extension.swift"; sourceTree = "<group>"; };
+		AA7613FC25FBD8C400E0B4E2 /* NoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
+		AA76140125FBD99000E0B4E2 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		AA76A17425D5645400903401 /* Noty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA76A17725D5645400903401 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA76A18125D5645500903401 /* Noty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Noty.xcdatamodel; sourceTree = "<group>"; };
@@ -174,6 +200,8 @@
 		AA76A31B25D58F8F00903401 /* OnBoardingStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingStoryboard.swift; sourceTree = "<group>"; };
 		AA76A32025D5903500903401 /* OnBoardingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingAssembly.swift; sourceTree = "<group>"; };
 		AA76A36025D594A600903401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AA7978AA2600FCA30071297C /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		AA7978B22600FCAE0071297C /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
 		AA7EDBFE25D7230B004E415D /* TrancriptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrancriptorManager.swift; sourceTree = "<group>"; };
 		AA7EDC0325D72C58004E415D /* RecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderManager.swift; sourceTree = "<group>"; };
 		AA855D6225DAC156008A3294 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -192,6 +220,8 @@
 		AA855DA125DAE673008A3294 /* UIView+shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shake.swift"; sourceTree = "<group>"; };
 		AA855DA925DAE69F008A3294 /* UITextField+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Error.swift"; sourceTree = "<group>"; };
 		AA855DD225DAE88E008A3294 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
+		AA88FE2425F78B1000DCD844 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
+		AA8E54B025FFD0DB0034697D /* NotysDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotysDataSource.swift; sourceTree = "<group>"; };
 		AA9272F625F6559300D0A4D9 /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
 		AA9272F725F6559300D0A4D9 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		AA9272F825F6559300D0A4D9 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +321,8 @@
 		AA52772E25DC1B7600AE880D /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				AA7978A92600FC950071297C /* NoteCell */,
+				AA7613AC25FBCAA800E0B4E2 /* EmptyBackgroundView */,
 				AA92733625F65B4000D0A4D9 /* RootTabView */,
 				AA52773025DC1BA100AE880D /* Toast */,
 			);
@@ -316,6 +348,60 @@
 				AA52774825DC240A00AE880D /* Toast.xib */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		AA6EBA2A25F7938200FFF099 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AA6EBA2B25F7939500FFF099 /* SettingsPresenter.swift */,
+				AA6EBA2C25F7939500FFF099 /* SettingsRouter.swift */,
+				AA6EBA2D25F7939500FFF099 /* SettingsViewController.swift */,
+				AA6EBA2E25F7939500FFF099 /* SettingsInteractor.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		AA7613AC25FBCAA800E0B4E2 /* EmptyBackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				AA7613AD25FBCAC100E0B4E2 /* EmptyBackgroundView.xib */,
+				AA7613B225FBCAD000E0B4E2 /* EmptyBackgroundView.swift */,
+			);
+			path = EmptyBackgroundView;
+			sourceTree = "<group>";
+		};
+		AA7613DE25FBD47900E0B4E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA76A18025D5645500903401 /* Noty.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA7613E425FBD53D00E0B4E2 /* DataBaseUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				AA7613DF25FBD4A500E0B4E2 /* CoreDataController.swift */,
+				AA7613E525FBD55F00E0B4E2 /* NSManagedObject + Extra.swift */,
+			);
+			path = DataBaseUtilities;
+			sourceTree = "<group>";
+		};
+		AA7613ED25FBD6B300E0B4E2 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				AA7613F625FBD81D00E0B4E2 /* Note + Extension.swift */,
+				AA76140125FBD99000E0B4E2 /* NoteModel.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		AA7613FB25FBD8A600E0B4E2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AA7613FC25FBD8C400E0B4E2 /* NoteService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		AA76A16B25D5645400903401 = {
@@ -375,7 +461,10 @@
 		AA76A1BC25D564DC00903401 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				AA76A18025D5645500903401 /* Noty.xcdatamodeld */,
+				AA7613FB25FBD8A600E0B4E2 /* Services */,
+				AA7613ED25FBD6B300E0B4E2 /* Entities */,
+				AA7613E425FBD53D00E0B4E2 /* DataBaseUtilities */,
+				AA7613DE25FBD47900E0B4E2 /* Models */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -515,6 +604,15 @@
 			path = OnBoardingDI;
 			sourceTree = "<group>";
 		};
+		AA7978A92600FC950071297C /* NoteCell */ = {
+			isa = PBXGroup;
+			children = (
+				AA7978AA2600FCA30071297C /* NoteCell.swift */,
+				AA7978B22600FCAE0071297C /* NoteCell.xib */,
+			);
+			path = NoteCell;
+			sourceTree = "<group>";
+		};
 		AA855D6025DAC111008A3294 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +675,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		AA88FE2125F78AF000DCD844 /* HomeNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				AA88FE2425F78B1000DCD844 /* HomeNavigationViewController.swift */,
+			);
+			path = HomeNavigationController;
+			sourceTree = "<group>";
+		};
 		AA9272F525F6557A00D0A4D9 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,6 +710,7 @@
 				AA92734825F6604600D0A4D9 /* NotysRouter.swift */,
 				AA92734925F6604600D0A4D9 /* NotysViewController.swift */,
 				AA92734A25F6604600D0A4D9 /* NotysInteractor.swift */,
+				AA8E54B025FFD0DB0034697D /* NotysDataSource.swift */,
 			);
 			path = Notys;
 			sourceTree = "<group>";
@@ -630,6 +737,8 @@
 		AAB50F5325D6A63500980169 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AA6EBA2A25F7938200FFF099 /* Settings */,
+				AA88FE2125F78AF000DCD844 /* HomeNavigationController */,
 				AA92734625F6603400D0A4D9 /* Notys */,
 				AA9272F525F6557A00D0A4D9 /* Root */,
 				AAB50F5A25D6A65600980169 /* Home */,
@@ -835,10 +944,12 @@
 				AA76A31625D58EAF00903401 /* OnBoarding.storyboard in Resources */,
 				AACAF56525D69A88009DE27C /* Assets.xcassets in Resources */,
 				AA76A36125D594A600903401 /* GoogleService-Info.plist in Resources */,
+				AA7613AE25FBCAC100E0B4E2 /* EmptyBackgroundView.xib in Resources */,
 				AA52774925DC240A00AE880D /* Toast.xib in Resources */,
 				AACAF58C25D69F63009DE27C /* LaunchScreen.storyboard in Resources */,
 				AA92733825F65B5100D0A4D9 /* RootTabView.xib in Resources */,
 				AAB50F5525D6A64400980169 /* Home.storyboard in Resources */,
+				AA7978B32600FCAE0071297C /* NoteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,21 +1158,29 @@
 				AA92734B25F6604600D0A4D9 /* NotysPresenter.swift in Sources */,
 				AA9A8B0D25D6F54800D12C3E /* AlertPresenter.swift in Sources */,
 				AA855D7425DAC165008A3294 /* ConfirmPresenter.swift in Sources */,
+				AA6EBA3025F7939500FFF099 /* SettingsRouter.swift in Sources */,
 				AAB50FC925D6C75300980169 /* PermissionManager.swift in Sources */,
 				AA76A28525D56E4D00903401 /* SplashScreenInteractor.swift in Sources */,
 				AA76A28425D56E4D00903401 /* SplashScreenViewController.swift in Sources */,
+				AA6EBA3125F7939500FFF099 /* SettingsViewController.swift in Sources */,
 				AA855DAA25DAE69F008A3294 /* UITextField+Error.swift in Sources */,
 				AA52772725DC177D00AE880D /* AuthManager.swift in Sources */,
 				AA52775825DC368700AE880D /* UITapGestureRecognizer+TextInLabel.swift in Sources */,
 				AA7EDBFF25D7230B004E415D /* TrancriptorManager.swift in Sources */,
+				AA88FE2825F78B1000DCD844 /* HomeNavigationViewController.swift in Sources */,
+				AA7978AB2600FCA30071297C /* NoteCell.swift in Sources */,
 				AA92734225F65D7000D0A4D9 /* CALayer + applyShadow.swift in Sources */,
 				AA855D6925DAC156008A3294 /* LoginInteractor.swift in Sources */,
+				AA7613F725FBD81D00E0B4E2 /* Note + Extension.swift in Sources */,
+				AA7613B325FBCAD000E0B4E2 /* EmptyBackgroundView.swift in Sources */,
 				AA855DA225DAE673008A3294 /* UIView+shake.swift in Sources */,
 				AA52774125DC1EF300AE880D /* ToastManager.swift in Sources */,
 				AA9272FA25F6559300D0A4D9 /* RootPresenter.swift in Sources */,
 				AAB50FBC25D6C35200980169 /* PermissionViewController.swift in Sources */,
 				AA76A18225D5645500903401 /* Noty.xcdatamodeld in Sources */,
+				AA7613FD25FBD8C400E0B4E2 /* NoteService.swift in Sources */,
 				AA76A32125D5903500903401 /* OnBoardingAssembly.swift in Sources */,
+				AA8E54B125FFD0DB0034697D /* NotysDataSource.swift in Sources */,
 				AA855D9C25DAE151008A3294 /* LoginModels.swift in Sources */,
 				AA52774E25DC24E100AE880D /* RoundedView.swift in Sources */,
 				AA855D6825DAC156008A3294 /* LoginViewController.swift in Sources */,
@@ -1080,6 +1199,8 @@
 				AA95D7B225D94E5B00F94553 /* LanguageInteractor.swift in Sources */,
 				AA92734D25F6604600D0A4D9 /* NotysViewController.swift in Sources */,
 				AAB50F6F25D6A80300980169 /* HomeAssembly.swift in Sources */,
+				AA6EBA3225F7939500FFF099 /* SettingsInteractor.swift in Sources */,
+				AA76140225FBD99000E0B4E2 /* NoteModel.swift in Sources */,
 				AA76A28325D56E4D00903401 /* SplashScreenRouter.swift in Sources */,
 				AAB50F7B25D6AA3000980169 /* WelcomeRouter.swift in Sources */,
 				AAB50F8F25D6B50800980169 /* RoundView.swift in Sources */,
@@ -1093,6 +1214,7 @@
 				AA92734E25F6604600D0A4D9 /* NotysInteractor.swift in Sources */,
 				AAB50F6A25D6A75200980169 /* HomeStoryboard.swift in Sources */,
 				AA52775325DC339600AE880D /* UIViewController+Spinner.swift in Sources */,
+				AA6EBA2F25F7939500FFF099 /* SettingsPresenter.swift in Sources */,
 				AAA074BE25E01A210061347E /* FirebaseError.swift in Sources */,
 				AAB50F6025D6A6E700980169 /* HomeRouter.swift in Sources */,
 				AA95D7E125D9684D00F94553 /* UserDefaultsManager.swift in Sources */,
@@ -1107,9 +1229,11 @@
 				AA7EDC0425D72C58004E415D /* RecorderManager.swift in Sources */,
 				AA76A29D25D5704500903401 /* SplashScreenAssembly.swift in Sources */,
 				AA855DD325DAE88E008A3294 /* AppTextField.swift in Sources */,
+				AA7613E625FBD55F00E0B4E2 /* NSManagedObject + Extra.swift in Sources */,
 				AA855D7725DAC165008A3294 /* ConfirmInteractor.swift in Sources */,
 				AA92733D25F65B6100D0A4D9 /* RootTabView.swift in Sources */,
 				AA92734C25F6604600D0A4D9 /* NotysRouter.swift in Sources */,
+				AA7613E025FBD4A500E0B4E2 /* CoreDataController.swift in Sources */,
 				AA76A31C25D58F8F00903401 /* OnBoardingStoryboard.swift in Sources */,
 				AA76A1EF25D5674C00903401 /* Noty.swift in Sources */,
 				AAB50FBD25D6C35200980169 /* PermissionInteractor.swift in Sources */,
@@ -1452,7 +1576,8 @@
 				AA76A18125D5645500903401 /* Noty.xcdatamodel */,
 			);
 			currentVersion = AA76A18125D5645500903401 /* Noty.xcdatamodel */;
-			path = Noty.xcdatamodeld;
+			name = Noty.xcdatamodeld;
+			path = "../New Group/Noty.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

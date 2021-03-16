@@ -373,7 +373,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 98 images.
+  /// This `R.image` struct is generated, and contains static references to 99 images.
   struct image {
     /// Image `Arrow_icon_black`.
     static let arrow_icon_black = Rswift.ImageResource(bundle: R.hostingBundle, name: "Arrow_icon_black")
@@ -479,6 +479,8 @@ struct R: Rswift.Validatable {
     static let close_ic = Rswift.ImageResource(bundle: R.hostingBundle, name: "close_ic")
     /// Image `confirm`.
     static let confirm = Rswift.ImageResource(bundle: R.hostingBundle, name: "confirm")
+    /// Image `emptyImage`.
+    static let emptyImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "emptyImage")
     /// Image `ic_Feedback_1`.
     static let ic_Feedback_1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_Feedback_1")
     /// Image `ic_Feedback_2`.
@@ -937,6 +939,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "emptyImage", bundle: ..., traitCollection: ...)`
+    static func emptyImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.emptyImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "ic_Feedback_1", bundle: ..., traitCollection: ...)`
     static func ic_Feedback_1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ic_Feedback_1, compatibleWith: traitCollection)
@@ -1261,12 +1270,32 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
+    /// Nib `EmptyBackgroundView`.
+    static let emptyBackgroundView = _R.nib._EmptyBackgroundView()
+    /// Nib `NoteCell`.
+    static let noteCell = _R.nib._NoteCell()
     /// Nib `RootTabView`.
     static let rootTabView = _R.nib._RootTabView()
     /// Nib `Toast`.
     static let toast = _R.nib._Toast()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "EmptyBackgroundView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.emptyBackgroundView) instead")
+    static func emptyBackgroundView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.emptyBackgroundView)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "NoteCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.noteCell) instead")
+    static func noteCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.noteCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "RootTabView", in: bundle)`
@@ -1284,6 +1313,14 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    static func emptyBackgroundView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.emptyBackgroundView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func noteCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> NoteCell? {
+      return R.nib.noteCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NoteCell
+    }
+
     static func rootTabView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.rootTabView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -1291,6 +1328,14 @@ struct R: Rswift.Validatable {
     static func toast(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RoundedView? {
       return R.nib.toast.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RoundedView
     }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `noteCell`.
+    static let noteCell: Rswift.ReuseIdentifier<NoteCell> = Rswift.ReuseIdentifier(identifier: "noteCell")
 
     fileprivate init() {}
   }
@@ -1321,7 +1366,40 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _EmptyBackgroundView.validate()
       try _Toast.validate()
+    }
+
+    struct _EmptyBackgroundView: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "EmptyBackgroundView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "emptyImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'emptyImage' is used in nib 'EmptyBackgroundView', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "vonoBlue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'vonoBlue' is used in nib 'EmptyBackgroundView', but couldn't be loaded.") }
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _NoteCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = NoteCell
+
+      let bundle = R.hostingBundle
+      let identifier = "noteCell"
+      let name = "NoteCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> NoteCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NoteCell
+      }
+
+      fileprivate init() {}
     }
 
     struct _RootTabView: Rswift.NibResourceType {
@@ -1376,13 +1454,14 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct home: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = HomeNavigationController
 
       let bundle = R.hostingBundle
       let homeViewController = StoryboardViewControllerResource<HomeViewController>(identifier: "HomeViewController")
       let name = "Home"
       let notysViewController = StoryboardViewControllerResource<NotysViewController>(identifier: "NotysViewController")
       let rootViewController = StoryboardViewControllerResource<RootViewController>(identifier: "RootViewController")
+      let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
 
       func homeViewController(_: Void = ()) -> HomeViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: homeViewController)
@@ -1396,11 +1475,15 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: rootViewController)
       }
 
+      func settingsViewController(_: Void = ()) -> SettingsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: settingsViewController)
+      }
+
       static func validate() throws {
         if UIKit.UIImage(named: "Settings_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings_icon' is used in storyboard 'Home', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "clear_button", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'clear_button' is used in storyboard 'Home', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_add_white", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_add_white' is used in storyboard 'Home', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_alert_blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_alert_blue' is used in storyboard 'Home', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_arrow_back_white", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_arrow_back_white' is used in storyboard 'Home', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_close_white", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_close_white' is used in storyboard 'Home', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_microphone_black_big", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_microphone_black_big' is used in storyboard 'Home', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_pause_grey_small_big", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_pause_grey_small_big' is used in storyboard 'Home', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
@@ -1410,6 +1493,7 @@ struct _R: Rswift.Validatable {
         if _R.storyboard.home().homeViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'homeViewController' could not be loaded from storyboard 'Home' as 'HomeViewController'.") }
         if _R.storyboard.home().notysViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'notysViewController' could not be loaded from storyboard 'Home' as 'NotysViewController'.") }
         if _R.storyboard.home().rootViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'rootViewController' could not be loaded from storyboard 'Home' as 'RootViewController'.") }
+        if _R.storyboard.home().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Home' as 'SettingsViewController'.") }
       }
 
       fileprivate init() {}

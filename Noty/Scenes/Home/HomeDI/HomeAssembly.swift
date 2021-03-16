@@ -26,6 +26,7 @@ class HomeAssembly: Assembly {
             let interactor = resolver ~> (HomeInteractorProtocol.self)
             let router = resolver ~> (HomeRouterProtocol.self)
             let alertPresenter = resolver ~> (AlertPresenterProtocol.self)
+            let toastManager = resolver ~> (ToastManagerProtocol.self)
 
             router.set(viewController: vc)
             presenter.set(viewController: vc)
@@ -33,6 +34,7 @@ class HomeAssembly: Assembly {
             vc.set(router: router)
             vc.set(interactor: interactor)
             vc.set(alertPresenter: alertPresenter)
+            vc.set(toastManager: toastManager)
         }
 
         // MARK: Root vc
@@ -68,17 +70,20 @@ class HomeAssembly: Assembly {
 
         container.autoregister(NotysPresenterProtocol.self, initializer: NotysPresenter.init)
         container.autoregister(NotysInteractorProtocol.self, initializer: NotysInteractor.init)
+        container.autoregister(NotysDataSourceProtocol.self, initializer: NotysDataSource.init)
 
         container.storyboardInitCompleted(NotysViewController.self) { resolver, vc in
             let router = resolver ~> (NotysRouterProtocol.self)
             let presenter = resolver ~> (NotysPresenterProtocol.self)
             let interactor = resolver ~> (NotysInteractorProtocol.self)
+            let dataSource = resolver ~> (NotysDataSourceProtocol.self)
 
             router.set(viewController: vc)
             presenter.set(viewController: vc)
 
             vc.set(router: router)
             vc.set(interactor: interactor)
+            vc.set(dataSource: dataSource)
         }
     }
 }

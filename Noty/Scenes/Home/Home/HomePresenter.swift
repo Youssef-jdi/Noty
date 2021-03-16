@@ -22,6 +22,10 @@ protocol HomePresenterProtocol {
     func presentTranscripted(transcripted text: String)
     func presentRecordingState(_ state: HomeModels.RecordState)
     func presentCurrentAmplitude(with amplitude: Double)
+    func present(actionSheet: UIAlertController)
+    func present(choiceActionSheet: UIAlertController)
+    func presentSpinner()
+    func present(save result: Result<Storable?, Error>)
 }
 
 class HomePresenter: HomePresenterProtocol {
@@ -55,5 +59,21 @@ extension  HomePresenter {
 
     func presentCurrentAmplitude(with amplitude: Double) {
         viewController?.displayCurrentAmplitude(with: amplitude)
+    }
+
+    func present(actionSheet: UIAlertController) {
+        viewController?.displayActionSheet(actionSheet: actionSheet)
+    }
+
+    func present(choiceActionSheet: UIAlertController) {
+        viewController?.display(choiceActionSheet: choiceActionSheet)
+    }
+
+    func presentSpinner() {
+        viewController?.displaySpinner()
+    }
+
+    func present(save result: Result<Storable?, Error>) {
+        viewController?.displaySaveResult(save: result)
     }
 }

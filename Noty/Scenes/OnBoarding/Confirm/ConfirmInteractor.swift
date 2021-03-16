@@ -32,6 +32,7 @@ class ConfirmInteractor: ConfirmInteractorProtocol {
         prepareTryWithOtherMailText()
     }
 
+    #warning("To refactor with Alert Presenter")
     func handleEmailOpenApp() {
         let emailActionSheet = UIAlertController(title: "Open Email", message: nil, preferredStyle: .actionSheet)
         emailActionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

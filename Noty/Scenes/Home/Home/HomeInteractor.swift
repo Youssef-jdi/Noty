@@ -12,14 +12,15 @@
 //  This template is meant to work with Swinject.
 
 import UIKit
+import MessageUI
 
 protocol HomeInteractorProtocol {
-    func handleViewDidLoad()
     func startRecording()
     func pauseRecording()
     func clearRecording()
     func getCurrentAmplitude()
     func handleViewWillDisappear()
+    func prepareChoiceActionSheet(with note: String)
 }
 
 class HomeInteractor: HomeInteractorProtocol {
@@ -28,29 +29,94 @@ class HomeInteractor: HomeInteractorProtocol {
     var presenter: HomePresenterProtocol
     var permissionManager: PermissionManagerProtocol
     var transcriptorManager: TranscriptorManagerProtocol
+    var noteService: NoteServiceProtocol
     
     init(
         presenter: HomePresenterProtocol,
         permisssionManager: PermissionManagerProtocol,
-        transcriptorManager: TranscriptorManagerProtocol
+        transcriptorManager: TranscriptorManagerProtocol,
+        noteService: NoteServiceProtocol
     ) {
         self.presenter = presenter
         self.permissionManager = permisssionManager
         self.transcriptorManager = transcriptorManager
+        self.noteService = noteService
     }
 }
 
 extension HomeInteractor {
-    #warning("Handle resume after pause")
+
+    func prepareChoiceActionSheet(with note: String) {
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let email = UIAlertAction(title: "Send in Email", style: .default, handler: {[weak self] _ in
+            guard let self = self else { return }
+            self.handleEmailOpenApp(with: note)
+        })
+        let save = UIAlertAction(title: "Save", style: .default) {[weak self] _ in
+            guard let self = self else { return }
+            self.saveNote(with: note)
+        }
+        let choiceActionSheet = UIAlertController(title: "Action", message: nil, preferredStyle: .actionSheet)
+        choiceActionSheet.addAction(cancel)
+        choiceActionSheet.addAction(email)
+        choiceActionSheet.addAction(save)
+        presenter.present(choiceActionSheet: choiceActionSheet)
+    }
+
+    func handleEmailOpenApp(with body: String) {
+        let emailActionSheet = UIAlertController(title: "Open Email", message: nil, preferredStyle: .actionSheet)
+        guard let body = body.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+
+        emailActionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        if let action = openAction(withURL: "googlegmail://co?to=&subject=&body=\(body)", andTitleActionTitle: "Gmail") {
+            emailActionSheet.addAction(action)
+        }
+
+        if let action = openAction(withURL: "readdle-spark://compose?recipient=&subject=&body=\(body)", andTitleActionTitle: "Spark") {
+            emailActionSheet.addAction(action)
+        }
+
+        if let action = openAction(withURL: "ms-outlook://compose?to=&subject=&body=\(body)", andTitleActionTitle: "Outlook") {
+            emailActionSheet.addAction(action)
+        }
+        presenter.present(actionSheet: emailActionSheet)
+    }
+
+    private func openAction(withURL: String, andTitleActionTitle: String) -> UIAlertAction? {
+        guard let url = URL(string: withURL), UIApplication.shared.canOpenURL(url) else {
+            return nil
+        }
+        let action = UIAlertAction(title: andTitleActionTitle, style: .default) { _ in
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        return action
+    }
+
+    func saveNote(with text: String) {
+        presenter.presentSpinner()
+        noteService.save(from: NoteModel(
+                            id: nil,
+                            text: text,
+                            isFavorite: false,
+                            isReminded: false,
+                            remindedDate: nil)) {[weak self] result in
+            guard let self = self else { return }
+            self.presenter.present(save: result)
+        }
+    }
+
     func startRecording() {
         self.checkPermission { [weak self] in
             guard let self = self else { return }
-           // self.handleViewDidLoad()
+            if self.transcriptorManager.delegate == nil {
+                self.handlePrepare()
+            }
             self.transcriptorManager.startRecording()
             self.presenter.presentRecordingState(.isRecoding)
         }
     }
-    
+
     func pauseRecording() {
         transcriptorManager.pauseRecording()
         presenter.presentRecordingState(.isPaused)
@@ -62,7 +128,7 @@ extension HomeInteractor {
         presenter.presentRecordingState(.isCleared)
     }
 
-    func handleViewDidLoad() {
+    func handlePrepare() {
         transcriptorManager.delegate = self
         transcriptorManager.prepare()
     }

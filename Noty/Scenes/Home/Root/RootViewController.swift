@@ -47,11 +47,20 @@ class RootViewController: UIViewController, RootViewControllerProtocol {
 
     // MARK: Properties
     private var currentState: RootTabView.State = .new
+    private lazy var settingsButton: UIBarButtonItem? = {
+        let btn = UIButton(type: .custom)
+        btn.setImage(R.image.settings_icon(), for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.addTarget(self, action: #selector(goToSettings), for: .touchUpInside)
+        let uibarbutton = UIBarButtonItem(customView: btn)
+        return uibarbutton
+    }()
 
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         interactor?.handleViewDidLoad()
+        setupNavigationBar()
     }
 
     // MARK: Actions
@@ -72,6 +81,14 @@ fileprivate extension RootViewController {
 
     @objc func containerTabViewTapped() {
         currentState == .new ? goToNew() : goToNotys()
+    }
+
+    func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = settingsButton
+    }
+
+    @objc func goToSettings() {
+        router?.route(to: .settings)
     }
 }
 

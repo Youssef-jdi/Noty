@@ -90,22 +90,10 @@ class RecorderManager: RecorderManagerProtocol {
 
     private func activateAudioSession() throws {
         var options: AVAudioSession.CategoryOptions = []
-
-        func addBluetooth() {
-            AKSettings.useBluetooth = true
-            options.insert(.allowBluetooth)
-            options.insert(.allowBluetoothA2DP)
-        }
-
-        func removeBluetooth() {
-            AKSettings.useBluetooth = false
-        }
-
+        AKSettings.useBluetooth = true
+        options.insert(.allowBluetooth)
+        options.insert(.allowBluetoothA2DP)
         options.insert(.duckOthers)
-        // : options.insert(.mixWithOthers)
-
-        addBluetooth()
-        // : removeBluetooth()
 
         try AKSettings.session.setCategory(.playAndRecord, options: options)
         try AKSettings.session.setActive(true, options: .notifyOthersOnDeactivation)

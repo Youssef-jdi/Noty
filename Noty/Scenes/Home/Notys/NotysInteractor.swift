@@ -14,15 +14,39 @@
 import UIKit
 
 protocol NotysInteractorProtocol {
-    // add the functions that are called from the view controller
+    func fetchNotes()
 }
 
 class NotysInteractor: NotysInteractorProtocol {
 
     // MARK: DI
     var presenter: NotysPresenterProtocol
+    var noteService: NoteServiceProtocol
+    var errorHandler: ErrorHandlerProtocol
 
-    init(presenter: NotysPresenterProtocol) {
+    init(
+        presenter: NotysPresenterProtocol,
+        noteService: NoteServiceProtocol,
+        errorHandler: ErrorHandlerProtocol
+    ) {
         self.presenter = presenter
+        self.noteService = noteService
+        self.errorHandler = errorHandler
+    }
+}
+
+extension NotysInteractor {
+    func fetchNotes() {
+        noteService.fetchNotes {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let notes):
+                guard let noteEntities = notes as? [Note] else { return }
+                let notesArray = noteEntities.compactMap { NoteModel.map(from: $0) }
+                self.presenter.present(fetched: notesArray)
+            case .failure(let error):
+                self.errorHandler.handle(error)
+            }
+        }
     }
 }

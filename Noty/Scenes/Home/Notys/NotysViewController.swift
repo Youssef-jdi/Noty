@@ -16,9 +16,11 @@ import UIKit
 protocol NotysViewControllerProtocol: class, UIViewControllerRouting {
     func set(interactor: NotysInteractorProtocol)
     func set(router: NotysRouterProtocol)
+    func set(dataSource: NotysDataSourceProtocol)
 
     // add the functions that are called from the presenter
     func display(error: Error)
+    func display(notes: [NoteModel])
 }
 
 class NotysViewController: UIViewController, NotysViewControllerProtocol {
@@ -26,6 +28,7 @@ class NotysViewController: UIViewController, NotysViewControllerProtocol {
     // MARK: DI
     var interactor: NotysInteractorProtocol?
     var router: NotysRouterProtocol?
+    var dataSource: NotysDataSourceProtocol?
 
     func set(interactor: NotysInteractorProtocol) {
         self.interactor = interactor
@@ -35,14 +38,21 @@ class NotysViewController: UIViewController, NotysViewControllerProtocol {
         self.router = router
     }
 
+    func set(dataSource: NotysDataSourceProtocol) {
+        self.dataSource = dataSource
+    }
+
     // MARK: Outlets
+    @IBOutlet weak var tableView: UITableView!
 
     // MARK: Properties
 
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        setupTableView()
+        showSpinner()
+        interactor?.fetchNotes()
     }
 
     // MARK: Actions
@@ -53,4 +63,79 @@ class NotysViewController: UIViewController, NotysViewControllerProtocol {
 extension NotysViewController {
 
     func display(error: Error) {}
+
+    func display(notes: [NoteModel]) {
+        hideSpinner()
+        notes.count > 0 ? dataSource?.set(data: notes) : configureEmptyView()
+        tableView.reloadData()
+    }
+}
+
+// MARK: Private Methods
+private extension NotysViewController {
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = dataSource
+        tableView.register(UINib(resource: R.nib.noteCell), forCellReuseIdentifier: R.nib.noteCell.identifier)
+    }
+}
+
+// MARK: TableView Delegate
+extension NotysViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return UISwipeActionsConfiguration(actions: [
+            makeFavouriteContextualAction(forRowAt: indexPath),
+            makeReminderContextualAction(forRowAt: indexPath)
+        ])
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return UISwipeActionsConfiguration(actions: [
+            makeDeleteContextualAction(forRowAt: indexPath)
+        ])
+    }
+
+    private func makeFavouriteContextualAction(forRowAt indexPath: IndexPath) -> UIContextualAction {
+        let favouriteAction = UIContextualAction(style: .normal, title: "") { action, _, completion in
+            completion(true)
+        }
+        favouriteAction.backgroundColor = .white
+        favouriteAction.image = R.image.ic_heart()?.withTintColor(R.color.appLightRed()!)
+        return favouriteAction
+    }
+
+    private func makeDeleteContextualAction(forRowAt indexPath: IndexPath) -> UIContextualAction {
+        let deleteAction = UIContextualAction(style: .destructive, title: "") { action, _, completion in
+            completion(true)
+        }
+        deleteAction.backgroundColor = .white
+        deleteAction.image = R.image.delete_icon()?.withTintColor(.red)
+        return deleteAction
+    }
+
+    private func makeReminderContextualAction(forRowAt indexPath: IndexPath) -> UIContextualAction {
+        let reminderAction = UIContextualAction(style: .normal, title: "") { action, _, completion in
+            completion(true)
+        }
+        reminderAction.backgroundColor = .white
+        reminderAction.image = R.image.ic_alert_blue()
+        return reminderAction
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+}
+
+// MARK: Empty dataSource Methods
+extension NotysViewController: EmptyBackgroundViewDelegate {
+    func configureEmptyView() {
+        let view = EmptyBackgroundView(frame: tableView.bounds)
+        view.delegate = self
+        tableView.backgroundView = view
+        tableView.separatorStyle = .none
+    }
+
+    func tapNewNote() {}
 }

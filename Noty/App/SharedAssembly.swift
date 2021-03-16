@@ -70,6 +70,13 @@ class SharedAssembly: Assembly {
         // Error Handler
         container.autoregister(ErrorHandlerProtocol.self, initializer: ErrorHandler.init)
 
+        // DataBase Services
+        container.register(CoreDataControllerProtocol.self) { _ in
+            return CoreDataController(modelName: "Noty")
+        }
+
+        container.autoregister(NoteServiceProtocol.self, initializer: NoteDataService.init)
+
         // MARK: Storyboards
         // SplashScreen
         container.register(Storyboard.self, name: R.storyboard.splashScreen.name) { _ in

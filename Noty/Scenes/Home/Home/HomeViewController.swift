@@ -12,17 +12,23 @@
 //  This template is meant to work with Swinject.
 
 import UIKit
+import MessageUI
 
 protocol HomeViewControllerProtocol: class, UIViewControllerRouting {
     func set(interactor: HomeInteractorProtocol)
     func set(router: HomeRouterProtocol)
     func set(alertPresenter: AlertPresenterProtocol)
+    func set(toastManager: ToastManagerProtocol)
 
     func display(error: Error)
     func displayPermissionError(error: HomeModels.PermissionError)
     func displayTranscriptedText(text: String)
     func displayRecordingState(state: HomeModels.RecordState)
     func displayCurrentAmplitude(with amplitude: Double)
+    func displayActionSheet(actionSheet: UIAlertController)
+    func display(choiceActionSheet: UIAlertController)
+    func displaySpinner()
+    func displaySaveResult(save result: Result<Storable?, Error>)
 }
 
 class HomeViewController: UIViewController, HomeViewControllerProtocol {
@@ -31,6 +37,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol {
     var interactor: HomeInteractorProtocol?
     var router: HomeRouterProtocol?
     var alertPresenter: AlertPresenterProtocol?
+    var toastManager: ToastManagerProtocol?
 
     func set(interactor: HomeInteractorProtocol) {
         self.interactor = interactor
@@ -42,6 +49,10 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol {
 
     func set(alertPresenter: AlertPresenterProtocol) {
         self.alertPresenter = alertPresenter
+    }
+
+    func set(toastManager: ToastManagerProtocol) {
+        self.toastManager = toastManager
     }
     
     // MARK: Outlets
@@ -55,22 +66,28 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol {
             textMemoView.font = UIFont.systemFont(ofSize: 19)
         }
     }
-    @IBOutlet weak var recordButton: AppButton!
+    @IBOutlet weak var recordButton: AppButton! {
+        didSet {
+            recordButton.addTarget(self, action: #selector(handleRecordButtonClicked), for: .touchUpInside)
+        }
+    }
     @IBOutlet weak var recordingStateLabel: UILabel! {
         didSet {
             recordingStateLabel.alpha = 0
         }
     }
     @IBOutlet weak var amplitudeConstraint: NSLayoutConstraint!
-    @IBOutlet weak var sendButton: AppButton!
-    @IBOutlet weak var buttonStackView: UIStackView! {
+    @IBOutlet weak var sendButton: AppButton! {
         didSet {
-            buttonStackView.alpha = 0
+            sendButton.addTarget(self, action: #selector(sendButtonClicked), for: .touchUpInside)
         }
     }
-    @IBOutlet weak var clearButton: UIButton!
-    @IBOutlet weak var reminderButton: UIButton!
-
+    @IBOutlet weak var clearButton: AppButton! {
+        didSet {
+            clearButton.addTarget(self, action: #selector(clearRecording), for: .touchUpInside)
+        }
+    }
+    
     // MARK: Properties
     private var timer: Timer?
     private var currentAmplitude: Double?
@@ -78,29 +95,12 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        interactor?.handleViewDidLoad()
     }
 
-    #warning("Check if message is empty if so display an alert to discard memo and set AudioKit to nil")
+    #warning("Check if text is empty if so display an alert to discard memo and set AudioKit to nil")
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         interactor?.handleViewWillDisappear()
-    }
-
-    // MARK: Actions
-    @IBAction func recordButtonClicked(_ sender: Any) {
-        handleRecordButtonClicked()
-    }
-
-    @IBAction func sendButtonClicked(_ sender: Any) {
-    }
-
-    #warning("Add discard popup")
-    @IBAction func clearButtonClicked(_ sender: Any) {
-        interactor?.clearRecording()
-    }
-
-    @IBAction func reminderButtonClicked(_ sender: Any) {
     }
 }
 
@@ -119,7 +119,6 @@ extension HomeViewController {
     func displayTranscriptedText(text: String) {
         UIView.animate(withDuration: 0.3) { [weak self] in
             guard let self = self else { return }
-            self.buttonStackView.alpha = 1
             self.textMemoView.textColor = .black
             self.textMemoView.text = text
             self.textMemoView.scrollRangeToVisible(
@@ -139,10 +138,33 @@ extension HomeViewController {
     func displayCurrentAmplitude(with amplitude: Double) {
         self.currentAmplitude = amplitude
     }
+
+    func displayActionSheet(actionSheet: UIAlertController) {
+        addMailComposer(emailActionSheet: actionSheet)
+        present(actionSheet, animated: true, completion: nil)
+    }
+
+    func display(choiceActionSheet: UIAlertController) {
+        present(choiceActionSheet, animated: true, completion: nil)
+    }
+
+    func displaySpinner() {
+        showSpinner()
+    }
+
+    func displaySaveResult(save result: Result<Storable?, Error>) {
+        hideSpinner()
+        switch result {
+        case .success:
+            toastManager?.showToast(for: .cantSaveNote)
+        case .failure:
+            toastManager?.showToast(for: .cantSaveNote)
+        }
+    }
 }
 
 private extension HomeViewController {
-    func handleRecordButtonClicked() {
+    @objc func handleRecordButtonClicked() {
         recordButton.isSelected ? pauseRecording() : startRecording()
     }
 
@@ -151,7 +173,15 @@ private extension HomeViewController {
     }
 
     func startRecording() {
-        interactor?.startRecording()
+        interactor?.startRecording() 
+    }
+
+    @objc func clearRecording() {
+        interactor?.clearRecording()
+    }
+
+    @objc func sendButtonClicked() {
+        interactor?.prepareChoiceActionSheet(with: textMemoView.text)
     }
 
     func handleStartingRecording() {
@@ -163,6 +193,12 @@ private extension HomeViewController {
             self.startAmplitudeRecorder()
             self.recordingStateLabel.text = "Listening..."
             self.sendButton.isHidden = true
+            self.clearButton.isHidden = true
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.view.layoutIfNeeded()
+                })
+            }
         }
     }
 
@@ -173,7 +209,13 @@ private extension HomeViewController {
             self.recordButton.isSelected = false
             self.stopAmplitudeRecorder()
             self.recordingStateLabel.text = "Paused"
-            self.sendButton.isHidden = !self.textMemoView.isEmpty
+            self.sendButton.isHidden = self.textMemoView.placeholderText == self.textMemoView.text
+            self.clearButton.isHidden = self.textMemoView.placeholderText == self.textMemoView.text
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.view.layoutIfNeeded()
+                })
+            }
         }
     }
 
@@ -181,11 +223,16 @@ private extension HomeViewController {
         UIView.animate(withDuration: 0.3) { [weak self] in
             guard let self = self else { return }
             self.textMemoView.setPlaceholder()
-            self.buttonStackView.alpha = 0
             self.recordingStateLabel.alpha = 0
             self.recordButton.isSelected = false
             self.stopAmplitudeRecorder()
             self.sendButton.isHidden = true
+            self.clearButton.isHidden = true
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.view.layoutIfNeeded()
+                })
+            }
         }
     }
 
@@ -223,5 +270,29 @@ private extension HomeViewController {
                 self.view.layoutIfNeeded()
             })
         }
+    }
+    
+    private func addMailComposer(emailActionSheet: UIAlertController) {
+        if MFMailComposeViewController.canSendMail() {
+        let emailAction = UIAlertAction(title: "Mail", style: .default) {[weak self] _ in
+            guard let self = self else { return }
+            let mailComposeViewController = self.configureMailComposer(with: self.textMemoView.text)
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        }
+            emailActionSheet.addAction(emailAction)
+        }
+    }
+
+    private func configureMailComposer(with body: String) -> MFMailComposeViewController {
+        let mailComposeVC = MFMailComposeViewController()
+        mailComposeVC.mailComposeDelegate = self
+        mailComposeVC.setMessageBody(body, isHTML: false)
+        return mailComposeVC
+    }
+}
+
+extension HomeViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

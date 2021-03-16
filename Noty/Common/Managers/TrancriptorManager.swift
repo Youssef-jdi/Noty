@@ -63,15 +63,14 @@ class TranscriptorManager: TranscriptorManagerProtocol {
         userDefaultManager: UserDefaultsManagerProtocol
     ) {
         self.audioEngine = AVAudioEngine()
-        // self.speechRecognizer = SFSpeechRecognizer(locale: .current)
         self.recorderManager = recorderManager
         self.userDefaultManager = userDefaultManager
     }
 
     func prepare() {
-        self.speechRecognizer = SFSpeechRecognizer(locale: userDefaultManager.selectedLanguage)
-        recorderManager.setupComponents()
-        print("SFSpeechRecognizer Language \(userDefaultManager.selectedLanguage.identifier)")
+        self.speechRecognizer = SFSpeechRecognizer(locale: self.userDefaultManager.selectedLanguage)
+        self.recorderManager.setupComponents()
+        print("SFSpeechRecognizer Language \(self.userDefaultManager.selectedLanguage.identifier)")
         do {
             try AKSettings.session.setPreferredSampleRate(AKSettings.session.sampleRate)
             self.recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
