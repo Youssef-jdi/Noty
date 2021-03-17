@@ -1485,7 +1485,6 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "Settings_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings_icon' is used in storyboard 'Home', but couldn't be loaded.") }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "hand.tap") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'hand.tap' is used in storyboard 'Home', but couldn't be loaded.") } }
         if UIKit.UIImage(named: "ic_add_white", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_add_white' is used in storyboard 'Home', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_arrow_back_white", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_arrow_back_white' is used in storyboard 'Home', but couldn't be loaded.") }

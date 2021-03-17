@@ -59,6 +59,7 @@ class TutorialViewController: UIViewController, TutorialViewControllerProtocol {
         }
     }
     @IBOutlet weak var swipeImageView: UIImageView!
+    @IBOutlet weak var positionConstraint: NSLayoutConstraint!
 
     // MARK: Properties
 
@@ -71,7 +72,7 @@ class TutorialViewController: UIViewController, TutorialViewControllerProtocol {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupSwipeAnimation(with: -1)
+        setupViewPosition()
     }
 
     // MARK: Actions
@@ -90,11 +91,29 @@ extension TutorialViewController {
     func display(error: Error) {}
 
     /**
+     - 60 is the root tabview height
+     */
+    private func setupViewPosition() {
+        positionConstraint.constant = 120
+        UIView.animate(withDuration: 1) {[weak self] in
+            guard let self = self else { return }
+            self.view.layoutIfNeeded()
+        } completion: {[weak self] _ in
+            guard let self = self else { return }
+            self.setupSwipeAnimation(with: -1)
+        }
+    }
+
+    /**
      Directions: -1 for right swipe and 1 for left swipe
      */
     private func setupSwipeAnimation(with direction: CGFloat) {
         self.swipeImageView.transform = .init(translationX: direction * (UIScreen.main.bounds.width / 2) + (-direction * 24), y: 0)
-        UIView.animate(withDuration: 1.2, delay: 0, options: .repeat) {
+        UIView.animate(
+            withDuration: 1.2,
+            delay: 0,
+            options: .repeat) {[weak self] in
+            guard let self = self else { return }
             self.swipeImageView.transform = CGAffineTransform(translationX: direction * -50, y: 0)
             self.view.layoutIfNeeded()
         } completion: {_ in }
@@ -125,7 +144,8 @@ extension TutorialViewController {
         titleLabel.text = state.title
         view.layoutIfNeeded()
 
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.3, animations: {[weak self] in
+            guard let self = self else { return }
             self.skipButton.alpha = state == .left ? 0 : 1
             self.view.layoutIfNeeded()
         })
