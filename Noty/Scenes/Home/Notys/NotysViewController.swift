@@ -55,6 +55,11 @@ class NotysViewController: UIViewController, NotysViewControllerProtocol {
         interactor?.fetchNotes()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        router?.route(to: .tuto)
+    }
+
     // MARK: Actions
 
 }

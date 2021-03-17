@@ -28,6 +28,8 @@
 		AA7613F725FBD81D00E0B4E2 /* Note + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7613F625FBD81D00E0B4E2 /* Note + Extension.swift */; };
 		AA7613FD25FBD8C400E0B4E2 /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7613FC25FBD8C400E0B4E2 /* NoteService.swift */; };
 		AA76140225FBD99000E0B4E2 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76140125FBD99000E0B4E2 /* NoteModel.swift */; };
+		AA76373426024F1800017467 /* TutorialStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76373326024F1800017467 /* TutorialStateManager.swift */; };
+		AA763739260255A600017467 /* UILabel + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA763738260255A600017467 /* UILabel + Utils.swift */; };
 		AA76A17825D5645400903401 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76A17725D5645400903401 /* AppDelegate.swift */; };
 		AA76A18225D5645500903401 /* Noty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA76A18025D5645500903401 /* Noty.xcdatamodeld */; };
 		AA76A19225D5645600903401 /* NotyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76A19125D5645600903401 /* NotyTests.swift */; };
@@ -54,6 +56,10 @@
 		AA76A36125D594A600903401 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA76A36025D594A600903401 /* GoogleService-Info.plist */; };
 		AA7978AB2600FCA30071297C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978AA2600FCA30071297C /* NoteCell.swift */; };
 		AA7978B32600FCAE0071297C /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7978B22600FCAE0071297C /* NoteCell.xib */; };
+		AA7978F126011B120071297C /* TutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978ED26011B120071297C /* TutorialPresenter.swift */; };
+		AA7978F226011B120071297C /* TutorialRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978EE26011B120071297C /* TutorialRouter.swift */; };
+		AA7978F326011B120071297C /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978EF26011B120071297C /* TutorialViewController.swift */; };
+		AA7978F426011B120071297C /* TutorialInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978F026011B120071297C /* TutorialInteractor.swift */; };
 		AA7EDBFF25D7230B004E415D /* TrancriptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7EDBFE25D7230B004E415D /* TrancriptorManager.swift */; };
 		AA7EDC0425D72C58004E415D /* RecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7EDC0325D72C58004E415D /* RecorderManager.swift */; };
 		AA855D6625DAC156008A3294 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855D6225DAC156008A3294 /* LoginPresenter.swift */; };
@@ -170,6 +176,8 @@
 		AA7613F625FBD81D00E0B4E2 /* Note + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note + Extension.swift"; sourceTree = "<group>"; };
 		AA7613FC25FBD8C400E0B4E2 /* NoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
 		AA76140125FBD99000E0B4E2 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		AA76373326024F1800017467 /* TutorialStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialStateManager.swift; sourceTree = "<group>"; };
+		AA763738260255A600017467 /* UILabel + Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Utils.swift"; sourceTree = "<group>"; };
 		AA76A17425D5645400903401 /* Noty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA76A17725D5645400903401 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA76A18125D5645500903401 /* Noty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Noty.xcdatamodel; sourceTree = "<group>"; };
@@ -202,6 +210,10 @@
 		AA76A36025D594A600903401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA7978AA2600FCA30071297C /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		AA7978B22600FCAE0071297C /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
+		AA7978ED26011B120071297C /* TutorialPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPresenter.swift; sourceTree = "<group>"; };
+		AA7978EE26011B120071297C /* TutorialRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialRouter.swift; sourceTree = "<group>"; };
+		AA7978EF26011B120071297C /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		AA7978F026011B120071297C /* TutorialInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialInteractor.swift; sourceTree = "<group>"; };
 		AA7EDBFE25D7230B004E415D /* TrancriptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrancriptorManager.swift; sourceTree = "<group>"; };
 		AA7EDC0325D72C58004E415D /* RecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderManager.swift; sourceTree = "<group>"; };
 		AA855D6225DAC156008A3294 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -613,6 +625,18 @@
 			path = NoteCell;
 			sourceTree = "<group>";
 		};
+		AA7978EC26011AF80071297C /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				AA7978ED26011B120071297C /* TutorialPresenter.swift */,
+				AA7978EE26011B120071297C /* TutorialRouter.swift */,
+				AA7978EF26011B120071297C /* TutorialViewController.swift */,
+				AA7978F026011B120071297C /* TutorialInteractor.swift */,
+				AA76373326024F1800017467 /* TutorialStateManager.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		AA855D6025DAC111008A3294 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +695,7 @@
 				AA52775225DC339600AE880D /* UIViewController+Spinner.swift */,
 				AA52775725DC368700AE880D /* UITapGestureRecognizer+TextInLabel.swift */,
 				AA92734125F65D7000D0A4D9 /* CALayer + applyShadow.swift */,
+				AA763738260255A600017467 /* UILabel + Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -706,6 +731,7 @@
 		AA92734625F6603400D0A4D9 /* Notys */ = {
 			isa = PBXGroup;
 			children = (
+				AA7978EC26011AF80071297C /* Tutorial */,
 				AA92734725F6604600D0A4D9 /* NotysPresenter.swift */,
 				AA92734825F6604600D0A4D9 /* NotysRouter.swift */,
 				AA92734925F6604600D0A4D9 /* NotysViewController.swift */,
@@ -1159,6 +1185,7 @@
 				AA9A8B0D25D6F54800D12C3E /* AlertPresenter.swift in Sources */,
 				AA855D7425DAC165008A3294 /* ConfirmPresenter.swift in Sources */,
 				AA6EBA3025F7939500FFF099 /* SettingsRouter.swift in Sources */,
+				AA763739260255A600017467 /* UILabel + Utils.swift in Sources */,
 				AAB50FC925D6C75300980169 /* PermissionManager.swift in Sources */,
 				AA76A28525D56E4D00903401 /* SplashScreenInteractor.swift in Sources */,
 				AA76A28425D56E4D00903401 /* SplashScreenViewController.swift in Sources */,
@@ -1170,6 +1197,7 @@
 				AA88FE2825F78B1000DCD844 /* HomeNavigationViewController.swift in Sources */,
 				AA7978AB2600FCA30071297C /* NoteCell.swift in Sources */,
 				AA92734225F65D7000D0A4D9 /* CALayer + applyShadow.swift in Sources */,
+				AA7978F326011B120071297C /* TutorialViewController.swift in Sources */,
 				AA855D6925DAC156008A3294 /* LoginInteractor.swift in Sources */,
 				AA7613F725FBD81D00E0B4E2 /* Note + Extension.swift in Sources */,
 				AA7613B325FBCAD000E0B4E2 /* EmptyBackgroundView.swift in Sources */,
@@ -1221,10 +1249,12 @@
 				AAB50FBA25D6C35200980169 /* PermissionPresenter.swift in Sources */,
 				AA9D4EF025E157C900AF70EA /* Notif.swift in Sources */,
 				AA855D9725DADAD7008A3294 /* DataValidationError.swift in Sources */,
+				AA7978F226011B120071297C /* TutorialRouter.swift in Sources */,
 				AA9272FC25F6559300D0A4D9 /* RootViewController.swift in Sources */,
 				AA95D7B125D94E5B00F94553 /* LanguageViewController.swift in Sources */,
 				AA76A20B25D568B100903401 /* UIViewControllerRouting.swift in Sources */,
 				AACAF55325D6990B009DE27C /* AppButton.swift in Sources */,
+				AA7978F126011B120071297C /* TutorialPresenter.swift in Sources */,
 				AA76A29825D56FDC00903401 /* SplashScreenStoryboard.swift in Sources */,
 				AA7EDC0425D72C58004E415D /* RecorderManager.swift in Sources */,
 				AA76A29D25D5704500903401 /* SplashScreenAssembly.swift in Sources */,
@@ -1236,6 +1266,7 @@
 				AA7613E025FBD4A500E0B4E2 /* CoreDataController.swift in Sources */,
 				AA76A31C25D58F8F00903401 /* OnBoardingStoryboard.swift in Sources */,
 				AA76A1EF25D5674C00903401 /* Noty.swift in Sources */,
+				AA7978F426011B120071297C /* TutorialInteractor.swift in Sources */,
 				AAB50FBD25D6C35200980169 /* PermissionInteractor.swift in Sources */,
 				AAB50F8A25D6B27D00980169 /* VTextView.swift in Sources */,
 				AAB50FBB25D6C35200980169 /* PermissionRouter.swift in Sources */,
@@ -1246,6 +1277,7 @@
 				AA855D7D25DAC38F008A3294 /* ConsoleLogger.swift in Sources */,
 				AA9272FB25F6559300D0A4D9 /* RootRouter.swift in Sources */,
 				AA95D7AF25D94E5B00F94553 /* LanguagePresenter.swift in Sources */,
+				AA76373426024F1800017467 /* TutorialStateManager.swift in Sources */,
 				AAB50F5F25D6A6E700980169 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1462,6 +1462,7 @@ struct _R: Rswift.Validatable {
       let notysViewController = StoryboardViewControllerResource<NotysViewController>(identifier: "NotysViewController")
       let rootViewController = StoryboardViewControllerResource<RootViewController>(identifier: "RootViewController")
       let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
+      let tutorialViewController = StoryboardViewControllerResource<TutorialViewController>(identifier: "TutorialViewController")
 
       func homeViewController(_: Void = ()) -> HomeViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: homeViewController)
@@ -1479,14 +1480,20 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: settingsViewController)
       }
 
+      func tutorialViewController(_: Void = ()) -> TutorialViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tutorialViewController)
+      }
+
       static func validate() throws {
         if UIKit.UIImage(named: "Settings_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings_icon' is used in storyboard 'Home', but couldn't be loaded.") }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "hand.tap") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'hand.tap' is used in storyboard 'Home', but couldn't be loaded.") } }
         if UIKit.UIImage(named: "ic_add_white", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_add_white' is used in storyboard 'Home', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_arrow_back_white", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_arrow_back_white' is used in storyboard 'Home', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_close_white", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_close_white' is used in storyboard 'Home', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_microphone_black_big", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_microphone_black_big' is used in storyboard 'Home', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_pause_grey_small_big", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_pause_grey_small_big' is used in storyboard 'Home', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "ApplicationBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'ApplicationBlack' is used in storyboard 'Home', but couldn't be loaded.") }
           if UIKit.UIColor(named: "vonoBlue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'vonoBlue' is used in storyboard 'Home', but couldn't be loaded.") }
           if UIKit.UIColor(named: "vonoBlueDark", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'vonoBlueDark' is used in storyboard 'Home', but couldn't be loaded.") }
         }
@@ -1494,6 +1501,7 @@ struct _R: Rswift.Validatable {
         if _R.storyboard.home().notysViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'notysViewController' could not be loaded from storyboard 'Home' as 'NotysViewController'.") }
         if _R.storyboard.home().rootViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'rootViewController' could not be loaded from storyboard 'Home' as 'RootViewController'.") }
         if _R.storyboard.home().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Home' as 'SettingsViewController'.") }
+        if _R.storyboard.home().tutorialViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tutorialViewController' could not be loaded from storyboard 'Home' as 'TutorialViewController'.") }
       }
 
       fileprivate init() {}

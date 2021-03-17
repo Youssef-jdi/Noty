@@ -42,14 +42,16 @@ class NotysRouter: NSObject, NotysRouterProtocol {
 extension NotysRouter {
 
     enum Scene {
-        case destination1
+        case tuto
     }
 
     func route(to scene: NotysRouter.Scene) {
         switch scene {
-        case .destination1:
-            /// TODO: Implement routing
-            break
+        case .tuto:
+            guard let vc = homeStoryboard.viewController(identifier: HomeStoryboardId.tuto) as? TutorialViewController else { assertionFailure("Couldn't load vc"); return }
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            viewController?.present(vc, animated: true, completion: nil)
         }
     }
 }

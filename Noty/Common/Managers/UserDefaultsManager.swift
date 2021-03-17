@@ -11,6 +11,7 @@ protocol UserDefaultsManagerProtocol {
     var selectedLanguage: Locale { get set }
     var email: String { get set }
     var isConnected: Bool { get set }
+    var isTutoDisplayed: Bool { get set }
 }
 
 class UserDefaultsManager: UserDefaultsManagerProtocol {
@@ -21,6 +22,7 @@ class UserDefaultsManager: UserDefaultsManagerProtocol {
             case language
             case email
             case isConnected
+            case isTutoDisplayed
         }
     }
 }
@@ -56,6 +58,15 @@ extension UserDefaultsManager {
         }
         set {
             return self.defaults.set(newValue, forKey: DefaultKeys.Settings.isConnected.rawValue)
+        }
+    }
+
+    var isTutoDisplayed: Bool {
+        get {
+            return self.defaults.bool(forKey: DefaultKeys.Settings.isTutoDisplayed.rawValue)
+        }
+        set {
+            return self.defaults.set(newValue, forKey: DefaultKeys.Settings.isTutoDisplayed.rawValue)
         }
     }
 }

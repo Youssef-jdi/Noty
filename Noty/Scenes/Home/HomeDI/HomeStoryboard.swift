@@ -33,12 +33,14 @@ enum HomeStoryboardId: StoryboardId {
     case new
     case notys
     case settings
+    case tuto
 
     var identifier: String {
         switch self {
         case .new: return R.storyboard.home.homeViewController.identifier
         case .notys: return R.storyboard.home.notysViewController.identifier
         case .settings: return R.storyboard.home.settingsViewController.identifier
+        case .tuto: return R.storyboard.home.tutorialViewController.identifier
         }
     }
 }

@@ -85,5 +85,28 @@ class HomeAssembly: Assembly {
             vc.set(interactor: interactor)
             vc.set(dataSource: dataSource)
         }
+
+        // MARK: Tutorial VC
+        container.register(TutorialRouterProtocol.self) { resolver in
+            return TutorialRouter(
+                rootNavigator: resolver ~> (RootNavigatorProtocol.self),
+                homeStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.home.name))
+        }
+
+        container.autoregister(TutorialPresenterProtocol.self, initializer: TutorialPresenter.init)
+        container.autoregister(TutorialInteractorProtocol.self, initializer: TutorialInteractor.init)
+        container.autoregister(TutorialStateManagerProtocol.self, initializer: TutorialStateManager.init)
+
+        container.storyboardInitCompleted(TutorialViewController.self) { resolver, vc in
+            let router = resolver ~> (TutorialRouterProtocol.self)
+            let interactor = resolver ~> (TutorialInteractorProtocol.self)
+            let presenter = resolver ~> (TutorialPresenterProtocol.self)
+
+            router.set(viewController: vc)
+            presenter.set(viewController: vc)
+
+            vc.set(interactor: interactor)
+            vc.set(router: router)
+        }
     }
 }
