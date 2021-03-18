@@ -81,7 +81,17 @@ private extension NotysViewController {
     func setupTableView() {
         tableView.delegate = tableViewUtils
         tableView.dataSource = tableViewUtils
+        tableViewUtils?.delegate = self
         tableView.register(UINib(resource: R.nib.noteCell), forCellReuseIdentifier: R.nib.noteCell.identifier)
+    }
+}
+
+extension NotysViewController: NoteUtilsDelegate {
+    #warning("Verify data count if == 0 to configure empty view will do tomorrow cause I am tired and need a drink 🥳")
+    func delete(note: NoteModel, at indexPath: IndexPath) {
+        interactor?.deleteNote(note: note)
+        tableViewUtils?.data.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .right)
     }
 }
 

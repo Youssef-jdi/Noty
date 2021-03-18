@@ -15,6 +15,7 @@ import UIKit
 
 protocol NotysInteractorProtocol {
     func fetchNotes()
+    func deleteNote(note: NoteModel)
 }
 
 class NotysInteractor: NotysInteractorProtocol {
@@ -48,5 +49,9 @@ extension NotysInteractor {
                 self.errorHandler.handle(error)
             }
         }
+    }
+
+    func deleteNote(note: NoteModel) {
+        noteService.deleteNote(note)
     }
 }

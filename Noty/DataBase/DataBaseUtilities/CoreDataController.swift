@@ -32,6 +32,9 @@ protocol CoreDataControllerProtocol {
 
     /// Saves changes on the provided context - background or view context -, if there are any
     func saveIfNeeded(_ context: NSManagedObjectContext, _ completion: @escaping (Result<Void, Error>) -> Void)
+
+    /// It execute what the name says 😏
+    func getCount(entityName: String) -> Int
 }
 
 class CoreDataController: CoreDataControllerProtocol {
@@ -143,6 +146,20 @@ extension CoreDataController {
                 assertionFailure()
             }
         }
+    }
+}
+
+// MARK: - Get Count (just for id purpose)
+extension CoreDataController {
+    func getCount(entityName: String) -> Int {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        do {
+            let count = try backgroundContext.count(for: fetchRequest)
+            return count
+        } catch {
+            print(error.localizedDescription)
+        }
+        return 0
     }
 }
 

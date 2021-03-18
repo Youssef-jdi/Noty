@@ -65,9 +65,11 @@ class ToastManager: ToastManagerProtocol {
              .noSpeech,
              .noCamera,
              .noReminder,
-             .noInternetConnection,
-             .cantSaveNote:
+             .noInternetConnection:
             return 0.9
+        case .cantSaveNote,
+             .noteSaved:
+            return 0.5
 
         default:
             return 0.5
@@ -78,9 +80,12 @@ class ToastManager: ToastManagerProtocol {
         switch toastCase {
         case .noMicrophone,
              .noSpeech,
-             .noReminder,
-             .cantSaveNote:
+             .noReminder:
             return 4.0
+
+        case .noteSaved,
+             .cantSaveNote:
+            return 1
 
         case .noCamera:
             return .infinity

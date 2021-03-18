@@ -95,12 +95,13 @@ extension HomeInteractor {
 
     func saveNote(with text: String) {
         presenter.presentSpinner()
-        noteService.save(from: NoteModel(
-                            id: nil,
-                            text: text,
-                            isFavorite: false,
-                            isReminded: false,
-                            remindedDate: nil)) {[weak self] result in
+        var model = NoteModel(
+            id: nil,
+            text: text,
+            isFavorite: false,
+            isReminded: false,
+            remindedDate: nil)
+        noteService.save(from: &model) {[weak self] result in
             guard let self = self else { return }
             self.presenter.present(save: result)
         }

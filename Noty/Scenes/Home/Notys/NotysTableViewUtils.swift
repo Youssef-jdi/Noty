@@ -9,12 +9,20 @@ import UIKit
 
 protocol NotysTableViewUtilsProtocol: UITableViewDataSource, UITableViewDelegate {
     func set(data: [NoteModel])
+    
+    var delegate: NoteUtilsDelegate? { get set }
+    var data: [NoteModel] { get set }
+}
+
+protocol NoteUtilsDelegate: class {
+    func delete(note: NoteModel, at indexPath: IndexPath)
 }
 
 class NotysTableViewUtils: NSObject, NotysTableViewUtilsProtocol {
 
     // MARK: Properties
     var data: [NoteModel] = []
+    weak var delegate: NoteUtilsDelegate?
 
     func set(data: [NoteModel]) {
         self.data = data
@@ -45,16 +53,20 @@ class NotysTableViewUtils: NSObject, NotysTableViewUtilsProtocol {
     }
 
     private func makeFavouriteContextualAction(forRowAt indexPath: IndexPath) -> UIContextualAction {
-        let favouriteAction = UIContextualAction(style: .normal, title: "") { action, _, completion in
+        let favouriteAction = UIContextualAction(style: .normal, title: "") {[weak self] _, _, completion in
+            guard let self = self else { return }
+            Console.log(type: .success, "\(self.data[indexPath.row].text)")
             completion(true)
         }
         favouriteAction.backgroundColor = .white
-        favouriteAction.image = R.image.ic_heart()?.withTintColor(R.color.appLightRed()!)
+        favouriteAction.image = self.data[indexPath.row].isFavorite ? R.image.heart_filled()?.withTintColor(R.color.appLightRed()!) : R.image.heart()
         return favouriteAction
     }
 
     private func makeDeleteContextualAction(forRowAt indexPath: IndexPath) -> UIContextualAction {
-        let deleteAction = UIContextualAction(style: .destructive, title: "") { action, _, completion in
+        let deleteAction = UIContextualAction(style: .destructive, title: "") {[weak self] _, _, completion in
+            guard let self = self else { return }
+            self.delegate?.delete(note: self.data[indexPath.row], at: indexPath)
             completion(true)
         }
         deleteAction.backgroundColor = .white
@@ -63,11 +75,13 @@ class NotysTableViewUtils: NSObject, NotysTableViewUtilsProtocol {
     }
 
     private func makeReminderContextualAction(forRowAt indexPath: IndexPath) -> UIContextualAction {
-        let reminderAction = UIContextualAction(style: .normal, title: "") { action, _, completion in
+        let reminderAction = UIContextualAction(style: .normal, title: "") {[weak self] _, _, completion in
+            guard let self = self else { return }
+            Console.log(type: .success, "\(self.data[indexPath.row].text)")
             completion(true)
         }
         reminderAction.backgroundColor = .white
-        reminderAction.image = R.image.ic_alert_blue()
+        reminderAction.image = data[indexPath.row].isReminded ? R.image.ic_alert_green() :  R.image.ic_alert_blue()
         return reminderAction
     }
 

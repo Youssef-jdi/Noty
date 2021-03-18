@@ -65,6 +65,7 @@ extension Toast {
         case sent = "Memo sent!"
 
         case cantSaveNote = "Couldn't save note .."
+        case noteSaved = "Note saved 👀"
 
         case emailNotVerified = "This email has not been verified yet. The recipient will become active after successful verification."
         case noInternetConnection = "No internet connection found, we will try to send a memo again when connected again"

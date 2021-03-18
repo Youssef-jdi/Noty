@@ -373,7 +373,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 99 images.
+  /// This `R.image` struct is generated, and contains static references to 101 images.
   struct image {
     /// Image `Arrow_icon_black`.
     static let arrow_icon_black = Rswift.ImageResource(bundle: R.hostingBundle, name: "Arrow_icon_black")
@@ -481,6 +481,10 @@ struct R: Rswift.Validatable {
     static let confirm = Rswift.ImageResource(bundle: R.hostingBundle, name: "confirm")
     /// Image `emptyImage`.
     static let emptyImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "emptyImage")
+    /// Image `heart_filled`.
+    static let heart_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "heart_filled")
+    /// Image `heart`.
+    static let heart = Rswift.ImageResource(bundle: R.hostingBundle, name: "heart")
     /// Image `ic_Feedback_1`.
     static let ic_Feedback_1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_Feedback_1")
     /// Image `ic_Feedback_2`.
@@ -942,6 +946,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "emptyImage", bundle: ..., traitCollection: ...)`
     static func emptyImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.emptyImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "heart", bundle: ..., traitCollection: ...)`
+    static func heart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.heart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "heart_filled", bundle: ..., traitCollection: ...)`
+    static func heart_filled(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.heart_filled, compatibleWith: traitCollection)
     }
     #endif
 

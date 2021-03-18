@@ -8,7 +8,10 @@
 import Foundation
 
 struct NoteModel {
-    let id: String?
+    /**
+     - Id is a var cause it's assigned when we fetch the count of our Entity in DB
+     */
+    var id: String?
     let text: String
     let isFavorite: Bool
     let isReminded: Bool

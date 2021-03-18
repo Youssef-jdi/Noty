@@ -156,7 +156,7 @@ extension HomeViewController {
         hideSpinner()
         switch result {
         case .success:
-            toastManager?.showToast(for: .cantSaveNote)
+            toastManager?.showToast(for: .noteSaved)
         case .failure:
             toastManager?.showToast(for: .cantSaveNote)
         }

@@ -10,8 +10,9 @@ import CoreData
 
 protocol NoteServiceProtocol {
     func fetchNotes(_ completion: @escaping ArrayLocalCompletion<Note>)
-    func save(from note: NoteModel, _ completion: @escaping RequestLocalCompletion<Note>)
-    func deleteNote()
+    func save(from note: inout NoteModel, _ completion: @escaping RequestLocalCompletion<Note>)
+    func deleteAllNotes()
+    func deleteNote(_ note: NoteModel)
     func updateNote()
 }
 
@@ -35,9 +36,10 @@ class NoteDataService: NoteServiceProtocol {
         }
     }
 
-    func save(from note: NoteModel, _ completion: @escaping RequestLocalCompletion<Note>) {
+    func save(from note: inout NoteModel, _ completion: @escaping RequestLocalCompletion<Note>) {
         let context = coreDataController.backgroundContext
-
+        let count = coreDataController.getCount(entityName: Note.entityName)
+        note.id = "\(count + 1)"
         context.performAndWait {
             let noteEntity = Note.createNote(from: note, for: context)
 
@@ -52,9 +54,14 @@ class NoteDataService: NoteServiceProtocol {
         }
     }
 
-    func deleteNote() {
-        let name = Note.entityName
-        coreDataController.delete(entityName: name, predicate: nil)
+    func deleteAllNotes() {
+        coreDataController.delete(entityName: Note.entityName, predicate: nil)
+    }
+
+    func deleteNote(_ note: NoteModel) {
+        guard let id = note.id else { return }
+        let predicate = NSPredicate(format: "id == %@", id as NSString)
+        coreDataController.delete(entityName: Note.entityName, predicate: predicate)
     }
 
     func updateNote() {}
