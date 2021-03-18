@@ -70,20 +70,20 @@ class HomeAssembly: Assembly {
 
         container.autoregister(NotysPresenterProtocol.self, initializer: NotysPresenter.init)
         container.autoregister(NotysInteractorProtocol.self, initializer: NotysInteractor.init)
-        container.autoregister(NotysDataSourceProtocol.self, initializer: NotysDataSource.init)
+        container.autoregister(NotysTableViewUtilsProtocol.self, initializer: NotysTableViewUtils.init)
 
         container.storyboardInitCompleted(NotysViewController.self) { resolver, vc in
             let router = resolver ~> (NotysRouterProtocol.self)
             let presenter = resolver ~> (NotysPresenterProtocol.self)
             let interactor = resolver ~> (NotysInteractorProtocol.self)
-            let dataSource = resolver ~> (NotysDataSourceProtocol.self)
+            let utils = resolver ~> (NotysTableViewUtilsProtocol.self)
 
             router.set(viewController: vc)
             presenter.set(viewController: vc)
 
             vc.set(router: router)
             vc.set(interactor: interactor)
-            vc.set(dataSource: dataSource)
+            vc.set(tableViewUtils: utils)
         }
 
         // MARK: Tutorial VC

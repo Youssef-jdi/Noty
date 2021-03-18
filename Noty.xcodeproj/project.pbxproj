@@ -79,7 +79,7 @@
 		AA855DAA25DAE69F008A3294 /* UITextField+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855DA925DAE69F008A3294 /* UITextField+Error.swift */; };
 		AA855DD325DAE88E008A3294 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855DD225DAE88E008A3294 /* AppTextField.swift */; };
 		AA88FE2825F78B1000DCD844 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA88FE2425F78B1000DCD844 /* HomeNavigationViewController.swift */; };
-		AA8E54B125FFD0DB0034697D /* NotysDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8E54B025FFD0DB0034697D /* NotysDataSource.swift */; };
+		AA8E54B125FFD0DB0034697D /* NotysTableViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8E54B025FFD0DB0034697D /* NotysTableViewUtils.swift */; };
 		AA9272FA25F6559300D0A4D9 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F625F6559300D0A4D9 /* RootPresenter.swift */; };
 		AA9272FB25F6559300D0A4D9 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F725F6559300D0A4D9 /* RootRouter.swift */; };
 		AA9272FC25F6559300D0A4D9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F825F6559300D0A4D9 /* RootViewController.swift */; };
@@ -233,7 +233,7 @@
 		AA855DA925DAE69F008A3294 /* UITextField+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Error.swift"; sourceTree = "<group>"; };
 		AA855DD225DAE88E008A3294 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
 		AA88FE2425F78B1000DCD844 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
-		AA8E54B025FFD0DB0034697D /* NotysDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotysDataSource.swift; sourceTree = "<group>"; };
+		AA8E54B025FFD0DB0034697D /* NotysTableViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotysTableViewUtils.swift; sourceTree = "<group>"; };
 		AA9272F625F6559300D0A4D9 /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
 		AA9272F725F6559300D0A4D9 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		AA9272F825F6559300D0A4D9 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -736,7 +736,7 @@
 				AA92734825F6604600D0A4D9 /* NotysRouter.swift */,
 				AA92734925F6604600D0A4D9 /* NotysViewController.swift */,
 				AA92734A25F6604600D0A4D9 /* NotysInteractor.swift */,
-				AA8E54B025FFD0DB0034697D /* NotysDataSource.swift */,
+				AA8E54B025FFD0DB0034697D /* NotysTableViewUtils.swift */,
 			);
 			path = Notys;
 			sourceTree = "<group>";
@@ -1208,7 +1208,7 @@
 				AA76A18225D5645500903401 /* Noty.xcdatamodeld in Sources */,
 				AA7613FD25FBD8C400E0B4E2 /* NoteService.swift in Sources */,
 				AA76A32125D5903500903401 /* OnBoardingAssembly.swift in Sources */,
-				AA8E54B125FFD0DB0034697D /* NotysDataSource.swift in Sources */,
+				AA8E54B125FFD0DB0034697D /* NotysTableViewUtils.swift in Sources */,
 				AA855D9C25DAE151008A3294 /* LoginModels.swift in Sources */,
 				AA52774E25DC24E100AE880D /* RoundedView.swift in Sources */,
 				AA855D6825DAC156008A3294 /* LoginViewController.swift in Sources */,

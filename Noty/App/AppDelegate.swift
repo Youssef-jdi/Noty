@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         window = UIWindow(frame: UIScreen.main.bounds)
+        window?.disableDarkMode()
         window?.makeKeyAndVisible()
         app.prepare()
         
@@ -58,5 +59,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return app.handleDeepLink(dynamicLink)
         }
         return false
+    }
+}
+
+// MARK: For now until I figure out colors for dark theme ☹️
+extension UIWindow {
+    func disableDarkMode() {
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+        }
     }
 }
