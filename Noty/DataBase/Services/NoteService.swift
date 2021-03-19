@@ -13,7 +13,8 @@ protocol NoteServiceProtocol {
     func save(from note: inout NoteModel, _ completion: @escaping RequestLocalCompletion<Note>)
     func deleteAllNotes()
     func deleteNote(_ note: NoteModel)
-    func updateNote()
+    func updateNote(from note: NoteModel, _ completion: @escaping RequestLocalCompletion<Note>)
+    func getNotesCount() -> Int
 }
 
 class NoteDataService: NoteServiceProtocol {
@@ -64,5 +65,32 @@ class NoteDataService: NoteServiceProtocol {
         coreDataController.delete(entityName: Note.entityName, predicate: predicate)
     }
 
-    func updateNote() {}
+    func getNotesCount() -> Int {
+        return coreDataController.getCount(entityName: Note.entityName)
+    }
+
+    func updateNote(from note: NoteModel, _ completion: @escaping RequestLocalCompletion<Note>) {
+        guard let id = note.id else { return }
+        let predicate = NSPredicate(format: "id == %@", id as NSString)
+        coreDataController.fetch(
+            entityName: Note.entityName,
+            predicate: predicate,
+            context: coreDataController.backgroundContext) {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let notes):
+                guard let noteEntity = notes.first as? Note else { return }
+                Note.updateIsFavorite(noteEntity, from: note)
+                self.coreDataController.saveIfNeeded(self.coreDataController.backgroundContext) { resultSaving in
+                    switch resultSaving {
+                    case .success:
+                        completion(.success(noteEntity))
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+            case .failure(let error): completion(.failure(error))
+            }
+        }
+    }
 }

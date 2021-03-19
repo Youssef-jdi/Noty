@@ -13,9 +13,9 @@ struct NoteModel {
      */
     var id: String?
     let text: String
-    let isFavorite: Bool
-    let isReminded: Bool
-    let remindedDate: Int64?
+    var isFavorite: Bool
+    var isReminded: Bool
+    var remindedDate: Int64?
 
     static func map(from entity: Note) -> NoteModel {
         return NoteModel(id: entity.id,
@@ -23,5 +23,11 @@ struct NoteModel {
                          isFavorite: entity.isFavourite,
                          isReminded: entity.isReminded,
                          remindedDate: entity.remindedDate)
+    }
+}
+
+extension NoteModel: Equatable {
+    static func == (lhs: NoteModel, rhs: NoteModel) -> Bool {
+        return lhs.id == rhs.id
     }
 }

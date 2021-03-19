@@ -19,6 +19,8 @@ protocol NotysPresenterProtocol {
     // add the functions that are called from interactor
     func handle(error: Error)
     func present(fetched notes: [NoteModel])
+    func presentTutoIfNeeded()
+    func presentIsFavorite(result: Result<Storable?, Error>, on note: NoteModel)
 }
 
 class NotysPresenter: NotysPresenterProtocol {
@@ -40,5 +42,13 @@ extension  NotysPresenter {
 
     func present(fetched notes: [NoteModel]) {
         viewController?.display(notes: notes)
+    }
+
+    func presentTutoIfNeeded() {
+        viewController?.displayTutoIfNeeded()
+    }
+
+    func presentIsFavorite(result: Result<Storable?, Error>, on note: NoteModel) {
+        viewController?.displayIsFavorite(result: result, on: note)
     }
 }

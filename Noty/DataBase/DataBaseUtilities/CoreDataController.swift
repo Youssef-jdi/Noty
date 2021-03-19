@@ -149,7 +149,7 @@ extension CoreDataController {
     }
 }
 
-// MARK: - Get Count (just for id purpose)
+// MARK: - Get Count (just for id purpose) and is faster than fetching and getting the count
 extension CoreDataController {
     func getCount(entityName: String) -> Int {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)

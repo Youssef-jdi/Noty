@@ -16,6 +16,8 @@ protocol NotysTableViewUtilsProtocol: UITableViewDataSource, UITableViewDelegate
 
 protocol NoteUtilsDelegate: class {
     func delete(note: NoteModel, at indexPath: IndexPath)
+    func setReminder(on note: NoteModel, at indexPath: IndexPath)
+    func setFavorite(on note: NoteModel, at indexPath: IndexPath)
 }
 
 class NotysTableViewUtils: NSObject, NotysTableViewUtilsProtocol {
@@ -56,6 +58,7 @@ class NotysTableViewUtils: NSObject, NotysTableViewUtilsProtocol {
         let favouriteAction = UIContextualAction(style: .normal, title: "") {[weak self] _, _, completion in
             guard let self = self else { return }
             Console.log(type: .success, "\(self.data[indexPath.row].text)")
+            self.delegate?.setFavorite(on: self.data[indexPath.row], at: indexPath)
             completion(true)
         }
         favouriteAction.backgroundColor = .white
@@ -78,6 +81,7 @@ class NotysTableViewUtils: NSObject, NotysTableViewUtilsProtocol {
         let reminderAction = UIContextualAction(style: .normal, title: "") {[weak self] _, _, completion in
             guard let self = self else { return }
             Console.log(type: .success, "\(self.data[indexPath.row].text)")
+            self.delegate?.setReminder(on: self.data[indexPath.row], at: indexPath)
             completion(true)
         }
         reminderAction.backgroundColor = .white

@@ -16,6 +16,8 @@ import UIKit
 protocol NotysInteractorProtocol {
     func fetchNotes()
     func deleteNote(note: NoteModel)
+    func updateNoteWithFavorite(note: NoteModel)
+    func handleViewDidAppear()
 }
 
 class NotysInteractor: NotysInteractorProtocol {
@@ -24,15 +26,18 @@ class NotysInteractor: NotysInteractorProtocol {
     var presenter: NotysPresenterProtocol
     var noteService: NoteServiceProtocol
     var errorHandler: ErrorHandlerProtocol
+    var userDefaultManager: UserDefaultsManagerProtocol
 
     init(
         presenter: NotysPresenterProtocol,
         noteService: NoteServiceProtocol,
-        errorHandler: ErrorHandlerProtocol
+        errorHandler: ErrorHandlerProtocol,
+        userDefaultManager: UserDefaultsManagerProtocol
     ) {
         self.presenter = presenter
         self.noteService = noteService
         self.errorHandler = errorHandler
+        self.userDefaultManager = userDefaultManager
     }
 }
 
@@ -51,7 +56,25 @@ extension NotysInteractor {
         }
     }
 
+    /// - have no clue what to do with the result 🤓
+    func updateNoteWithFavorite(note: NoteModel) {
+        noteService.updateNote(from: note) {[weak self] result in
+            guard let self = self else { return }
+            self.presenter.presentIsFavorite(result: result, on: note)
+        }
+    }
+
     func deleteNote(note: NoteModel) {
         noteService.deleteNote(note)
+    }
+
+    /**
+     -Will display the tutorial only when we have one note
+      and the tutorial is not displayed
+     */
+    func handleViewDidAppear() {
+        if noteService.getNotesCount() == 1 && !userDefaultManager.isTutoDisplayed {
+            presenter.presentTutoIfNeeded()
+        }
     }
 }

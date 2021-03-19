@@ -21,6 +21,8 @@ protocol NotysViewControllerProtocol: class, UIViewControllerRouting {
     // add the functions that are called from the presenter
     func display(error: Error)
     func display(notes: [NoteModel])
+    func displayTutoIfNeeded()
+    func displayIsFavorite(result: Result<Storable?, Error>, on note: NoteModel)
 }
 
 class NotysViewController: UIViewController, NotysViewControllerProtocol {
@@ -57,7 +59,7 @@ class NotysViewController: UIViewController, NotysViewControllerProtocol {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        router?.route(to: .tuto)
+        interactor?.handleViewDidAppear()
     }
 
     // MARK: Actions
@@ -70,9 +72,24 @@ extension NotysViewController {
     func display(error: Error) {}
 
     func display(notes: [NoteModel]) {
+        Console.log(type: .warning, "\(notes.first?.isFavorite)")
         hideSpinner()
         notes.count > 0 ? tableViewUtils?.set(data: notes) : configureEmptyView()
         tableView.reloadData()
+    }
+
+    func displayTutoIfNeeded() {
+        router?.route(to: .tuto)
+    }
+
+    func displayIsFavorite(result: Result<Storable?, Error>, on note: NoteModel) {
+        switch result {
+        case .success:
+            if let index = tableViewUtils?.data.firstIndex(of: note) {
+                tableViewUtils?.data[index].isFavorite.toggle()
+            }
+        case .failure: break
+        }
     }
 }
 
@@ -87,11 +104,18 @@ private extension NotysViewController {
 }
 
 extension NotysViewController: NoteUtilsDelegate {
-    #warning("Verify data count if == 0 to configure empty view will do tomorrow cause I am tired and need a drink 🥳")
+    func setReminder(on note: NoteModel, at indexPath: IndexPath) {}
+
+    func setFavorite(on note: NoteModel, at indexPath: IndexPath) {
+        interactor?.updateNoteWithFavorite(note: note)
+    }
+
     func delete(note: NoteModel, at indexPath: IndexPath) {
         interactor?.deleteNote(note: note)
         tableViewUtils?.data.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .right)
+        guard let count = tableViewUtils?.data.count, count > 0 else { return }
+        configureEmptyView()
     }
 }
 
