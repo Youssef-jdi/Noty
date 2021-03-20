@@ -89,8 +89,10 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
+    /// Storyboard `Alerts`.
+    static let alerts = _R.storyboard.alerts()
     /// Storyboard `Home`.
     static let home = _R.storyboard.home()
     /// Storyboard `LaunchScreen`.
@@ -99,6 +101,13 @@ struct R: Rswift.Validatable {
     static let onBoarding = _R.storyboard.onBoarding()
     /// Storyboard `SplashScreen`.
     static let splashScreen = _R.storyboard.splashScreen()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Alerts", bundle: ...)`
+    static func alerts(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.alerts)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Home", bundle: ...)`
@@ -1457,6 +1466,9 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try alerts.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try home.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -1469,6 +1481,34 @@ struct _R: Rswift.Validatable {
       try splashScreen.validate()
       #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct alerts: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let dateAlertViewController = StoryboardViewControllerResource<DateAlertViewController>(identifier: "DateAlertViewController")
+      let name = "Alerts"
+      let timeAlertViewController = StoryboardViewControllerResource<TimeAlertViewController>(identifier: "TimeAlertViewController")
+
+      func dateAlertViewController(_: Void = ()) -> DateAlertViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: dateAlertViewController)
+      }
+
+      func timeAlertViewController(_: Void = ()) -> TimeAlertViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: timeAlertViewController)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "vonoBlue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'vonoBlue' is used in storyboard 'Alerts', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "vonoBlueDark", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'vonoBlueDark' is used in storyboard 'Alerts', but couldn't be loaded.") }
+        }
+        if _R.storyboard.alerts().dateAlertViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'dateAlertViewController' could not be loaded from storyboard 'Alerts' as 'DateAlertViewController'.") }
+        if _R.storyboard.alerts().timeAlertViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'timeAlertViewController' could not be loaded from storyboard 'Alerts' as 'TimeAlertViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct home: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {

@@ -65,7 +65,8 @@ class HomeAssembly: Assembly {
         container.register(NotysRouterProtocol.self) { resolver in
             return NotysRouter(
                 rootNavigator: resolver ~> (RootNavigatorProtocol.self),
-                homeStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.home.name))
+                homeStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.home.name),
+                alertsStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.alerts.name))
         }
 
         container.autoregister(NotysPresenterProtocol.self, initializer: NotysPresenter.init)

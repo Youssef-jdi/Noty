@@ -80,6 +80,19 @@
 		AA855DD325DAE88E008A3294 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855DD225DAE88E008A3294 /* AppTextField.swift */; };
 		AA88FE2825F78B1000DCD844 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA88FE2425F78B1000DCD844 /* HomeNavigationViewController.swift */; };
 		AA8E54B125FFD0DB0034697D /* NotysTableViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8E54B025FFD0DB0034697D /* NotysTableViewUtils.swift */; };
+		AA8F527C2606330600C55407 /* Alerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8F527B2606330600C55407 /* Alerts.storyboard */; };
+		AA8F5283260633E300C55407 /* AlertsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F5282260633E300C55407 /* AlertsAssembly.swift */; };
+		AA8F528B260633EF00C55407 /* AlertsStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F528A260633EF00C55407 /* AlertsStoryboard.swift */; };
+		AA8F5298260634AE00C55407 /* DateAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F5294260634AE00C55407 /* DateAlertPresenter.swift */; };
+		AA8F5299260634AE00C55407 /* DateAlertRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F5295260634AE00C55407 /* DateAlertRouter.swift */; };
+		AA8F529A260634AE00C55407 /* DateAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F5296260634AE00C55407 /* DateAlertViewController.swift */; };
+		AA8F529B260634AE00C55407 /* DateAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F5297260634AE00C55407 /* DateAlertInteractor.swift */; };
+		AA8F52A3260634BC00C55407 /* TimeAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F529F260634BC00C55407 /* TimeAlertPresenter.swift */; };
+		AA8F52A4260634BC00C55407 /* TimeAlertRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F52A0260634BC00C55407 /* TimeAlertRouter.swift */; };
+		AA8F52A5260634BC00C55407 /* TimeAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F52A1260634BC00C55407 /* TimeAlertViewController.swift */; };
+		AA8F52A6260634BC00C55407 /* TimeAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F52A2260634BC00C55407 /* TimeAlertInteractor.swift */; };
+		AA8F52AB26063C0900C55407 /* AlertsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F52AA26063C0900C55407 /* AlertsTransition.swift */; };
+		AA8F52B026063FC300C55407 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F52AF26063FC300C55407 /* DateFormatter.swift */; };
 		AA9272FA25F6559300D0A4D9 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F625F6559300D0A4D9 /* RootPresenter.swift */; };
 		AA9272FB25F6559300D0A4D9 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F725F6559300D0A4D9 /* RootRouter.swift */; };
 		AA9272FC25F6559300D0A4D9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9272F825F6559300D0A4D9 /* RootViewController.swift */; };
@@ -234,6 +247,19 @@
 		AA855DD225DAE88E008A3294 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
 		AA88FE2425F78B1000DCD844 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
 		AA8E54B025FFD0DB0034697D /* NotysTableViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotysTableViewUtils.swift; sourceTree = "<group>"; };
+		AA8F527B2606330600C55407 /* Alerts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alerts.storyboard; sourceTree = "<group>"; };
+		AA8F5282260633E300C55407 /* AlertsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsAssembly.swift; sourceTree = "<group>"; };
+		AA8F528A260633EF00C55407 /* AlertsStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsStoryboard.swift; sourceTree = "<group>"; };
+		AA8F5294260634AE00C55407 /* DateAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAlertPresenter.swift; sourceTree = "<group>"; };
+		AA8F5295260634AE00C55407 /* DateAlertRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAlertRouter.swift; sourceTree = "<group>"; };
+		AA8F5296260634AE00C55407 /* DateAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAlertViewController.swift; sourceTree = "<group>"; };
+		AA8F5297260634AE00C55407 /* DateAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAlertInteractor.swift; sourceTree = "<group>"; };
+		AA8F529F260634BC00C55407 /* TimeAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAlertPresenter.swift; sourceTree = "<group>"; };
+		AA8F52A0260634BC00C55407 /* TimeAlertRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAlertRouter.swift; sourceTree = "<group>"; };
+		AA8F52A1260634BC00C55407 /* TimeAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAlertViewController.swift; sourceTree = "<group>"; };
+		AA8F52A2260634BC00C55407 /* TimeAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAlertInteractor.swift; sourceTree = "<group>"; };
+		AA8F52AA26063C0900C55407 /* AlertsTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsTransition.swift; sourceTree = "<group>"; };
+		AA8F52AF26063FC300C55407 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		AA9272F625F6559300D0A4D9 /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
 		AA9272F725F6559300D0A4D9 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		AA9272F825F6559300D0A4D9 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -484,6 +510,7 @@
 		AA76A1C325D5654D00903401 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AA8F5280260633C100C55407 /* Alerts */,
 				AAB50F5325D6A63500980169 /* Home */,
 				AA76A26225D56B9800903401 /* SplashScreen */,
 				AA76A21925D569B900903401 /* OnBoarding */,
@@ -708,6 +735,48 @@
 			path = HomeNavigationController;
 			sourceTree = "<group>";
 		};
+		AA8F5280260633C100C55407 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				AA8F52902606341300C55407 /* TimeAlert */,
+				AA8F528F2606340100C55407 /* DateAlert */,
+				AA8F5281260633D200C55407 /* AlertsDI */,
+				AA8F527B2606330600C55407 /* Alerts.storyboard */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		AA8F5281260633D200C55407 /* AlertsDI */ = {
+			isa = PBXGroup;
+			children = (
+				AA8F5282260633E300C55407 /* AlertsAssembly.swift */,
+				AA8F528A260633EF00C55407 /* AlertsStoryboard.swift */,
+			);
+			path = AlertsDI;
+			sourceTree = "<group>";
+		};
+		AA8F528F2606340100C55407 /* DateAlert */ = {
+			isa = PBXGroup;
+			children = (
+				AA8F5294260634AE00C55407 /* DateAlertPresenter.swift */,
+				AA8F5295260634AE00C55407 /* DateAlertRouter.swift */,
+				AA8F5296260634AE00C55407 /* DateAlertViewController.swift */,
+				AA8F5297260634AE00C55407 /* DateAlertInteractor.swift */,
+			);
+			path = DateAlert;
+			sourceTree = "<group>";
+		};
+		AA8F52902606341300C55407 /* TimeAlert */ = {
+			isa = PBXGroup;
+			children = (
+				AA8F529F260634BC00C55407 /* TimeAlertPresenter.swift */,
+				AA8F52A0260634BC00C55407 /* TimeAlertRouter.swift */,
+				AA8F52A1260634BC00C55407 /* TimeAlertViewController.swift */,
+				AA8F52A2260634BC00C55407 /* TimeAlertInteractor.swift */,
+			);
+			path = TimeAlert;
+			sourceTree = "<group>";
+		};
 		AA9272F525F6557A00D0A4D9 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -817,6 +886,8 @@
 				AA95D7E025D9684D00F94553 /* UserDefaultsManager.swift */,
 				AA52774025DC1EF300AE880D /* ToastManager.swift */,
 				AAA0748F25E0026F0061347E /* ErrorHandler.swift */,
+				AA8F52AA26063C0900C55407 /* AlertsTransition.swift */,
+				AA8F52AF26063FC300C55407 /* DateFormatter.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -966,6 +1037,7 @@
 			files = (
 				AA76A27A25D56E3900903401 /* SplashScreen.storyboard in Resources */,
 				AA76A26C25D56DC900903401 /* SplashAnimation.json in Resources */,
+				AA8F527C2606330600C55407 /* Alerts.storyboard in Resources */,
 				AACAF55925D69A4A009DE27C /* Colors.xcassets in Resources */,
 				AA76A31625D58EAF00903401 /* OnBoarding.storyboard in Resources */,
 				AACAF56525D69A88009DE27C /* Assets.xcassets in Resources */,
@@ -1196,8 +1268,10 @@
 				AA7EDBFF25D7230B004E415D /* TrancriptorManager.swift in Sources */,
 				AA88FE2825F78B1000DCD844 /* HomeNavigationViewController.swift in Sources */,
 				AA7978AB2600FCA30071297C /* NoteCell.swift in Sources */,
+				AA8F52A3260634BC00C55407 /* TimeAlertPresenter.swift in Sources */,
 				AA92734225F65D7000D0A4D9 /* CALayer + applyShadow.swift in Sources */,
 				AA7978F326011B120071297C /* TutorialViewController.swift in Sources */,
+				AA8F528B260633EF00C55407 /* AlertsStoryboard.swift in Sources */,
 				AA855D6925DAC156008A3294 /* LoginInteractor.swift in Sources */,
 				AA7613F725FBD81D00E0B4E2 /* Note + Extension.swift in Sources */,
 				AA7613B325FBCAD000E0B4E2 /* EmptyBackgroundView.swift in Sources */,
@@ -1209,6 +1283,7 @@
 				AA7613FD25FBD8C400E0B4E2 /* NoteService.swift in Sources */,
 				AA76A32125D5903500903401 /* OnBoardingAssembly.swift in Sources */,
 				AA8E54B125FFD0DB0034697D /* NotysTableViewUtils.swift in Sources */,
+				AA8F52B026063FC300C55407 /* DateFormatter.swift in Sources */,
 				AA855D9C25DAE151008A3294 /* LoginModels.swift in Sources */,
 				AA52774E25DC24E100AE880D /* RoundedView.swift in Sources */,
 				AA855D6825DAC156008A3294 /* LoginViewController.swift in Sources */,
@@ -1221,6 +1296,7 @@
 				AA855D6725DAC156008A3294 /* LoginRouter.swift in Sources */,
 				AA52773C25DC1C7B00AE880D /* CustomViewProtocol.swift in Sources */,
 				AA9272FD25F6559300D0A4D9 /* RootInteractor.swift in Sources */,
+				AA8F5299260634AE00C55407 /* DateAlertRouter.swift in Sources */,
 				AA95D7B025D94E5B00F94553 /* LanguageRouter.swift in Sources */,
 				AAB50F7D25D6AA3000980169 /* WelcomeInteractor.swift in Sources */,
 				AAA074C325E01D830061347E /* DeepLinkRouter.swift in Sources */,
@@ -1242,11 +1318,14 @@
 				AA92734E25F6604600D0A4D9 /* NotysInteractor.swift in Sources */,
 				AAB50F6A25D6A75200980169 /* HomeStoryboard.swift in Sources */,
 				AA52775325DC339600AE880D /* UIViewController+Spinner.swift in Sources */,
+				AA8F52AB26063C0900C55407 /* AlertsTransition.swift in Sources */,
 				AA6EBA2F25F7939500FFF099 /* SettingsPresenter.swift in Sources */,
 				AAA074BE25E01A210061347E /* FirebaseError.swift in Sources */,
+				AA8F52A4260634BC00C55407 /* TimeAlertRouter.swift in Sources */,
 				AAB50F6025D6A6E700980169 /* HomeRouter.swift in Sources */,
 				AA95D7E125D9684D00F94553 /* UserDefaultsManager.swift in Sources */,
 				AAB50FBA25D6C35200980169 /* PermissionPresenter.swift in Sources */,
+				AA8F52A6260634BC00C55407 /* TimeAlertInteractor.swift in Sources */,
 				AA9D4EF025E157C900AF70EA /* Notif.swift in Sources */,
 				AA855D9725DADAD7008A3294 /* DataValidationError.swift in Sources */,
 				AA7978F226011B120071297C /* TutorialRouter.swift in Sources */,
@@ -1256,16 +1335,20 @@
 				AACAF55325D6990B009DE27C /* AppButton.swift in Sources */,
 				AA7978F126011B120071297C /* TutorialPresenter.swift in Sources */,
 				AA76A29825D56FDC00903401 /* SplashScreenStoryboard.swift in Sources */,
+				AA8F52A5260634BC00C55407 /* TimeAlertViewController.swift in Sources */,
 				AA7EDC0425D72C58004E415D /* RecorderManager.swift in Sources */,
 				AA76A29D25D5704500903401 /* SplashScreenAssembly.swift in Sources */,
 				AA855DD325DAE88E008A3294 /* AppTextField.swift in Sources */,
 				AA7613E625FBD55F00E0B4E2 /* NSManagedObject + Extra.swift in Sources */,
 				AA855D7725DAC165008A3294 /* ConfirmInteractor.swift in Sources */,
+				AA8F5298260634AE00C55407 /* DateAlertPresenter.swift in Sources */,
 				AA92733D25F65B6100D0A4D9 /* RootTabView.swift in Sources */,
 				AA92734C25F6604600D0A4D9 /* NotysRouter.swift in Sources */,
 				AA7613E025FBD4A500E0B4E2 /* CoreDataController.swift in Sources */,
+				AA8F5283260633E300C55407 /* AlertsAssembly.swift in Sources */,
 				AA76A31C25D58F8F00903401 /* OnBoardingStoryboard.swift in Sources */,
 				AA76A1EF25D5674C00903401 /* Noty.swift in Sources */,
+				AA8F529A260634AE00C55407 /* DateAlertViewController.swift in Sources */,
 				AA7978F426011B120071297C /* TutorialInteractor.swift in Sources */,
 				AAB50FBD25D6C35200980169 /* PermissionInteractor.swift in Sources */,
 				AAB50F8A25D6B27D00980169 /* VTextView.swift in Sources */,
@@ -1279,6 +1362,7 @@
 				AA95D7AF25D94E5B00F94553 /* LanguagePresenter.swift in Sources */,
 				AA76373426024F1800017467 /* TutorialStateManager.swift in Sources */,
 				AAB50F5F25D6A6E700980169 /* HomePresenter.swift in Sources */,
+				AA8F529B260634AE00C55407 /* DateAlertInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

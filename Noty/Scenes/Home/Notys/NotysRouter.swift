@@ -24,6 +24,7 @@ class NotysRouter: NSObject, NotysRouterProtocol {
     weak var viewController: NotysViewControllerProtocol?
     private let rootNavigator: RootNavigatorProtocol
     private let homeStoryboard: Storyboard
+    private let alertsStoryboard: Storyboard
 
     func set(viewController: NotysViewControllerProtocol?) {
         self.viewController = viewController
@@ -31,10 +32,12 @@ class NotysRouter: NSObject, NotysRouterProtocol {
 
     init(
         rootNavigator: RootNavigatorProtocol,
-        homeStoryboard: Storyboard
+        homeStoryboard: Storyboard,
+        alertsStoryboard: Storyboard
     ) {
         self.rootNavigator = rootNavigator
         self.homeStoryboard = homeStoryboard
+        self.alertsStoryboard = alertsStoryboard
     }
 }
 
@@ -43,6 +46,7 @@ extension NotysRouter {
 
     enum Scene {
         case tuto
+        case date
     }
 
     func route(to scene: NotysRouter.Scene) {
@@ -51,6 +55,9 @@ extension NotysRouter {
             guard let vc = homeStoryboard.viewController(identifier: HomeStoryboardId.tuto) as? TutorialViewController else { assertionFailure("Couldn't load vc"); return }
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
+            viewController?.present(vc, animated: true, completion: nil)
+        case .date:
+            guard let vc = alertsStoryboard.viewController(identifier: AlertsStoryboardId.date) as? DateAlertViewController else { assertionFailure(); return }
             viewController?.present(vc, animated: true, completion: nil)
         }
     }

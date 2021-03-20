@@ -57,6 +57,9 @@ class SharedAssembly: Assembly {
         // Firebase
         container.register(DynamicLinksProtocol.self) { _ in return DynamicLinks.dynamicLinks() }
 
+        // Date Formatter
+        container.autoregister(DateFormatterProtocol.self, initializer: DateFormatterManager.init)
+
         // DeepLink Manager
         container.autoregister(DeepLinkManagerProtocol.self, initializer: DeepLinkManager.init)
 
@@ -91,6 +94,11 @@ class SharedAssembly: Assembly {
         // Home
         container.register(Storyboard.self, name: R.storyboard.home.name) { _ in
             return HomeStoryboard(sharedContainer: self.sharedContainer, assembly: HomeAssembly())
+        }
+
+        // Alerts
+        container.register(Storyboard.self, name: R.storyboard.alerts.name) { _ in
+            return AlertsStoryboard(sharedContainer: self.sharedContainer, assembly: AlertsAssemly())
         }
     }
 }
