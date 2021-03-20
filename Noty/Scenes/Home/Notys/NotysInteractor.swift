@@ -56,7 +56,6 @@ extension NotysInteractor {
         }
     }
 
-    /// - have no clue what to do with the result 🤓
     func updateNoteWithFavorite(note: NoteModel) {
         noteService.updateNote(from: note) {[weak self] result in
             guard let self = self else { return }

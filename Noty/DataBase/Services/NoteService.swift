@@ -37,6 +37,9 @@ class NoteDataService: NoteServiceProtocol {
         }
     }
 
+    /// -Inout parameter cause I need to update the note model id
+    /// - There's actually a default objectId that comes with NSManagedObject That
+    /// I hate working with 🥶🥲🙄
     func save(from note: inout NoteModel, _ completion: @escaping RequestLocalCompletion<Note>) {
         let context = coreDataController.backgroundContext
         let count = coreDataController.getCount(entityName: Note.entityName)
@@ -71,25 +74,38 @@ class NoteDataService: NoteServiceProtocol {
 
     func updateNote(from note: NoteModel, _ completion: @escaping RequestLocalCompletion<Note>) {
         guard let id = note.id else { return }
+        let context = coreDataController.backgroundContext
         let predicate = NSPredicate(format: "id == %@", id as NSString)
         coreDataController.fetch(
             entityName: Note.entityName,
             predicate: predicate,
-            context: coreDataController.backgroundContext) {[weak self] result in
-            guard let self = self else { return }
+            context: context) { result in
             switch result {
             case .success(let notes):
                 guard let noteEntity = notes.first as? Note else { return }
                 Note.updateIsFavorite(noteEntity, from: note)
-                self.coreDataController.saveIfNeeded(self.coreDataController.backgroundContext) { resultSaving in
-                    switch resultSaving {
-                    case .success:
-                        completion(.success(noteEntity))
-                    case .failure(let error):
-                        completion(.failure(error))
+                self.saveChanges(context, noteEntity: noteEntity) { result in
+                    switch result {
+                    case .success: completion(.success(noteEntity))
+                    case .failure(let error): completion(.failure(error))
                     }
                 }
+
             case .failure(let error): completion(.failure(error))
+            }
+        }
+    }
+
+    private func saveChanges(
+        _ context: NSManagedObjectContext,
+        noteEntity: Note,
+        _ completion: @escaping (Result<Void, Error>) -> Void) {
+        coreDataController.saveIfNeeded(context) { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

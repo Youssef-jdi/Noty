@@ -72,7 +72,6 @@ extension NotysViewController {
     func display(error: Error) {}
 
     func display(notes: [NoteModel]) {
-        Console.log(type: .warning, "\(notes.first?.isFavorite)")
         hideSpinner()
         notes.count > 0 ? tableViewUtils?.set(data: notes) : configureEmptyView()
         tableView.reloadData()
