@@ -15,6 +15,7 @@ import UIKit
 
 protocol TimeAlertInteractorProtocol {
     func convertDate(date: Date)
+    func addNotif(on date: Date, with note: NoteModel)
 }
 
 class TimeAlertInteractor: TimeAlertInteractorProtocol {
@@ -22,18 +23,52 @@ class TimeAlertInteractor: TimeAlertInteractorProtocol {
     // MARK: DI
     var presenter: TimeAlertPresenterProtocol
     var dateFormatter: DateFormatterProtocol
-
+    var permissionManager: PermissionManagerProtocol
+    var notificationManager: NotificationManagerProtocol
+    var errorHandler: ErrorHandlerProtocol
+    
     init(
         presenter: TimeAlertPresenterProtocol,
-        dateFormatter: DateFormatterProtocol
+        dateFormatter: DateFormatterProtocol,
+        permissionManager: PermissionManagerProtocol,
+        notificationManager: NotificationManagerProtocol,
+        errorHandler: ErrorHandlerProtocol
         ) {
         self.presenter = presenter
         self.dateFormatter = dateFormatter
+        self.permissionManager = permissionManager
+        self.notificationManager = notificationManager
+        self.errorHandler = errorHandler
     }
 }
 
 extension TimeAlertInteractor {
     func convertDate(date: Date) {
         presenter.present(time: dateFormatter.get(date: date, in: "h:mm a"))
+    }
+
+    #warning("update object's isReminded and (remindedDate: wth is this for ?)")
+    func addNotif(on date: Date, with note: NoteModel) {
+        requestNotifPermission {[weak self] in
+            guard let self = self else { return }
+            self.notificationManager.scheduleNotification(
+                note: note, on: date) {[weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success: self.presenter.presentAddingNotif()
+                case .failure(let error): self.errorHandler.handle(error)
+                }
+            }
+        }
+    }
+
+    private func requestNotifPermission(onCompletion: @escaping () -> Void) {
+        permissionManager.requestNotificationPermission {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success: onCompletion()
+            case .failure: self.presenter.present(permission: .notif)
+            }
+        }
     }
 }

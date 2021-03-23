@@ -38,7 +38,10 @@ extension PermissionInteractor {
             guard let self = self else { return }
             self.requestSpeech {[weak self] in
                 guard let self = self else { return }
-                self.presenter.presentFinishHandlingPermissions()
+                self.requestNotif {[weak self] in
+                    guard let self = self else { return }
+                    self.presenter.presentFinishHandlingPermissions()
+                }
             }
         }
     }
@@ -51,6 +54,12 @@ extension PermissionInteractor {
 
     private func requestSpeech(completion: @escaping () -> Void) {
         permissionManager.requestSpeechPermission { _ in
+            completion()
+        }
+    }
+
+    private func requestNotif(completion: @escaping () -> Void) {
+        permissionManager.requestNotificationPermission { _ in
             completion()
         }
     }

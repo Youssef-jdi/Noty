@@ -16,6 +16,7 @@ import UIKit
 protocol DateAlertViewControllerProtocol: class, UIViewControllerRouting {
     func set(interactor: DateAlertInteractorProtocol)
     func set(router: DateAlertRouterProtocol)
+    func set(note: NoteModel)
 
     // add the functions that are called from the presenter
     func display(date: Date, year: String, dateText: String)
@@ -36,6 +37,10 @@ class DateAlertViewController: UIViewController, DateAlertViewControllerProtocol
         self.router = router
     }
 
+    func set(note: NoteModel) {
+        self.note = note
+    }
+
     // MARK: Outlets
     @IBOutlet weak var datePicker: UIDatePicker! {
         didSet {
@@ -51,6 +56,7 @@ class DateAlertViewController: UIViewController, DateAlertViewControllerProtocol
     }
 
     // MARK: Properties
+    var note: NoteModel?
 
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -60,7 +66,8 @@ class DateAlertViewController: UIViewController, DateAlertViewControllerProtocol
 
     // MARK: Actions
     @IBAction func okClicked(_ sender: Any) {
-        router?.route(to: .time(datePicker.date))
+        guard let note = note else { return }
+        router?.route(to: .time(date: datePicker.date, note: note))
     }
 
     @IBAction func cancelClicked(_ sender: Any) {

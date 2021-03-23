@@ -54,6 +54,7 @@
 		AA76A31C25D58F8F00903401 /* OnBoardingStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76A31B25D58F8F00903401 /* OnBoardingStoryboard.swift */; };
 		AA76A32125D5903500903401 /* OnBoardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76A32025D5903500903401 /* OnBoardingAssembly.swift */; };
 		AA76A36125D594A600903401 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA76A36025D594A600903401 /* GoogleService-Info.plist */; };
+		AA7832222608D5530090096D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7832212608D5530090096D /* NotificationManager.swift */; };
 		AA7978AB2600FCA30071297C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978AA2600FCA30071297C /* NoteCell.swift */; };
 		AA7978B32600FCAE0071297C /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7978B22600FCAE0071297C /* NoteCell.xib */; };
 		AA7978F126011B120071297C /* TutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978ED26011B120071297C /* TutorialPresenter.swift */; };
@@ -221,6 +222,7 @@
 		AA76A31B25D58F8F00903401 /* OnBoardingStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingStoryboard.swift; sourceTree = "<group>"; };
 		AA76A32025D5903500903401 /* OnBoardingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingAssembly.swift; sourceTree = "<group>"; };
 		AA76A36025D594A600903401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AA7832212608D5530090096D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		AA7978AA2600FCA30071297C /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		AA7978B22600FCAE0071297C /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
 		AA7978ED26011B120071297C /* TutorialPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPresenter.swift; sourceTree = "<group>"; };
@@ -888,6 +890,7 @@
 				AAA0748F25E0026F0061347E /* ErrorHandler.swift */,
 				AA8F52AA26063C0900C55407 /* AlertsTransition.swift */,
 				AA8F52AF26063FC300C55407 /* DateFormatter.swift */,
+				AA7832212608D5530090096D /* NotificationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1331,6 +1334,7 @@
 				AA7978F226011B120071297C /* TutorialRouter.swift in Sources */,
 				AA9272FC25F6559300D0A4D9 /* RootViewController.swift in Sources */,
 				AA95D7B125D94E5B00F94553 /* LanguageViewController.swift in Sources */,
+				AA7832222608D5530090096D /* NotificationManager.swift in Sources */,
 				AA76A20B25D568B100903401 /* UIViewControllerRouting.swift in Sources */,
 				AACAF55325D6990B009DE27C /* AppButton.swift in Sources */,
 				AA7978F126011B120071297C /* TutorialPresenter.swift in Sources */,

@@ -17,6 +17,8 @@ protocol TimeAlertPresenterProtocol {
     func set(viewController: TimeAlertViewControllerProtocol?)
 
     func present(time: String)
+    func present(permission error: HomeModels.PermissionError)
+    func presentAddingNotif()
 }
 
 class TimeAlertPresenter: TimeAlertPresenterProtocol {
@@ -37,5 +39,13 @@ extension TimeAlertPresenter {
                 .replacingOccurrences(of: " PM", with: "")
                 .replacingOccurrences(of: " AM", with: ""),
             isAm: time.contains("AM"))
+    }
+
+    func present(permission error: HomeModels.PermissionError) {
+        viewController?.display(permission: error)
+    }
+
+    func presentAddingNotif() {
+        viewController?.displayAddingnotif()
     }
 }

@@ -46,7 +46,7 @@ extension NotysRouter {
 
     enum Scene {
         case tuto
-        case date
+        case date(note: NoteModel)
     }
 
     func route(to scene: NotysRouter.Scene) {
@@ -56,8 +56,9 @@ extension NotysRouter {
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
             viewController?.present(vc, animated: true, completion: nil)
-        case .date:
+        case .date(let note):
             guard let vc = alertsStoryboard.viewController(identifier: AlertsStoryboardId.date) as? DateAlertViewController else { assertionFailure(); return }
+            vc.set(note: note)
             viewController?.present(vc, animated: true, completion: nil)
         }
     }

@@ -104,7 +104,7 @@ private extension NotysViewController {
 
 extension NotysViewController: NoteUtilsDelegate {
     func setReminder(on note: NoteModel, at indexPath: IndexPath) {
-        router?.route(to: .date)
+        router?.route(to: .date(note: note))
     }
 
     func setFavorite(on note: NoteModel, at indexPath: IndexPath) {

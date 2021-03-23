@@ -8,14 +8,19 @@
 import Foundation
 import AVFoundation
 import Speech
-import EventKit
+import UserNotifications
 
 protocol PermissionManagerProtocol {
     func requestAudioPermission(_ completion: @escaping (Result<Void, PermissionManager.PermissionErrors>) -> Void)
     func requestSpeechPermission(_ completion: @escaping (Result<Void, PermissionManager.PermissionErrors>) -> Void)
+    func requestNotificationPermission(_ completion: @escaping (Result<Void, PermissionManager.PermissionErrors>) -> Void)
 }
 
 class PermissionManager: PermissionManagerProtocol {
+
+    let notificationCenter = UNUserNotificationCenter.current()
+    let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+
     enum PermissionErrors: Error {
         case noSpeechAccess
         case speechNotDetermined
@@ -23,8 +28,8 @@ class PermissionManager: PermissionManagerProtocol {
         case noAudioAccess
         case audioNotDetermined
 
-        case noNoteAccess
-        case noteNotDetermined
+        case noNotificationAccess
+        case notificationNotDetermined
     }
 
     func requestAudioPermission(_ completion: @escaping (Result<Void, PermissionErrors>) -> Void) {
@@ -93,6 +98,33 @@ class PermissionManager: PermissionManagerProtocol {
         case .authorized: break
         case .notDetermined: throw PermissionErrors.speechNotDetermined
         default: throw PermissionErrors.noSpeechAccess
+        }
+    }
+
+    func requestNotificationPermission(_ completion: @escaping (Result<Void, PermissionErrors>) -> Void) {
+        checkNotificationPermissions { error in
+            guard let error = error else {
+                completion(.success(()))
+                return
+            }
+            switch error {
+            case .notificationNotDetermined:
+                self.notificationCenter.requestAuthorization(options: self.options) { isAllowed, _ in
+                    isAllowed ? completion(.success(())) : completion(.failure(PermissionErrors.noNotificationAccess))
+                }
+            case .noNotificationAccess: completion(.failure(error))
+            default: break
+            }
+        }
+    }
+
+    private func checkNotificationPermissions(completion: @escaping (PermissionErrors?) -> Void) {
+        notificationCenter.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .authorized: completion(nil)
+            case .notDetermined: completion(PermissionErrors.notificationNotDetermined)
+            default: completion(PermissionErrors.noNotificationAccess)
+            }
         }
     }
 }

@@ -113,6 +113,7 @@ extension HomeViewController {
         switch error {
         case .audio: alertPresenter?.presentPermissionAlert(with: .audio)
         case .speech: alertPresenter?.presentPermissionAlert(with: .speech)
+        default: break
         }
     }
 

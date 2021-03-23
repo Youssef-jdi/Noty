@@ -58,6 +58,8 @@ class AlertPresenter: AlertPresenterProtocol {
             message = "You have denied access for Noty to access your Microphone.\n\nPlease go to the Settings app and enable Microphone access in order to record audio."
         case .speech:
             message = "You have denied access for Noty to access your Speech.\n\nPlease go to the Settings app and enable Camera access in order to send images."
+        case .notif:
+            message = "You have denied access for Noty to send notification.\n\nPlease go to the Settings app and enable access in order to get notifications"
         }
 
         let alert = UIAlertController(

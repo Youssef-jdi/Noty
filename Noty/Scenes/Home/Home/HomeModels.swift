@@ -17,5 +17,6 @@ enum HomeModels {
     enum PermissionError {
         case audio
         case speech
+        case notif
     }
 }

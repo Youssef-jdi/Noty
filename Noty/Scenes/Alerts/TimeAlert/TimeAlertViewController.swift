@@ -17,9 +17,12 @@ protocol TimeAlertViewControllerProtocol: class, UIViewControllerRouting {
     func set(interactor: TimeAlertInteractorProtocol)
     func set(router: TimeAlertRouterProtocol)
     func set(date: Date)
+    func set(note: NoteModel)
+    func set(alertPresenter: AlertPresenterProtocol)
 
-    // add the functions that are called from the presenter
     func display(time: String, isAm: Bool)
+    func display(permission errors: HomeModels.PermissionError)
+    func displayAddingnotif()
 }
 
 class TimeAlertViewController: UIViewController, TimeAlertViewControllerProtocol {
@@ -40,6 +43,14 @@ class TimeAlertViewController: UIViewController, TimeAlertViewControllerProtocol
         self.date = date
     }
 
+    func set(note: NoteModel) {
+        self.note = note
+    }
+
+    func set(alertPresenter: AlertPresenterProtocol) {
+        self.alertPresenter = alertPresenter
+    }
+
     // MARK: Outlets
     @IBOutlet weak var timePicker: UIDatePicker! {
         didSet {
@@ -57,6 +68,8 @@ class TimeAlertViewController: UIViewController, TimeAlertViewControllerProtocol
 
     // MARK: Properties
     var date: Date?
+    var note: NoteModel?
+    var alertPresenter: AlertPresenterProtocol?
 
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -66,14 +79,16 @@ class TimeAlertViewController: UIViewController, TimeAlertViewControllerProtocol
 
     // MARK: Actions
     @IBAction func okClicked(_ sender: Any) {
+        guard let date = date, let note = note else { return }
+        showSpinner()
+        let hours = Calendar.current.component(.hour, from: timePicker.date)
+        let minutes = Calendar.current.component(.minute, from: timePicker.date)
+        let finalDate = Calendar.current.date(bySettingHour: hours, minute: minutes, second: 0, of: date)
+        interactor?.addNotif(on: finalDate ?? date, with: note)
     }
 
     @IBAction func cancelClicked(_ sender: Any) {
-        let date = presentingViewController
-        date?.view.isHidden = true
-        self.dismiss(animated: true) {
-            date?.dismiss(animated: true, completion: nil)
-        }
+        dismiss(adding: false)
     }
 }
 
@@ -90,13 +105,34 @@ extension TimeAlertViewController {
         }
     }
 
+    func displayAddingnotif() {
+        dismiss(adding: true)
+    }
+
+    func display(permission errors: HomeModels.PermissionError) {
+        alertPresenter?.presentPermissionAlert(with: .notif)
+    }
+
     private func checkDate() {
         guard let date = self.date else { return }
-        timePicker.minimumDate = Calendar.current.isDateInToday(date) ? date : nil
-        interactor?.convertDate(date: date)
+        let currentDay = Date()
+        timePicker.minimumDate = Calendar.current.isDateInToday(date) ? currentDay : nil
+        interactor?.convertDate(date: currentDay)
     }
 
     @objc private func timePickerValueChanged() {
         interactor?.convertDate(date: timePicker.date)
+    }
+
+    private func dismiss(adding notif: Bool) {
+        DispatchQueue.main.async {[weak self] in
+            guard let self = self else { return }
+            notif ? self.hideSpinner() : ()
+            let date = self.presentingViewController
+            date?.view.isHidden = true
+            self.dismiss(animated: true) {
+                date?.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 }

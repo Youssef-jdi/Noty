@@ -60,6 +60,9 @@ class SharedAssembly: Assembly {
         // Date Formatter
         container.autoregister(DateFormatterProtocol.self, initializer: DateFormatterManager.init)
 
+        // Notification Manager
+        container.autoregister(NotificationManagerProtocol.self, initializer: NotificationManager.init)
+
         // DeepLink Manager
         container.autoregister(DeepLinkManagerProtocol.self, initializer: DeepLinkManager.init)
 
