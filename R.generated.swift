@@ -348,16 +348,32 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 2 files.
+  /// This `R.file` struct is generated, and contains static references to 4 files.
   struct file {
+    /// Resource file `Cow.mp3`.
+    static let cowMp3 = Rswift.FileResource(bundle: R.hostingBundle, name: "Cow", pathExtension: "mp3")
     /// Resource file `GoogleService-Info.plist`.
     static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
+    /// Resource file `Naughty.mp3`.
+    static let naughtyMp3 = Rswift.FileResource(bundle: R.hostingBundle, name: "Naughty", pathExtension: "mp3")
     /// Resource file `SplashAnimation.json`.
     static let splashAnimationJson = Rswift.FileResource(bundle: R.hostingBundle, name: "SplashAnimation", pathExtension: "json")
+
+    /// `bundle.url(forResource: "Cow", withExtension: "mp3")`
+    static func cowMp3(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.cowMp3
+      return fileResource.bundle.url(forResource: fileResource)
+    }
 
     /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
     static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.googleServiceInfoPlist
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Naughty", withExtension: "mp3")`
+    static func naughtyMp3(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.naughtyMp3
       return fileResource.bundle.url(forResource: fileResource)
     }
 

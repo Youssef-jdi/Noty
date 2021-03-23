@@ -16,12 +16,14 @@ class NotificationManager: NotificationManagerProtocol {
     private let notificationCenter = UNUserNotificationCenter.current()
     private let options: UNAuthorizationOptions = [.alert, .sound, .badge]
 
+    #warning("will make user choose notification sound 😎")
     func scheduleNotification(note: NoteModel, on date: Date, _ completion: @escaping (Result<Void, Error>) -> Void) {
         let content = UNMutableNotificationContent()
         content.body = note.text
         content.subtitle = "Subtitle"
         content.title = "Did you forget something 🙄"
-        content.sound = UNNotificationSound.default
+       // content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: R.file.cowMp3.name.appending(".mp3")))
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: R.file.naughtyMp3.name.appending(".mp3")))
         content.badge = 1
         
         let calender = Calendar.current.date(byAdding: .day, value: 0, to: date)

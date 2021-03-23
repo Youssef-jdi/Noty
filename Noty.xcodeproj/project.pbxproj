@@ -61,6 +61,8 @@
 		AA7978F226011B120071297C /* TutorialRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978EE26011B120071297C /* TutorialRouter.swift */; };
 		AA7978F326011B120071297C /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978EF26011B120071297C /* TutorialViewController.swift */; };
 		AA7978F426011B120071297C /* TutorialInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978F026011B120071297C /* TutorialInteractor.swift */; };
+		AA7A2C30260A40FE00D3F333 /* Cow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA7A2C2F260A40FE00D3F333 /* Cow.mp3 */; };
+		AA7A2C3D260A45B600D3F333 /* Naughty.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA7A2C3C260A45B600D3F333 /* Naughty.mp3 */; };
 		AA7EDBFF25D7230B004E415D /* TrancriptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7EDBFE25D7230B004E415D /* TrancriptorManager.swift */; };
 		AA7EDC0425D72C58004E415D /* RecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7EDC0325D72C58004E415D /* RecorderManager.swift */; };
 		AA855D6625DAC156008A3294 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA855D6225DAC156008A3294 /* LoginPresenter.swift */; };
@@ -229,6 +231,8 @@
 		AA7978EE26011B120071297C /* TutorialRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialRouter.swift; sourceTree = "<group>"; };
 		AA7978EF26011B120071297C /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		AA7978F026011B120071297C /* TutorialInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialInteractor.swift; sourceTree = "<group>"; };
+		AA7A2C2F260A40FE00D3F333 /* Cow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Cow.mp3; sourceTree = "<group>"; };
+		AA7A2C3C260A45B600D3F333 /* Naughty.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Naughty.mp3; sourceTree = "<group>"; };
 		AA7EDBFE25D7230B004E415D /* TrancriptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrancriptorManager.swift; sourceTree = "<group>"; };
 		AA7EDC0325D72C58004E415D /* RecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderManager.swift; sourceTree = "<group>"; };
 		AA855D6225DAC156008A3294 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -534,6 +538,7 @@
 		AA76A1E525D566D600903401 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				AA7A2C2E260A409F00D3F333 /* Notifications */,
 				AACAF56425D69A87009DE27C /* Assets.xcassets */,
 				AACAF55725D69A4A009DE27C /* Colors.xcassets */,
 				AA76A26B25D56DC900903401 /* SplashAnimation.json */,
@@ -664,6 +669,15 @@
 				AA76373326024F1800017467 /* TutorialStateManager.swift */,
 			);
 			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		AA7A2C2E260A409F00D3F333 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				AA7A2C3C260A45B600D3F333 /* Naughty.mp3 */,
+				AA7A2C2F260A40FE00D3F333 /* Cow.mp3 */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		AA855D6025DAC111008A3294 /* Login */ = {
@@ -1038,6 +1052,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA7A2C3D260A45B600D3F333 /* Naughty.mp3 in Resources */,
 				AA76A27A25D56E3900903401 /* SplashScreen.storyboard in Resources */,
 				AA76A26C25D56DC900903401 /* SplashAnimation.json in Resources */,
 				AA8F527C2606330600C55407 /* Alerts.storyboard in Resources */,
@@ -1048,6 +1063,7 @@
 				AA7613AE25FBCAC100E0B4E2 /* EmptyBackgroundView.xib in Resources */,
 				AA52774925DC240A00AE880D /* Toast.xib in Resources */,
 				AACAF58C25D69F63009DE27C /* LaunchScreen.storyboard in Resources */,
+				AA7A2C30260A40FE00D3F333 /* Cow.mp3 in Resources */,
 				AA92733825F65B5100D0A4D9 /* RootTabView.xib in Resources */,
 				AAB50F5525D6A64400980169 /* Home.storyboard in Resources */,
 				AA7978B32600FCAE0071297C /* NoteCell.xib in Resources */,
