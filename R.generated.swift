@@ -1313,8 +1313,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
+    /// Nib `ConfigCell`.
+    static let configCell = _R.nib._ConfigCell()
     /// Nib `EmptyBackgroundView`.
     static let emptyBackgroundView = _R.nib._EmptyBackgroundView()
     /// Nib `NoteCell`.
@@ -1323,6 +1325,14 @@ struct R: Rswift.Validatable {
     static let rootTabView = _R.nib._RootTabView()
     /// Nib `Toast`.
     static let toast = _R.nib._Toast()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "ConfigCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.configCell) instead")
+    static func configCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.configCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "EmptyBackgroundView", in: bundle)`
@@ -1356,6 +1366,10 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    static func configCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ConfigCell? {
+      return R.nib.configCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ConfigCell
+    }
+
     static func emptyBackgroundView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.emptyBackgroundView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -1375,8 +1389,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `configCell`.
+    static let configCell: Rswift.ReuseIdentifier<ConfigCell> = Rswift.ReuseIdentifier(identifier: "configCell")
     /// Reuse identifier `noteCell`.
     static let noteCell: Rswift.ReuseIdentifier<NoteCell> = Rswift.ReuseIdentifier(identifier: "noteCell")
 
@@ -1409,8 +1425,29 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _ConfigCell.validate()
       try _EmptyBackgroundView.validate()
       try _Toast.validate()
+    }
+
+    struct _ConfigCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = ConfigCell
+
+      let bundle = R.hostingBundle
+      let identifier = "configCell"
+      let name = "ConfigCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ConfigCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ConfigCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "Arrow_icon_black", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Arrow_icon_black' is used in nib 'ConfigCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
     }
 
     struct _EmptyBackgroundView: Rswift.NibResourceType, Rswift.Validatable {

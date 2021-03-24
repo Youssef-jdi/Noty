@@ -16,9 +16,10 @@ import UIKit
 protocol SettingsViewControllerProtocol: class, UIViewControllerRouting {
     func set(interactor: SettingsInteractorProtocol)
     func set(router: SettingsRouterProtocol)
+    func set(utilities: SettingsCollectionViewUtilitiesProtocol)
 
     // add the functions that are called from the presenter
-    func display(error: Error)
+    func display(config: [Config])
 }
 
 class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
@@ -34,15 +35,22 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
     func set(router: SettingsRouterProtocol) {
         self.router = router
     }
+
+    func set(utilities: SettingsCollectionViewUtilitiesProtocol) {
+        self.utilities = utilities
+    }
     
     // MARK: Outlets
-
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     // MARK: Properties
+    var utilities: SettingsCollectionViewUtilitiesProtocol?
 
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = R.color.vonoBlueDark()
+        setupCollectionView()
+        interactor?.prepareConfigDataSource()
     }
 
     // MARK: Actions
@@ -52,5 +60,22 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
 // MARK: Methods
 extension SettingsViewController {
 
-    func display(error: Error) {}
+    func display(config: [Config]) {
+        utilities?.set(dataSource: config)
+    }
+
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = utilities
+        collectionView.register(
+            UINib(resource: R.nib.configCell),
+            forCellWithReuseIdentifier: R.reuseIdentifier.configCell.identifier)
+    }
+}
+
+// MARK: UICollectionViewDelegate
+extension SettingsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }

@@ -187,9 +187,31 @@
                     <view key="view" contentMode="scaleToFill" id="Vp4-hu-wwN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iM5-xF-sA3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qh9-tq-USe">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iNg-Rq-My7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iM5-xF-sA3" firstAttribute="leading" secondItem="iNg-Rq-My7" secondAttribute="leading" id="5wa-a7-cuG"/>
+                            <constraint firstItem="iNg-Rq-My7" firstAttribute="trailing" secondItem="iM5-xF-sA3" secondAttribute="trailing" id="SVK-0c-Aey"/>
+                            <constraint firstItem="iM5-xF-sA3" firstAttribute="top" secondItem="iNg-Rq-My7" secondAttribute="top" id="a4y-Cm-qjr"/>
+                            <constraint firstItem="iNg-Rq-My7" firstAttribute="bottom" secondItem="iM5-xF-sA3" secondAttribute="bottom" id="cYu-X0-mhS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="iM5-xF-sA3" id="uwW-d3-rkb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCK-zy-PCc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

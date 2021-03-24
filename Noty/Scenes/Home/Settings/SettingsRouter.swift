@@ -23,7 +23,7 @@ class SettingsRouter: NSObject, SettingsRouterProtocol {
     // MARK: DI
     weak var viewController: SettingsViewControllerProtocol?
     private let rootNavigator: RootNavigatorProtocol
-    private let destinationStoryboard: Storyboard
+    private let homeStoryboard: Storyboard
 
     func set(viewController: SettingsViewControllerProtocol?) {
         self.viewController = viewController
@@ -31,10 +31,10 @@ class SettingsRouter: NSObject, SettingsRouterProtocol {
 
     init(
         rootNavigator: RootNavigatorProtocol,
-        destinationStoryboard: Storyboard
+        homeStoryboard: Storyboard
     ) {
         self.rootNavigator = rootNavigator
-        self.destinationStoryboard = destinationStoryboard
+        self.homeStoryboard = homeStoryboard
     }
 }
 

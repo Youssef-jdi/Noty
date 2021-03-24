@@ -286,7 +286,77 @@
             </objects>
             <point key="canvasLocation" x="1660.8695652173915" y="77.678571428571431"/>
         </scene>
+        <!--Language Alert View Controller-->
+        <scene sceneID="P7g-uG-TgW">
+            <objects>
+                <viewController id="tve-iA-GEH" customClass="LanguageAlertViewController" customModule="Noty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rfp-lA-FE0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CQ-6w-KBH" customClass="RoundedView" customModule="VoNo" customModuleProvider="target">
+                                <rect key="frame" x="32" y="227.5" width="350" height="451"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="5lg-Z8-DgG">
+                                        <rect key="frame" x="32" y="32" width="286" height="387"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8L-V6-X6w">
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="57.5"/>
+                                                <string key="text">Choose Your
+Preferred language</string>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="yXo-vi-mdq">
+                                                <rect key="frame" x="0.0" y="89.5" width="286" height="225.5"/>
+                                            </pickerView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrL-7z-3zS" customClass="AppButton" customModule="Noty" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="347" width="286" height="40"/>
+                                                <state key="normal" title="OK">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                        <color key="value" name="vonoBlueDark"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="vonoBlueDark"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="5lg-Z8-DgG" firstAttribute="top" secondItem="6CQ-6w-KBH" secondAttribute="top" constant="32" id="3gO-ym-bcS"/>
+                                    <constraint firstAttribute="bottom" secondItem="5lg-Z8-DgG" secondAttribute="bottom" constant="32" id="9rO-V3-d1A"/>
+                                    <constraint firstAttribute="trailing" secondItem="5lg-Z8-DgG" secondAttribute="trailing" constant="32" id="JlZ-Qk-YBy"/>
+                                    <constraint firstItem="5lg-Z8-DgG" firstAttribute="leading" secondItem="6CQ-6w-KBH" secondAttribute="leading" constant="32" id="m6j-hN-KI2"/>
+                                    <constraint firstItem="yXo-vi-mdq" firstAttribute="height" secondItem="6CQ-6w-KBH" secondAttribute="height" multiplier="0.5" id="qsH-8w-LkF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WCb-C1-V23"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6CQ-6w-KBH" firstAttribute="centerY" secondItem="WCb-C1-V23" secondAttribute="centerY" id="RNI-Xt-Bv9"/>
+                            <constraint firstItem="6CQ-6w-KBH" firstAttribute="leading" secondItem="Rfp-lA-FE0" secondAttribute="leading" constant="32" id="YLh-zB-Scf"/>
+                            <constraint firstItem="WCb-C1-V23" firstAttribute="trailing" secondItem="6CQ-6w-KBH" secondAttribute="trailing" constant="32" id="fau-AA-fDK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CkG-7Q-7dL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2345" y="78"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="FrL-7z-3zS">
+            <size key="intrinsicContentSize" width="50" height="40"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="vonoBlue">
             <color red="0.34901960784313724" green="0.81960784313725488" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

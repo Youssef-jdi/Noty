@@ -14,15 +14,26 @@
 import UIKit
 
 protocol SettingsInteractorProtocol {
-    // add the functions that are called from the view controller
+    func prepareConfigDataSource()
 }
 
 class SettingsInteractor: SettingsInteractorProtocol {
 
     // MARK: DI
     var presenter: SettingsPresenterProtocol
+    var userDefaults: UserDefaultsManagerProtocol
 
-    init(presenter: SettingsPresenterProtocol) {
+    init(
+        presenter: SettingsPresenterProtocol,
+        userDefaults: UserDefaultsManagerProtocol
+    ) {
         self.presenter = presenter
+        self.userDefaults = userDefaults
+    }
+}
+
+extension SettingsInteractor {
+    func prepareConfigDataSource() {
+        presenter.present(locale: userDefaults.selectedLanguage)
     }
 }

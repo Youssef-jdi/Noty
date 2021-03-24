@@ -115,6 +115,14 @@
 		AA9A8B0D25D6F54800D12C3E /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9A8B0C25D6F54800D12C3E /* AlertPresenter.swift */; };
 		AA9D460A25D97A000014922B /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D460925D97A000014922B /* HomeModels.swift */; };
 		AA9D4EF025E157C900AF70EA /* Notif.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D4EEF25E157C900AF70EA /* Notif.swift */; };
+		AA9DDED9260B6D1E0002197F /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DDED8260B6D1E0002197F /* SettingsModel.swift */; };
+		AA9DDEDF260B6DDF0002197F /* ConfigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DDEDE260B6DDF0002197F /* ConfigCell.swift */; };
+		AA9DDEE4260B6DEF0002197F /* ConfigCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9DDEE3260B6DEF0002197F /* ConfigCell.xib */; };
+		AA9DDEE9260B83830002197F /* SettingsCollectionViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DDEE8260B83820002197F /* SettingsCollectionViewUtilities.swift */; };
+		AA9DDEF2260BA2850002197F /* LanguageAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DDEEE260BA2850002197F /* LanguageAlertPresenter.swift */; };
+		AA9DDEF3260BA2850002197F /* LanguageAlertRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DDEEF260BA2850002197F /* LanguageAlertRouter.swift */; };
+		AA9DDEF4260BA2850002197F /* LanguageAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DDEF0260BA2850002197F /* LanguageAlertViewController.swift */; };
+		AA9DDEF5260BA2850002197F /* LanguageAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DDEF1260BA2850002197F /* LanguageAlertInteractor.swift */; };
 		AAA0749025E0026F0061347E /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA0748F25E0026F0061347E /* ErrorHandler.swift */; };
 		AAA0749525E0036C0061347E /* DeepLinkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA0749425E0036C0061347E /* DeepLinkError.swift */; };
 		AAA074BE25E01A210061347E /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA074BD25E01A210061347E /* FirebaseError.swift */; };
@@ -285,6 +293,14 @@
 		AA9A8B0C25D6F54800D12C3E /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		AA9D460925D97A000014922B /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		AA9D4EEF25E157C900AF70EA /* Notif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notif.swift; sourceTree = "<group>"; };
+		AA9DDED8260B6D1E0002197F /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		AA9DDEDE260B6DDF0002197F /* ConfigCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCell.swift; sourceTree = "<group>"; };
+		AA9DDEE3260B6DEF0002197F /* ConfigCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigCell.xib; sourceTree = "<group>"; };
+		AA9DDEE8260B83820002197F /* SettingsCollectionViewUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewUtilities.swift; sourceTree = "<group>"; };
+		AA9DDEEE260BA2850002197F /* LanguageAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageAlertPresenter.swift; sourceTree = "<group>"; };
+		AA9DDEEF260BA2850002197F /* LanguageAlertRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageAlertRouter.swift; sourceTree = "<group>"; };
+		AA9DDEF0260BA2850002197F /* LanguageAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageAlertViewController.swift; sourceTree = "<group>"; };
+		AA9DDEF1260BA2850002197F /* LanguageAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageAlertInteractor.swift; sourceTree = "<group>"; };
 		AAA0748F25E0026F0061347E /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		AAA0749425E0036C0061347E /* DeepLinkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkError.swift; sourceTree = "<group>"; };
 		AAA074BD25E01A210061347E /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
@@ -365,6 +381,7 @@
 		AA52772E25DC1B7600AE880D /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				AA9DDEDD260B6DC80002197F /* ConfigCell */,
 				AA7978A92600FC950071297C /* NoteCell */,
 				AA7613AC25FBCAA800E0B4E2 /* EmptyBackgroundView */,
 				AA92733625F65B4000D0A4D9 /* RootTabView */,
@@ -401,6 +418,8 @@
 				AA6EBA2C25F7939500FFF099 /* SettingsRouter.swift */,
 				AA6EBA2D25F7939500FFF099 /* SettingsViewController.swift */,
 				AA6EBA2E25F7939500FFF099 /* SettingsInteractor.swift */,
+				AA9DDED8260B6D1E0002197F /* SettingsModel.swift */,
+				AA9DDEE8260B83820002197F /* SettingsCollectionViewUtilities.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -754,6 +773,7 @@
 		AA8F5280260633C100C55407 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
+				AA9DDEED260BA26A0002197F /* LanguageAlert */,
 				AA8F52902606341300C55407 /* TimeAlert */,
 				AA8F528F2606340100C55407 /* DateAlert */,
 				AA8F5281260633D200C55407 /* AlertsDI */,
@@ -843,6 +863,26 @@
 				AA9D4EEF25E157C900AF70EA /* Notif.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		AA9DDEDD260B6DC80002197F /* ConfigCell */ = {
+			isa = PBXGroup;
+			children = (
+				AA9DDEDE260B6DDF0002197F /* ConfigCell.swift */,
+				AA9DDEE3260B6DEF0002197F /* ConfigCell.xib */,
+			);
+			path = ConfigCell;
+			sourceTree = "<group>";
+		};
+		AA9DDEED260BA26A0002197F /* LanguageAlert */ = {
+			isa = PBXGroup;
+			children = (
+				AA9DDEEE260BA2850002197F /* LanguageAlertPresenter.swift */,
+				AA9DDEEF260BA2850002197F /* LanguageAlertRouter.swift */,
+				AA9DDEF0260BA2850002197F /* LanguageAlertViewController.swift */,
+				AA9DDEF1260BA2850002197F /* LanguageAlertInteractor.swift */,
+			);
+			path = LanguageAlert;
 			sourceTree = "<group>";
 		};
 		AAB50F5325D6A63500980169 /* Home */ = {
@@ -1057,6 +1097,7 @@
 				AA76A26C25D56DC900903401 /* SplashAnimation.json in Resources */,
 				AA8F527C2606330600C55407 /* Alerts.storyboard in Resources */,
 				AACAF55925D69A4A009DE27C /* Colors.xcassets in Resources */,
+				AA9DDEE4260B6DEF0002197F /* ConfigCell.xib in Resources */,
 				AA76A31625D58EAF00903401 /* OnBoarding.storyboard in Resources */,
 				AACAF56525D69A88009DE27C /* Assets.xcassets in Resources */,
 				AA76A36125D594A600903401 /* GoogleService-Info.plist in Resources */,
@@ -1294,6 +1335,7 @@
 				AA855D6925DAC156008A3294 /* LoginInteractor.swift in Sources */,
 				AA7613F725FBD81D00E0B4E2 /* Note + Extension.swift in Sources */,
 				AA7613B325FBCAD000E0B4E2 /* EmptyBackgroundView.swift in Sources */,
+				AA9DDEE9260B83830002197F /* SettingsCollectionViewUtilities.swift in Sources */,
 				AA855DA225DAE673008A3294 /* UIView+shake.swift in Sources */,
 				AA52774125DC1EF300AE880D /* ToastManager.swift in Sources */,
 				AA9272FA25F6559300D0A4D9 /* RootPresenter.swift in Sources */,
@@ -1304,8 +1346,10 @@
 				AA8E54B125FFD0DB0034697D /* NotysTableViewUtils.swift in Sources */,
 				AA8F52B026063FC300C55407 /* DateFormatter.swift in Sources */,
 				AA855D9C25DAE151008A3294 /* LoginModels.swift in Sources */,
+				AA9DDED9260B6D1E0002197F /* SettingsModel.swift in Sources */,
 				AA52774E25DC24E100AE880D /* RoundedView.swift in Sources */,
 				AA855D6825DAC156008A3294 /* LoginViewController.swift in Sources */,
+				AA9DDEF4260BA2850002197F /* LanguageAlertViewController.swift in Sources */,
 				AA76A1F725D567B500903401 /* RootNavigator.swift in Sources */,
 				AA76A21525D568F700903401 /* TopViewController.swift in Sources */,
 				AAB50F6225D6A6E700980169 /* HomeInteractor.swift in Sources */,
@@ -1322,7 +1366,9 @@
 				AA95D7B225D94E5B00F94553 /* LanguageInteractor.swift in Sources */,
 				AA92734D25F6604600D0A4D9 /* NotysViewController.swift in Sources */,
 				AAB50F6F25D6A80300980169 /* HomeAssembly.swift in Sources */,
+				AA9DDEF5260BA2850002197F /* LanguageAlertInteractor.swift in Sources */,
 				AA6EBA3225F7939500FFF099 /* SettingsInteractor.swift in Sources */,
+				AA9DDEF3260BA2850002197F /* LanguageAlertRouter.swift in Sources */,
 				AA76140225FBD99000E0B4E2 /* NoteModel.swift in Sources */,
 				AA76A28325D56E4D00903401 /* SplashScreenRouter.swift in Sources */,
 				AAB50F7B25D6AA3000980169 /* WelcomeRouter.swift in Sources */,
@@ -1368,11 +1414,13 @@
 				AA8F5283260633E300C55407 /* AlertsAssembly.swift in Sources */,
 				AA76A31C25D58F8F00903401 /* OnBoardingStoryboard.swift in Sources */,
 				AA76A1EF25D5674C00903401 /* Noty.swift in Sources */,
+				AA9DDEF2260BA2850002197F /* LanguageAlertPresenter.swift in Sources */,
 				AA8F529A260634AE00C55407 /* DateAlertViewController.swift in Sources */,
 				AA7978F426011B120071297C /* TutorialInteractor.swift in Sources */,
 				AAB50FBD25D6C35200980169 /* PermissionInteractor.swift in Sources */,
 				AAB50F8A25D6B27D00980169 /* VTextView.swift in Sources */,
 				AAB50FBB25D6C35200980169 /* PermissionRouter.swift in Sources */,
+				AA9DDEDF260B6DDF0002197F /* ConfigCell.swift in Sources */,
 				AACED18F25DEB10900C0EA4D /* DeepLinkManager.swift in Sources */,
 				AA76A20325D5689200903401 /* UIApplicationProtocol.swift in Sources */,
 				AA76A22C25D56AB600903401 /* R.generated.swift in Sources */,

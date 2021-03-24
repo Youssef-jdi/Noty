@@ -17,7 +17,7 @@ protocol SettingsPresenterProtocol {
     func set(viewController: SettingsViewControllerProtocol?)
 
     // add the functions that are called from interactor
-    func handle(error: Error)
+    func present(locale: Locale)
 }
 
 class SettingsPresenter: SettingsPresenterProtocol {
@@ -33,7 +33,21 @@ class SettingsPresenter: SettingsPresenterProtocol {
 // MARK: Methods
 extension  SettingsPresenter {
 
-    func handle(error: Error) {
-        viewController?.display(error: error)
+    func present(locale: Locale) {
+        let configs = [
+            Config(
+                mainText: "SHARE NOTY",
+                secondaryText: nil,
+                flagImage: nil),
+            Config(
+                mainText: "VOICE-TO-TEXT LANGUAGE",
+                secondaryText: Locale.current.localizedString(forIdentifier: locale.identifier)?.uppercased(),
+                flagImage: locale),
+            Config(
+                mainText: "REPORT AN ISSUE",
+                secondaryText: nil,
+                flagImage: nil)
+        ]
+        viewController?.display(config: configs)
     }
 }

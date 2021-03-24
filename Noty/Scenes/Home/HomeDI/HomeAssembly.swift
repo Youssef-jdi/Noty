@@ -109,5 +109,30 @@ class HomeAssembly: Assembly {
             vc.set(interactor: interactor)
             vc.set(router: router)
         }
+
+        // MARK: Settings VC
+        container.register(SettingsRouterProtocol.self) { resolver in
+            return SettingsRouter(
+                rootNavigator: resolver ~> (RootNavigatorProtocol.self),
+                homeStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.home.name))
+        }
+
+        container.autoregister(SettingsPresenterProtocol.self, initializer: SettingsPresenter.init)
+        container.autoregister(SettingsInteractorProtocol.self, initializer: SettingsInteractor.init)
+        container.autoregister(SettingsCollectionViewUtilitiesProtocol.self, initializer: SettingsCollectionViewUtilities.init)
+
+        container.storyboardInitCompleted(SettingsViewController.self) { resolver, vc in
+            let router = resolver ~> (SettingsRouterProtocol.self)
+            let presenter = resolver ~> (SettingsPresenterProtocol.self)
+            let interactor = resolver ~> (SettingsInteractorProtocol.self)
+            let utilities = resolver ~> (SettingsCollectionViewUtilitiesProtocol.self)
+
+            router.set(viewController: vc)
+            presenter.set(viewController: vc)
+
+            vc.set(router: router)
+            vc.set(interactor: interactor)
+            vc.set(utilities: utilities)
+        }
     }
 }
