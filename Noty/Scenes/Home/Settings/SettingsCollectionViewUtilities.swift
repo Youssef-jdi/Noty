@@ -7,8 +7,10 @@
 
 import UIKit
 
-protocol SettingsCollectionViewUtilitiesProtocol: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+protocol SettingsCollectionViewUtilitiesProtocol: UICollectionViewDataSource {
     func set(dataSource: [Config])
+
+    var dataSource: [Config] { get set }
 }
 
 class SettingsCollectionViewUtilities: NSObject, SettingsCollectionViewUtilitiesProtocol {
@@ -27,9 +29,5 @@ class SettingsCollectionViewUtilities: NSObject, SettingsCollectionViewUtilities
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.configCell.identifier, for: indexPath) as? ConfigCell else { return UICollectionViewCell() }
         cell.configureCell(with: dataSource[indexPath.row])
         return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.size.width, height: 76)
     }
 }

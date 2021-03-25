@@ -52,9 +52,7 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
         setupCollectionView()
         interactor?.prepareConfigDataSource()
     }
-
     // MARK: Actions
-
 }
 
 // MARK: Methods
@@ -62,6 +60,7 @@ extension SettingsViewController {
 
     func display(config: [Config]) {
         utilities?.set(dataSource: config)
+        collectionView.reloadData()
     }
 
     private func setupCollectionView() {
@@ -74,8 +73,26 @@ extension SettingsViewController {
 }
 
 // MARK: UICollectionViewDelegate
-extension SettingsViewController: UICollectionViewDelegate {
+extension SettingsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        switch indexPath.item {
+        case 0: Console.log(type: .success, "Share noty")
+        case 1: router?.route(to: .languageAlert(self))
+        case 2: Console.log(type: .success, "Report an issue")
+        default: break
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width, height: 76)
+    }
+}
+
+// MARK: NewLanguageSelectedDelegate
+extension SettingsViewController: NewLanguageSelectedDelegate {
+    func finishSaving() {
+        utilities?.dataSource.removeAll()
+        collectionView.reloadData()
+        interactor?.prepareConfigDataSource()
     }
 }

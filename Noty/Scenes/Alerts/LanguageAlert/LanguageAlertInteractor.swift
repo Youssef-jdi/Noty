@@ -14,15 +14,32 @@
 import UIKit
 
 protocol LanguageAlertInteractorProtocol {
-    // add the functions that are called from the view controller
+    func handleInitialLanguage()
+    func handleSavingLanguage(language: Locale)
 }
 
 class LanguageAlertInteractor: LanguageAlertInteractorProtocol {
 
     // MARK: DI
     var presenter: LanguageAlertPresenterProtocol
+    var userDefaults: UserDefaultsManagerProtocol
 
-    init(presenter: LanguageAlertPresenterProtocol) {
+    init(
+        presenter: LanguageAlertPresenterProtocol,
+        userDefaults: UserDefaultsManagerProtocol
+    ) {
         self.presenter = presenter
+        self.userDefaults = userDefaults
+    }
+}
+
+extension LanguageAlertInteractor {
+    func handleInitialLanguage() {
+        presenter.present(initial: userDefaults.selectedLanguage)
+    }
+
+    func handleSavingLanguage(language: Locale) {
+        userDefaults.selectedLanguage = language
+        presenter.presentSaving()
     }
 }

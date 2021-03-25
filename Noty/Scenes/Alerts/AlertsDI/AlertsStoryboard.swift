@@ -32,11 +32,13 @@ class AlertsStoryboard: Storyboard {
 enum AlertsStoryboardId: StoryboardId {
     case date
     case time
+    case language
 
     var identifier: String {
         switch self {
         case .date: return R.storyboard.alerts.dateAlertViewController.identifier
         case .time: return R.storyboard.alerts.timeAlertViewController.identifier
+        case .language: return R.storyboard.alerts.languageAlertViewController.identifier
         }
     }
 }

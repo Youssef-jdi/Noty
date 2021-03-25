@@ -16,8 +16,8 @@ import UIKit
 protocol LanguageAlertPresenterProtocol {
     func set(viewController: LanguageAlertViewControllerProtocol?)
 
-    // add the functions that are called from interactor
-    func handle(error: Error)
+    func present(initial language: Locale)
+    func presentSaving()
 }
 
 class LanguageAlertPresenter: LanguageAlertPresenterProtocol {
@@ -33,7 +33,11 @@ class LanguageAlertPresenter: LanguageAlertPresenterProtocol {
 // MARK: Methods
 extension  LanguageAlertPresenter {
 
-    func handle(error: Error) {
-        viewController?.display(error: error)
+    func present(initial language: Locale) {
+        viewController?.display(initial: language)
+    }
+
+    func presentSaving() {
+        viewController?.displaySaving()
     }
 }

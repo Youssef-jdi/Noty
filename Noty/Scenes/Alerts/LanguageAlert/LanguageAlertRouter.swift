@@ -23,7 +23,7 @@ class LanguageAlertRouter: NSObject, LanguageAlertRouterProtocol {
     //MARK: DI
     weak var viewController: LanguageAlertViewControllerProtocol?
     private let rootNavigator: RootNavigatorProtocol
-    private let destinationStoryboard: Storyboard
+    private let alertsStoryboard: Storyboard
 
     func set(viewController: LanguageAlertViewControllerProtocol?) {
         self.viewController = viewController
@@ -31,10 +31,10 @@ class LanguageAlertRouter: NSObject, LanguageAlertRouterProtocol {
 
     init(
         rootNavigator: RootNavigatorProtocol,
-        destinationStoryboard: Storyboard
+        alertsStoryboard: Storyboard
     ) {
         self.rootNavigator = rootNavigator
-        self.destinationStoryboard = destinationStoryboard
+        self.alertsStoryboard = alertsStoryboard
     }
 }
 

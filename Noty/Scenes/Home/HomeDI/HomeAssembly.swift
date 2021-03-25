@@ -114,7 +114,8 @@ class HomeAssembly: Assembly {
         container.register(SettingsRouterProtocol.self) { resolver in
             return SettingsRouter(
                 rootNavigator: resolver ~> (RootNavigatorProtocol.self),
-                homeStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.home.name))
+                homeStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.home.name),
+                alertStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.alerts.name))
         }
 
         container.autoregister(SettingsPresenterProtocol.self, initializer: SettingsPresenter.init)

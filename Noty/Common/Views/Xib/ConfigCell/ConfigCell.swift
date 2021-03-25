@@ -21,6 +21,9 @@ class ConfigCell: UICollectionViewCell {
             flagImageView.isHidden = false
             languageLabel.text = secondary
             flagImageView.image = flag.image(style: .roundedRect)
+        } else {
+            languageLabel.isHidden = true
+            flagImageView.isHidden = true
         }
     }
 }

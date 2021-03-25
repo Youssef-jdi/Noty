@@ -1539,11 +1539,16 @@ struct _R: Rswift.Validatable {
     struct alerts: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let dateAlertViewController = StoryboardViewControllerResource<DateAlertViewController>(identifier: "DateAlertViewController")
+      let languageAlertViewController = StoryboardViewControllerResource<LanguageAlertViewController>(identifier: "LanguageAlertViewController")
       let name = "Alerts"
       let timeAlertViewController = StoryboardViewControllerResource<TimeAlertViewController>(identifier: "TimeAlertViewController")
 
       func dateAlertViewController(_: Void = ()) -> DateAlertViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: dateAlertViewController)
+      }
+
+      func languageAlertViewController(_: Void = ()) -> LanguageAlertViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: languageAlertViewController)
       }
 
       func timeAlertViewController(_: Void = ()) -> TimeAlertViewController? {
@@ -1556,6 +1561,7 @@ struct _R: Rswift.Validatable {
           if UIKit.UIColor(named: "vonoBlueDark", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'vonoBlueDark' is used in storyboard 'Alerts', but couldn't be loaded.") }
         }
         if _R.storyboard.alerts().dateAlertViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'dateAlertViewController' could not be loaded from storyboard 'Alerts' as 'DateAlertViewController'.") }
+        if _R.storyboard.alerts().languageAlertViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'languageAlertViewController' could not be loaded from storyboard 'Alerts' as 'LanguageAlertViewController'.") }
         if _R.storyboard.alerts().timeAlertViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'timeAlertViewController' could not be loaded from storyboard 'Alerts' as 'TimeAlertViewController'.") }
       }
 

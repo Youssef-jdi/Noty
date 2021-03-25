@@ -24,6 +24,7 @@ class SettingsRouter: NSObject, SettingsRouterProtocol {
     weak var viewController: SettingsViewControllerProtocol?
     private let rootNavigator: RootNavigatorProtocol
     private let homeStoryboard: Storyboard
+    private let alertStoryboard: Storyboard
 
     func set(viewController: SettingsViewControllerProtocol?) {
         self.viewController = viewController
@@ -31,10 +32,12 @@ class SettingsRouter: NSObject, SettingsRouterProtocol {
 
     init(
         rootNavigator: RootNavigatorProtocol,
-        homeStoryboard: Storyboard
+        homeStoryboard: Storyboard,
+        alertStoryboard: Storyboard
     ) {
         self.rootNavigator = rootNavigator
         self.homeStoryboard = homeStoryboard
+        self.alertStoryboard = alertStoryboard
     }
 }
 
@@ -42,12 +45,15 @@ class SettingsRouter: NSObject, SettingsRouterProtocol {
 extension SettingsRouter {
 
     enum Scene {
-        case destination1
+        case languageAlert(NewLanguageSelectedDelegate?)
     }
 
     func route(to scene: SettingsRouter.Scene) {
         switch scene {
-        case .destination1: break
+        case .languageAlert(let delegate):
+            guard let vc = alertStoryboard.viewController(identifier: AlertsStoryboardId.language) as? LanguageAlertViewController else { assertionFailure(); return }
+            vc.delegate = delegate
+            viewController?.present(vc, animated: true, completion: nil)
         }
     }
 }

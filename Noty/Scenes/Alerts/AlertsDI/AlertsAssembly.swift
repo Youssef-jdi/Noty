@@ -56,5 +56,27 @@ class AlertsAssemly: Assembly {
             vc.set(router: router)
             vc.set(interactor: interactor)
         }
+
+        // MARK: Language Alert vc
+        container.register(LanguageAlertRouterProtocol.self) { resolver in
+            return LanguageAlertRouter(
+                rootNavigator: resolver ~> (RootNavigatorProtocol.self),
+                alertsStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.alerts.name))
+        }
+
+        container.autoregister(LanguageAlertPresenterProtocol.self, initializer: LanguageAlertPresenter.init)
+        container.autoregister(LanguageAlertInteractorProtocol.self, initializer: LanguageAlertInteractor.init)
+
+        container.storyboardInitCompleted(LanguageAlertViewController.self) { resolver, vc in
+            let router = resolver ~> (LanguageAlertRouterProtocol.self)
+            let interactor = resolver ~> (LanguageAlertInteractorProtocol.self)
+            let presenter = resolver ~> (LanguageAlertPresenterProtocol.self)
+
+            router.set(viewController: vc)
+            presenter.set(viewController: vc)
+
+            vc.set(router: router)
+            vc.set(interactor: interactor)
+        }
     }
 }

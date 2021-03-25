@@ -289,12 +289,12 @@
         <!--Language Alert View Controller-->
         <scene sceneID="P7g-uG-TgW">
             <objects>
-                <viewController id="tve-iA-GEH" customClass="LanguageAlertViewController" customModule="Noty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LanguageAlertViewController" id="tve-iA-GEH" customClass="LanguageAlertViewController" customModule="Noty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rfp-lA-FE0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CQ-6w-KBH" customClass="RoundedView" customModule="VoNo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CQ-6w-KBH" customClass="RoundedView" customModule="Noty" customModuleProvider="target">
                                 <rect key="frame" x="32" y="227.5" width="350" height="451"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="5lg-Z8-DgG">
@@ -324,6 +324,9 @@ Preferred language</string>
                                                         <color key="value" name="vonoBlueDark"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="okClicked:" destination="tve-iA-GEH" eventType="touchUpInside" id="fQV-Xz-1ly"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -346,6 +349,9 @@ Preferred language</string>
                             <constraint firstItem="WCb-C1-V23" firstAttribute="trailing" secondItem="6CQ-6w-KBH" secondAttribute="trailing" constant="32" id="fau-AA-fDK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="languagePickerView" destination="yXo-vi-mdq" id="tpZ-5k-XYU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CkG-7Q-7dL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
