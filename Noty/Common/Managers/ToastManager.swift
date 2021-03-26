@@ -60,17 +60,9 @@ class ToastManager: ToastManagerProtocol {
 
     private func getMultiplier(for toastCase: Toast.ToastCases) -> CGFloat {
         switch toastCase {
-        case .emailNotVerified,
-             .noMicrophone,
-             .noSpeech,
-             .noCamera,
-             .noReminder,
-             .noInternetConnection:
-            return 0.9
         case .cantSaveNote,
              .noteSaved:
             return 0.5
-
         default:
             return 0.5
         }
@@ -78,18 +70,11 @@ class ToastManager: ToastManagerProtocol {
 
     private func getDuration(for toastCase: Toast.ToastCases) -> Double {
         switch toastCase {
-        case .noMicrophone,
-             .noSpeech,
-             .noReminder:
-            return 4.0
-
+        case .emptyTitle:
+            return 0.6
         case .noteSaved,
              .cantSaveNote:
             return 1
-
-        case .noCamera:
-            return .infinity
-
         default:
             return 2.0
         }

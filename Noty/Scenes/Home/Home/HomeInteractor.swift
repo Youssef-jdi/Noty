@@ -54,13 +54,17 @@ extension HomeInteractor {
         })
         let save = UIAlertAction(title: "Save", style: .default) {[weak self] _ in
             guard let self = self else { return }
-            self.saveNote(with: note)
+            self.routeToTitle()
         }
         let choiceActionSheet = UIAlertController(title: "Action", message: nil, preferredStyle: .actionSheet)
         choiceActionSheet.addAction(cancel)
         choiceActionSheet.addAction(email)
         choiceActionSheet.addAction(save)
         presenter.present(choiceActionSheet: choiceActionSheet)
+    }
+
+    private func routeToTitle() {
+        presenter.presentRoutingToTitle()
     }
 
     func handleEmailOpenApp(with body: String) {
@@ -93,19 +97,19 @@ extension HomeInteractor {
         return action
     }
 
-    func saveNote(with text: String) {
-        presenter.presentSpinner()
-        var model = NoteModel(
-            id: nil,
-            text: text,
-            isFavorite: false,
-            isReminded: false,
-            remindedDate: nil)
-        noteService.save(from: &model) {[weak self] result in
-            guard let self = self else { return }
-            self.presenter.present(save: result)
-        }
-    }
+//    func saveNote(with text: String) {
+//        presenter.presentSpinner()
+//        var model = NoteModel(
+//            id: nil,
+//            text: text,
+//            isFavorite: false,
+//            isReminded: false,
+//            remindedDate: nil)
+//        noteService.save(from: &model) {[weak self] result in
+//            guard let self = self else { return }
+//            self.presenter.present(save: result)
+//        }
+//    }
 
     func startRecording() {
         self.checkPermission { [weak self] in

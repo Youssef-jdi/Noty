@@ -357,8 +357,147 @@ Preferred language</string>
             </objects>
             <point key="canvasLocation" x="2345" y="78"/>
         </scene>
+        <!--Title Alert View Controller-->
+        <scene sceneID="uA3-yR-Ltf">
+            <objects>
+                <viewController storyboardIdentifier="TitleAlertViewController" id="q2H-D7-DjC" customClass="TitleAlertViewController" customModule="Noty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6CX-4Z-gL8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcG-MU-NOJ" customClass="RoundedView" customModule="Noty" customModuleProvider="target">
+                                <rect key="frame" x="32" y="254.5" width="350" height="397"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="vse-zb-ba0">
+                                        <rect key="frame" x="32" y="32" width="286" height="333"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="C0T-h8-MHH">
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="85.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMG-bP-kt6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="286" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The title will be displayed in the list of notys" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="43d-qU-URH">
+                                                        <rect key="frame" x="0.0" y="49.5" width="286" height="36"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xh5-xc-2zT">
+                                                <rect key="frame" x="0.0" y="117.5" width="286" height="19.5"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Mm-7U-b7I" customClass="AppTextField" customModule="Noty" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="286" height="19.5"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="oneLineBorder" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jad-ur-OOy">
+                                                <rect key="frame" x="0.0" y="169" width="286" height="164"/>
+                                                <subviews>
+                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="9PJ-2W-3Xb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="286" height="44"/>
+                                                    </activityIndicatorView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2V5-GL-cBU" customClass="AppButton" customModule="Noty" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="60" width="286" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="5Nv-ds-6mP"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <state key="normal" title="SAVE NOTE">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                                <color key="value" name="vonoBlueDark"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="saveClicked:" destination="q2H-D7-DjC" eventType="touchUpInside" id="2WH-gb-PYF"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32P-gB-dTU" customClass="AppButton" customModule="Noty" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="120" width="286" height="44"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <state key="normal" title="CANCEL">
+                                                            <color key="titleColor" name="vonoBlueDark"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="vonoBlueDark"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="cancelClicked:" destination="q2H-D7-DjC" eventType="touchUpInside" id="e7E-LA-u8D"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="vse-zb-ba0" firstAttribute="top" secondItem="wcG-MU-NOJ" secondAttribute="top" constant="32" id="DqU-fa-mmX"/>
+                                    <constraint firstAttribute="bottom" secondItem="vse-zb-ba0" secondAttribute="bottom" constant="32" id="I8p-mz-rx4"/>
+                                    <constraint firstItem="vse-zb-ba0" firstAttribute="leading" secondItem="wcG-MU-NOJ" secondAttribute="leading" constant="32" id="cNZ-26-nSO"/>
+                                    <constraint firstAttribute="trailing" secondItem="vse-zb-ba0" secondAttribute="trailing" constant="32" id="hvH-J9-qzy"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Tmf-fQ-G8h"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wcG-MU-NOJ" firstAttribute="centerY" secondItem="Tmf-fQ-G8h" secondAttribute="centerY" id="DMk-Vq-FO1"/>
+                            <constraint firstItem="wcG-MU-NOJ" firstAttribute="leading" secondItem="Tmf-fQ-G8h" secondAttribute="leading" constant="32" id="PWT-jF-QLF"/>
+                            <constraint firstItem="Tmf-fQ-G8h" firstAttribute="trailing" secondItem="wcG-MU-NOJ" secondAttribute="trailing" constant="32" id="dSW-bP-tNL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="9PJ-2W-3Xb" id="mCB-ot-RcD"/>
+                        <outlet property="saveButton" destination="2V5-GL-cBU" id="LFy-xz-4nC"/>
+                        <outlet property="titleTextField" destination="3Mm-7U-b7I" id="GJb-9r-BWZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gvc-YR-ZM2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3054" y="78"/>
+        </scene>
     </scenes>
     <designables>
+        <designable name="2V5-GL-cBU">
+            <size key="intrinsicContentSize" width="103" height="40"/>
+        </designable>
+        <designable name="32P-gB-dTU">
+            <size key="intrinsicContentSize" width="81" height="40"/>
+        </designable>
+        <designable name="3Mm-7U-b7I">
+            <size key="intrinsicContentSize" width="50" height="19.5"/>
+        </designable>
         <designable name="FrL-7z-3zS">
             <size key="intrinsicContentSize" width="50" height="40"/>
         </designable>

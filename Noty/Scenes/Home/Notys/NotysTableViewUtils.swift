@@ -37,7 +37,7 @@ class NotysTableViewUtils: NSObject, NotysTableViewUtilsProtocol {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.noteCell.identifier, for: indexPath) as? NoteCell
         else { assertionFailure("Couldn't create cell"); return UITableViewCell() }
-        cell.configure(with: data[indexPath.row].text)
+        cell.configure(with: data[indexPath.row].title)
         return cell
     }
 

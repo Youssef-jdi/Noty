@@ -12,6 +12,7 @@ struct NoteModel {
      - Id is a var cause it's assigned when we fetch the count of our Entity in DB
      */
     var id: String?
+    let title: String
     let text: String
     var isFavorite: Bool
     var isReminded: Bool
@@ -19,6 +20,7 @@ struct NoteModel {
 
     static func map(from entity: Note) -> NoteModel {
         return NoteModel(id: entity.id,
+                         title: entity.title ?? "",
                          text: entity.text ?? "",
                          isFavorite: entity.isFavourite,
                          isReminded: entity.isReminded,

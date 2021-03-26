@@ -54,6 +54,10 @@
 		AA76A31C25D58F8F00903401 /* OnBoardingStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76A31B25D58F8F00903401 /* OnBoardingStoryboard.swift */; };
 		AA76A32125D5903500903401 /* OnBoardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76A32025D5903500903401 /* OnBoardingAssembly.swift */; };
 		AA76A36125D594A600903401 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA76A36025D594A600903401 /* GoogleService-Info.plist */; };
+		AA770D15260CEF9E0052FA92 /* TitleAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA770D11260CEF9E0052FA92 /* TitleAlertPresenter.swift */; };
+		AA770D16260CEF9E0052FA92 /* TitleAlertRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA770D12260CEF9E0052FA92 /* TitleAlertRouter.swift */; };
+		AA770D17260CEF9E0052FA92 /* TitleAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA770D13260CEF9E0052FA92 /* TitleAlertViewController.swift */; };
+		AA770D18260CEF9E0052FA92 /* TitleAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA770D14260CEF9E0052FA92 /* TitleAlertInteractor.swift */; };
 		AA7832222608D5530090096D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7832212608D5530090096D /* NotificationManager.swift */; };
 		AA7978AB2600FCA30071297C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978AA2600FCA30071297C /* NoteCell.swift */; };
 		AA7978B32600FCAE0071297C /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7978B22600FCAE0071297C /* NoteCell.xib */; };
@@ -232,6 +236,10 @@
 		AA76A31B25D58F8F00903401 /* OnBoardingStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingStoryboard.swift; sourceTree = "<group>"; };
 		AA76A32025D5903500903401 /* OnBoardingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingAssembly.swift; sourceTree = "<group>"; };
 		AA76A36025D594A600903401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AA770D11260CEF9E0052FA92 /* TitleAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAlertPresenter.swift; sourceTree = "<group>"; };
+		AA770D12260CEF9E0052FA92 /* TitleAlertRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAlertRouter.swift; sourceTree = "<group>"; };
+		AA770D13260CEF9E0052FA92 /* TitleAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAlertViewController.swift; sourceTree = "<group>"; };
+		AA770D14260CEF9E0052FA92 /* TitleAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAlertInteractor.swift; sourceTree = "<group>"; };
 		AA7832212608D5530090096D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		AA7978AA2600FCA30071297C /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		AA7978B22600FCAE0071297C /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
@@ -669,6 +677,17 @@
 			path = OnBoardingDI;
 			sourceTree = "<group>";
 		};
+		AA770D10260CEF8D0052FA92 /* TitleAlert */ = {
+			isa = PBXGroup;
+			children = (
+				AA770D11260CEF9E0052FA92 /* TitleAlertPresenter.swift */,
+				AA770D12260CEF9E0052FA92 /* TitleAlertRouter.swift */,
+				AA770D13260CEF9E0052FA92 /* TitleAlertViewController.swift */,
+				AA770D14260CEF9E0052FA92 /* TitleAlertInteractor.swift */,
+			);
+			path = TitleAlert;
+			sourceTree = "<group>";
+		};
 		AA7978A92600FC950071297C /* NoteCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -773,6 +792,7 @@
 		AA8F5280260633C100C55407 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
+				AA770D10260CEF8D0052FA92 /* TitleAlert */,
 				AA9DDEED260BA26A0002197F /* LanguageAlert */,
 				AA8F52902606341300C55407 /* TimeAlert */,
 				AA8F528F2606340100C55407 /* DateAlert */,
@@ -1314,12 +1334,15 @@
 				AAA0749525E0036C0061347E /* DeepLinkError.swift in Sources */,
 				AAB50F7A25D6AA3000980169 /* WelcomePresenter.swift in Sources */,
 				AA92734B25F6604600D0A4D9 /* NotysPresenter.swift in Sources */,
+				AA770D15260CEF9E0052FA92 /* TitleAlertPresenter.swift in Sources */,
 				AA9A8B0D25D6F54800D12C3E /* AlertPresenter.swift in Sources */,
 				AA855D7425DAC165008A3294 /* ConfirmPresenter.swift in Sources */,
+				AA770D18260CEF9E0052FA92 /* TitleAlertInteractor.swift in Sources */,
 				AA6EBA3025F7939500FFF099 /* SettingsRouter.swift in Sources */,
 				AA763739260255A600017467 /* UILabel + Utils.swift in Sources */,
 				AAB50FC925D6C75300980169 /* PermissionManager.swift in Sources */,
 				AA76A28525D56E4D00903401 /* SplashScreenInteractor.swift in Sources */,
+				AA770D17260CEF9E0052FA92 /* TitleAlertViewController.swift in Sources */,
 				AA76A28425D56E4D00903401 /* SplashScreenViewController.swift in Sources */,
 				AA6EBA3125F7939500FFF099 /* SettingsViewController.swift in Sources */,
 				AA855DAA25DAE69F008A3294 /* UITextField+Error.swift in Sources */,
@@ -1368,6 +1391,7 @@
 				AAB50F6F25D6A80300980169 /* HomeAssembly.swift in Sources */,
 				AA9DDEF5260BA2850002197F /* LanguageAlertInteractor.swift in Sources */,
 				AA6EBA3225F7939500FFF099 /* SettingsInteractor.swift in Sources */,
+				AA770D16260CEF9E0052FA92 /* TitleAlertRouter.swift in Sources */,
 				AA9DDEF3260BA2850002197F /* LanguageAlertRouter.swift in Sources */,
 				AA76140225FBD99000E0B4E2 /* NoteModel.swift in Sources */,
 				AA76A28325D56E4D00903401 /* SplashScreenRouter.swift in Sources */,

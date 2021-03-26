@@ -24,6 +24,7 @@ class HomeRouter: NSObject, HomeRouterProtocol {
     weak var viewController: HomeViewControllerProtocol?
     private let rootNavigator: RootNavigatorProtocol
     private let homeStoryboard: Storyboard
+    private let alertsStoryboard: Storyboard
 
     func set(viewController: HomeViewControllerProtocol?) {
         self.viewController = viewController
@@ -31,10 +32,12 @@ class HomeRouter: NSObject, HomeRouterProtocol {
 
     init(
         rootNavigator: RootNavigatorProtocol,
-        homeStoryboard: Storyboard
+        homeStoryboard: Storyboard,
+        alertsStoryboard: Storyboard
     ) {
         self.rootNavigator = rootNavigator
         self.homeStoryboard = homeStoryboard
+        self.alertsStoryboard = alertsStoryboard
     }
 }
 
@@ -42,12 +45,15 @@ class HomeRouter: NSObject, HomeRouterProtocol {
 extension HomeRouter {
 
     enum Scene {
-        case destination1
+        case titleAlert(text: String)
     }
 
     func route(to scene: HomeRouter.Scene) {
         switch scene {
-        case .destination1: break
+        case .titleAlert(let text):
+            guard let vc = alertsStoryboard.viewController(identifier: AlertsStoryboardId.title) as? TitleAlertViewController else { assertionFailure(); return }
+            vc.set(text: text)
+            viewController?.present(vc, animated: true, completion: nil)
         }
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 protocol DataValidatorProtocol {
     func validateEmail(_ value: String?) throws
     func validateEmailMatch(_ email: String?, _ confirmEmail: String?) throws
+    func validateTitle(_ title: String) throws
 }
 
 class DataValidator: DataValidatorProtocol {
@@ -27,6 +28,12 @@ class DataValidator: DataValidatorProtocol {
     func validateEmailMatch(_ email: String?, _ confirmEmail: String?) throws {
         guard email == confirmEmail else {
             throw DataValidationError.emailDontMatch
+        }
+    }
+
+    func validateTitle(_ title: String) throws {
+        guard !title.isEmpty else {
+            throw DataValidationError.emptyTitle
         }
     }
 }

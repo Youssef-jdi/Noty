@@ -15,7 +15,8 @@ class HomeAssembly: Assembly {
         container.register(HomeRouterProtocol.self) { resolver in
             return HomeRouter(
                 rootNavigator: resolver ~> (RootNavigatorProtocol.self),
-                homeStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.home.name))
+                homeStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.home.name),
+                alertsStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.alerts.name))
         }
 
         container.autoregister(HomeInteractorProtocol.self, initializer: HomeInteractor.init)

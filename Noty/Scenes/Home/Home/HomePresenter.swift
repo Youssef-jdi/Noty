@@ -26,6 +26,7 @@ protocol HomePresenterProtocol {
     func present(choiceActionSheet: UIAlertController)
     func presentSpinner()
     func present(save result: Result<Storable?, Error>)
+    func presentRoutingToTitle()
 }
 
 class HomePresenter: HomePresenterProtocol {
@@ -75,5 +76,9 @@ extension  HomePresenter {
 
     func present(save result: Result<Storable?, Error>) {
         viewController?.displaySaveResult(save: result)
+    }
+
+    func presentRoutingToTitle() {
+        viewController?.displayRoutingToTitle()
     }
 }

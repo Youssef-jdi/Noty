@@ -29,6 +29,7 @@ protocol HomeViewControllerProtocol: class, UIViewControllerRouting {
     func display(choiceActionSheet: UIAlertController)
     func displaySpinner()
     func displaySaveResult(save result: Result<Storable?, Error>)
+    func displayRoutingToTitle()
 }
 
 class HomeViewController: UIViewController, HomeViewControllerProtocol {
@@ -161,6 +162,10 @@ extension HomeViewController {
         case .failure:
             toastManager?.showToast(for: .cantSaveNote)
         }
+    }
+
+    func displayRoutingToTitle() {
+        router?.route(to: .titleAlert(text: textMemoView.text))
     }
 }
 

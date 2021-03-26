@@ -78,5 +78,29 @@ class AlertsAssemly: Assembly {
             vc.set(router: router)
             vc.set(interactor: interactor)
         }
+
+        // MARK: Title Alert vc
+        container.register(TitleAlertRouterProtocol.self) { resolver in
+            return TitleAlertRouter(
+                rootNavigator: resolver ~> (RootNavigatorProtocol.self),
+                alertsStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.alerts.name))
+        }
+
+        container.autoregister(TitleAlertPresenterProtocol.self, initializer: TitleAlertPresenter.init)
+        container.autoregister(TitleAlertInteractorProtocol.self, initializer: TitleAlertInteractor.init)
+
+        container.storyboardInitCompleted(TitleAlertViewController.self) { resolver, vc in
+            let router = resolver ~> (TitleAlertRouterProtocol.self)
+            let presenter = resolver ~> (TitleAlertPresenterProtocol.self)
+            let interactor = resolver ~> (TitleAlertInteractorProtocol.self)
+            let toastManager = resolver ~> (ToastManagerProtocol.self)
+
+            router.set(viewController: vc)
+            presenter.set(viewController: vc)
+
+            vc.set(interactor: interactor)
+            vc.set(router: router)
+            vc.set(toastManager: toastManager)
+        }
     }
 }
