@@ -34,6 +34,7 @@ enum AlertsStoryboardId: StoryboardId {
     case time
     case language
     case title
+    case theme
 
     var identifier: String {
         switch self {
@@ -41,6 +42,7 @@ enum AlertsStoryboardId: StoryboardId {
         case .time: return R.storyboard.alerts.timeAlertViewController.identifier
         case .language: return R.storyboard.alerts.languageAlertViewController.identifier
         case .title: return R.storyboard.alerts.titleAlertViewController.identifier
+        case .theme: return R.storyboard.alerts.themeAlertViewController.identifier
         }
     }
 }

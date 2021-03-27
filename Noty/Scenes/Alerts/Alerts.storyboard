@@ -295,10 +295,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CQ-6w-KBH" customClass="RoundedView" customModule="Noty" customModuleProvider="target">
-                                <rect key="frame" x="32" y="227.5" width="350" height="451"/>
+                                <rect key="frame" x="32" y="237" width="350" height="432"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="5lg-Z8-DgG">
-                                        <rect key="frame" x="32" y="32" width="286" height="387"/>
+                                        <rect key="frame" x="32" y="32" width="286" height="368"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8L-V6-X6w">
                                                 <rect key="frame" x="0.0" y="0.0" width="286" height="57.5"/>
@@ -309,10 +309,10 @@ Preferred language</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="yXo-vi-mdq">
-                                                <rect key="frame" x="0.0" y="89.5" width="286" height="225.5"/>
+                                                <rect key="frame" x="0.0" y="89.5" width="286" height="216"/>
                                             </pickerView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrL-7z-3zS" customClass="AppButton" customModule="Noty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="347" width="286" height="40"/>
+                                                <rect key="frame" x="0.0" y="337.5" width="286" height="30.5"/>
                                                 <state key="normal" title="OK">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -366,10 +366,10 @@ Preferred language</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcG-MU-NOJ" customClass="RoundedView" customModule="Noty" customModuleProvider="target">
-                                <rect key="frame" x="32" y="254.5" width="350" height="397"/>
+                                <rect key="frame" x="32" y="247.5" width="350" height="411.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="vse-zb-ba0">
-                                        <rect key="frame" x="32" y="32" width="286" height="333"/>
+                                        <rect key="frame" x="32" y="32" width="286" height="347.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="C0T-h8-MHH">
                                                 <rect key="frame" x="0.0" y="0.0" width="286" height="85.5"/>
@@ -389,10 +389,10 @@ Preferred language</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xh5-xc-2zT">
-                                                <rect key="frame" x="0.0" y="117.5" width="286" height="19.5"/>
+                                                <rect key="frame" x="0.0" y="117.5" width="286" height="34"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Mm-7U-b7I" customClass="AppTextField" customModule="Noty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="286" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="286" height="34"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -406,7 +406,7 @@ Preferred language</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jad-ur-OOy">
-                                                <rect key="frame" x="0.0" y="169" width="286" height="164"/>
+                                                <rect key="frame" x="0.0" y="183.5" width="286" height="164"/>
                                                 <subviews>
                                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="9PJ-2W-3Xb">
                                                         <rect key="frame" x="0.0" y="0.0" width="286" height="44"/>
@@ -487,19 +487,56 @@ Preferred language</string>
             </objects>
             <point key="canvasLocation" x="3054" y="78"/>
         </scene>
+        <!--Theme Alert View Controller-->
+        <scene sceneID="xwD-0l-ssL">
+            <objects>
+                <viewController storyboardIdentifier="ThemeAlertViewController" id="0dQ-q3-nlN" customClass="ThemeAlertViewController" customModule="Noty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xVj-mB-fH3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSQ-Rn-P5k" customClass="RoundedView" customModule="Noty" customModuleProvider="target">
+                                <rect key="frame" x="32" y="247.5" width="350" height="411.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="411.5" id="PaQ-09-ukp"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ite-xk-xbt"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sSQ-Rn-P5k" firstAttribute="leading" secondItem="Ite-xk-xbt" secondAttribute="leading" constant="32" id="h1l-yA-sXy"/>
+                            <constraint firstItem="Ite-xk-xbt" firstAttribute="trailing" secondItem="sSQ-Rn-P5k" secondAttribute="trailing" constant="32" id="i56-Pi-p4D"/>
+                            <constraint firstItem="sSQ-Rn-P5k" firstAttribute="centerY" secondItem="Ite-xk-xbt" secondAttribute="centerY" id="zWG-Jy-Vey"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="sSQ-Rn-P5k" id="0Lk-Le-kEU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Yi-5K-7qI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3743" y="78"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="2V5-GL-cBU">
-            <size key="intrinsicContentSize" width="103" height="40"/>
+            <size key="intrinsicContentSize" width="83" height="30"/>
         </designable>
         <designable name="32P-gB-dTU">
-            <size key="intrinsicContentSize" width="81" height="40"/>
+            <size key="intrinsicContentSize" width="61" height="30"/>
         </designable>
         <designable name="3Mm-7U-b7I">
-            <size key="intrinsicContentSize" width="50" height="19.5"/>
+            <size key="intrinsicContentSize" width="58" height="34"/>
         </designable>
         <designable name="FrL-7z-3zS">
-            <size key="intrinsicContentSize" width="50" height="40"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
     </designables>
     <resources>

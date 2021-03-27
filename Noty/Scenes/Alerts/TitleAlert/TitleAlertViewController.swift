@@ -110,6 +110,15 @@ extension TitleAlertViewController {
 }
 
 extension TitleAlertViewController: UITextFieldDelegate {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.15) {[weak self] in
+            guard let self = self else { return }
+            self.titleTextField.backgroundColor = .white
+            self.titleTextField.textColor = .black
+        }
+    }
+
     private func setupTapToDismiss() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapToDismissKeyboard)))
     }

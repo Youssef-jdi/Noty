@@ -69,22 +69,43 @@ extension SettingsViewController {
         collectionView.register(
             UINib(resource: R.nib.configCell),
             forCellWithReuseIdentifier: R.reuseIdentifier.configCell.identifier)
+        collectionView.register(
+            UINib(resource: R.nib.optionCell),
+            forCellWithReuseIdentifier: R.reuseIdentifier.optionCell.identifier)
+        collectionView.register(UINib(resource: R.nib.settingsSectionHeader), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: R.reuseIdentifier.settingsSectionHeader.identifier)
+        collectionView.register(
+            UINib(resource: R.nib.themeCell),
+            forCellWithReuseIdentifier: R.reuseIdentifier.themeCell.identifier)
     }
 }
 
 // MARK: UICollectionViewDelegate
 extension SettingsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.item {
-        case 0: Console.log(type: .success, "Share noty")
-        case 1: router?.route(to: .languageAlert(self))
-        case 2: Console.log(type: .success, "Report an issue")
+        switch indexPath.section {
+        case 0:
+            switch indexPath.item {
+            case 0: Console.log(type: .success, "Share noty")
+            case 1: router?.route(to: .languageAlert(self))
+            case 2: Console.log(type: .success, "Report an issue")
+            default: break
+            }
+        case 1:
+            router?.route(to: .theme)
         default: break
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.size.width, height: 76)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 48)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 48)
     }
 }
 

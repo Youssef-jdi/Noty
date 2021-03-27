@@ -1313,7 +1313,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
   struct nib {
     /// Nib `ConfigCell`.
     static let configCell = _R.nib._ConfigCell()
@@ -1321,8 +1321,14 @@ struct R: Rswift.Validatable {
     static let emptyBackgroundView = _R.nib._EmptyBackgroundView()
     /// Nib `NoteCell`.
     static let noteCell = _R.nib._NoteCell()
+    /// Nib `OptionCell`.
+    static let optionCell = _R.nib._OptionCell()
     /// Nib `RootTabView`.
     static let rootTabView = _R.nib._RootTabView()
+    /// Nib `SettingsSectionHeader`.
+    static let settingsSectionHeader = _R.nib._SettingsSectionHeader()
+    /// Nib `ThemeCell`.
+    static let themeCell = _R.nib._ThemeCell()
     /// Nib `Toast`.
     static let toast = _R.nib._Toast()
 
@@ -1351,10 +1357,34 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "OptionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.optionCell) instead")
+    static func optionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.optionCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "RootTabView", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.rootTabView) instead")
     static func rootTabView(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.rootTabView)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "SettingsSectionHeader", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.settingsSectionHeader) instead")
+    static func settingsSectionHeader(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.settingsSectionHeader)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "ThemeCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.themeCell) instead")
+    static func themeCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.themeCell)
     }
     #endif
 
@@ -1378,8 +1408,20 @@ struct R: Rswift.Validatable {
       return R.nib.noteCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NoteCell
     }
 
+    static func optionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> OptionCell? {
+      return R.nib.optionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? OptionCell
+    }
+
     static func rootTabView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.rootTabView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func settingsSectionHeader(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsSectionHeader? {
+      return R.nib.settingsSectionHeader.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsSectionHeader
+    }
+
+    static func themeCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ThemeCell? {
+      return R.nib.themeCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ThemeCell
     }
 
     static func toast(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RoundedView? {
@@ -1389,12 +1431,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 6 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `OptionCell`.
+    static let optionCell: Rswift.ReuseIdentifier<OptionCell> = Rswift.ReuseIdentifier(identifier: "OptionCell")
     /// Reuse identifier `configCell`.
     static let configCell: Rswift.ReuseIdentifier<ConfigCell> = Rswift.ReuseIdentifier(identifier: "configCell")
     /// Reuse identifier `noteCell`.
     static let noteCell: Rswift.ReuseIdentifier<NoteCell> = Rswift.ReuseIdentifier(identifier: "noteCell")
+    /// Reuse identifier `settingSectionFooter`.
+    static let settingSectionFooter: Rswift.ReuseIdentifier<UIKit.UIView> = Rswift.ReuseIdentifier(identifier: "settingSectionFooter")
+    /// Reuse identifier `settingsSectionHeader`.
+    static let settingsSectionHeader: Rswift.ReuseIdentifier<SettingsSectionHeader> = Rswift.ReuseIdentifier(identifier: "settingsSectionHeader")
+    /// Reuse identifier `themeCell`.
+    static let themeCell: Rswift.ReuseIdentifier<ThemeCell> = Rswift.ReuseIdentifier(identifier: "themeCell")
 
     fileprivate init() {}
   }
@@ -1427,6 +1477,7 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try _ConfigCell.validate()
       try _EmptyBackgroundView.validate()
+      try _ThemeCell.validate()
       try _Toast.validate()
     }
 
@@ -1482,12 +1533,61 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _OptionCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = OptionCell
+
+      let bundle = R.hostingBundle
+      let identifier = "OptionCell"
+      let name = "OptionCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> OptionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? OptionCell
+      }
+
+      fileprivate init() {}
+    }
+
     struct _RootTabView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "RootTabView"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _SettingsSectionHeader: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = SettingsSectionHeader
+
+      let bundle = R.hostingBundle
+      let identifier = "settingsSectionHeader"
+      let name = "SettingsSectionHeader"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsSectionHeader? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsSectionHeader
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _ThemeCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = ThemeCell
+
+      let bundle = R.hostingBundle
+      let identifier = "themeCell"
+      let name = "ThemeCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ThemeCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ThemeCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "Arrow_icon_black", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Arrow_icon_black' is used in nib 'ThemeCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "BD", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'BD' is used in nib 'ThemeCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}
@@ -1541,6 +1641,7 @@ struct _R: Rswift.Validatable {
       let dateAlertViewController = StoryboardViewControllerResource<DateAlertViewController>(identifier: "DateAlertViewController")
       let languageAlertViewController = StoryboardViewControllerResource<LanguageAlertViewController>(identifier: "LanguageAlertViewController")
       let name = "Alerts"
+      let themeAlertViewController = StoryboardViewControllerResource<ThemeAlertViewController>(identifier: "ThemeAlertViewController")
       let timeAlertViewController = StoryboardViewControllerResource<TimeAlertViewController>(identifier: "TimeAlertViewController")
       let titleAlertViewController = StoryboardViewControllerResource<TitleAlertViewController>(identifier: "TitleAlertViewController")
 
@@ -1550,6 +1651,10 @@ struct _R: Rswift.Validatable {
 
       func languageAlertViewController(_: Void = ()) -> LanguageAlertViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: languageAlertViewController)
+      }
+
+      func themeAlertViewController(_: Void = ()) -> ThemeAlertViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: themeAlertViewController)
       }
 
       func timeAlertViewController(_: Void = ()) -> TimeAlertViewController? {
@@ -1567,6 +1672,7 @@ struct _R: Rswift.Validatable {
         }
         if _R.storyboard.alerts().dateAlertViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'dateAlertViewController' could not be loaded from storyboard 'Alerts' as 'DateAlertViewController'.") }
         if _R.storyboard.alerts().languageAlertViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'languageAlertViewController' could not be loaded from storyboard 'Alerts' as 'LanguageAlertViewController'.") }
+        if _R.storyboard.alerts().themeAlertViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'themeAlertViewController' could not be loaded from storyboard 'Alerts' as 'ThemeAlertViewController'.") }
         if _R.storyboard.alerts().timeAlertViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'timeAlertViewController' could not be loaded from storyboard 'Alerts' as 'TimeAlertViewController'.") }
         if _R.storyboard.alerts().titleAlertViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'titleAlertViewController' could not be loaded from storyboard 'Alerts' as 'TitleAlertViewController'.") }
       }

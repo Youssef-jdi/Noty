@@ -46,6 +46,7 @@ extension SettingsRouter {
 
     enum Scene {
         case languageAlert(NewLanguageSelectedDelegate?)
+        case theme
     }
 
     func route(to scene: SettingsRouter.Scene) {
@@ -53,6 +54,9 @@ extension SettingsRouter {
         case .languageAlert(let delegate):
             guard let vc = alertStoryboard.viewController(identifier: AlertsStoryboardId.language) as? LanguageAlertViewController else { assertionFailure(); return }
             vc.delegate = delegate
+            viewController?.present(vc, animated: true, completion: nil)
+        case .theme:
+            guard let vc = alertStoryboard.viewController(identifier: AlertsStoryboardId.theme) as? ThemeAlertViewController else { assertionFailure(); return }
             viewController?.present(vc, animated: true, completion: nil)
         }
     }

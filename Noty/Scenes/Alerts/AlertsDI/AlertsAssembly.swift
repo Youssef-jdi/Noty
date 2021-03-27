@@ -102,5 +102,27 @@ class AlertsAssemly: Assembly {
             vc.set(router: router)
             vc.set(toastManager: toastManager)
         }
+
+        // MARK: Theme Alert VC
+        container.register(ThemeAlertRouterProtocol.self) { resolver in
+            return ThemeAlertRouter(
+                rootNavigator: resolver ~> (RootNavigatorProtocol.self),
+                alertsStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.alerts.name))
+        }
+
+        container.autoregister(ThemeAlertPresenterProtocol.self, initializer: ThemeAlertPresenter.init)
+        container.autoregister(ThemeAlertInteractorProtocol.self, initializer: ThemeAlertInteractor.init)
+
+        container.storyboardInitCompleted(ThemeAlertViewController.self) { resolver, vc in
+            let router = resolver ~> (ThemeAlertRouterProtocol.self)
+            let presenter = resolver ~> (ThemeAlertPresenterProtocol.self)
+            let interactor = resolver ~> (ThemeAlertInteractorProtocol.self)
+
+            router.set(viewController: vc)
+            presenter.set(viewController: vc)
+
+            vc.set(router: router)
+            vc.set(interactor: interactor)
+        }
     }
 }

@@ -58,6 +58,19 @@
 		AA770D16260CEF9E0052FA92 /* TitleAlertRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA770D12260CEF9E0052FA92 /* TitleAlertRouter.swift */; };
 		AA770D17260CEF9E0052FA92 /* TitleAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA770D13260CEF9E0052FA92 /* TitleAlertViewController.swift */; };
 		AA770D18260CEF9E0052FA92 /* TitleAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA770D14260CEF9E0052FA92 /* TitleAlertInteractor.swift */; };
+		AA7829C5260F5D8400537B2D /* SettingsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829C4260F5D8400537B2D /* SettingsSectionHeader.swift */; };
+		AA7829CA260F5D9300537B2D /* SettingsSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7829C9260F5D9300537B2D /* SettingsSectionHeader.xib */; };
+		AA7829D3260F951C00537B2D /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7829D2260F951C00537B2D /* OptionCell.xib */; };
+		AA7829D8260F952800537B2D /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829D7260F952800537B2D /* OptionCell.swift */; };
+		AA7829DE260F9E2400537B2D /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829DD260F9E2400537B2D /* ColorPicker.swift */; };
+		AA7829E3260F9FC800537B2D /* UIImage + Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829E2260F9FC800537B2D /* UIImage + Color.swift */; };
+		AA7829E9260FA06100537B2D /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829E8260FA06100537B2D /* ThemeCell.swift */; };
+		AA7829F1260FA08A00537B2D /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7829F0260FA08A00537B2D /* ThemeCell.xib */; };
+		AA7829FA260FA2A300537B2D /* ThemeAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829F6260FA2A300537B2D /* ThemeAlertPresenter.swift */; };
+		AA7829FB260FA2A300537B2D /* ThemeAlertRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829F7260FA2A300537B2D /* ThemeAlertRouter.swift */; };
+		AA7829FC260FA2A300537B2D /* ThemeAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829F8260FA2A300537B2D /* ThemeAlertViewController.swift */; };
+		AA7829FD260FA2A300537B2D /* ThemeAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829F9260FA2A300537B2D /* ThemeAlertInteractor.swift */; };
+		AA782A05260FA49500537B2D /* UIViewController + SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA782A04260FA49500537B2D /* UIViewController + SwiftUI.swift */; };
 		AA7832222608D5530090096D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7832212608D5530090096D /* NotificationManager.swift */; };
 		AA7978AB2600FCA30071297C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978AA2600FCA30071297C /* NoteCell.swift */; };
 		AA7978B32600FCAE0071297C /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7978B22600FCAE0071297C /* NoteCell.xib */; };
@@ -240,6 +253,19 @@
 		AA770D12260CEF9E0052FA92 /* TitleAlertRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAlertRouter.swift; sourceTree = "<group>"; };
 		AA770D13260CEF9E0052FA92 /* TitleAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAlertViewController.swift; sourceTree = "<group>"; };
 		AA770D14260CEF9E0052FA92 /* TitleAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAlertInteractor.swift; sourceTree = "<group>"; };
+		AA7829C4260F5D8400537B2D /* SettingsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionHeader.swift; sourceTree = "<group>"; };
+		AA7829C9260F5D9300537B2D /* SettingsSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsSectionHeader.xib; sourceTree = "<group>"; };
+		AA7829D2260F951C00537B2D /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
+		AA7829D7260F952800537B2D /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		AA7829DD260F9E2400537B2D /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
+		AA7829E2260F9FC800537B2D /* UIImage + Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Color.swift"; sourceTree = "<group>"; };
+		AA7829E8260FA06100537B2D /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
+		AA7829F0260FA08A00537B2D /* ThemeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeCell.xib; sourceTree = "<group>"; };
+		AA7829F6260FA2A300537B2D /* ThemeAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertPresenter.swift; sourceTree = "<group>"; };
+		AA7829F7260FA2A300537B2D /* ThemeAlertRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertRouter.swift; sourceTree = "<group>"; };
+		AA7829F8260FA2A300537B2D /* ThemeAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertViewController.swift; sourceTree = "<group>"; };
+		AA7829F9260FA2A300537B2D /* ThemeAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertInteractor.swift; sourceTree = "<group>"; };
+		AA782A04260FA49500537B2D /* UIViewController + SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + SwiftUI.swift"; sourceTree = "<group>"; };
 		AA7832212608D5530090096D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		AA7978AA2600FCA30071297C /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		AA7978B22600FCAE0071297C /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
@@ -389,6 +415,9 @@
 		AA52772E25DC1B7600AE880D /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				AA7829E7260FA05100537B2D /* ThemeCell */,
+				AA7829CE260F900000537B2D /* OptionCell */,
+				AA7829C3260F5D6B00537B2D /* SettingsSectionHeader */,
 				AA9DDEDD260B6DC80002197F /* ConfigCell */,
 				AA7978A92600FC950071297C /* NoteCell */,
 				AA7613AC25FBCAA800E0B4E2 /* EmptyBackgroundView */,
@@ -688,6 +717,52 @@
 			path = TitleAlert;
 			sourceTree = "<group>";
 		};
+		AA7829C3260F5D6B00537B2D /* SettingsSectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				AA7829C4260F5D8400537B2D /* SettingsSectionHeader.swift */,
+				AA7829C9260F5D9300537B2D /* SettingsSectionHeader.xib */,
+			);
+			path = SettingsSectionHeader;
+			sourceTree = "<group>";
+		};
+		AA7829CE260F900000537B2D /* OptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				AA7829D2260F951C00537B2D /* OptionCell.xib */,
+				AA7829D7260F952800537B2D /* OptionCell.swift */,
+			);
+			path = OptionCell;
+			sourceTree = "<group>";
+		};
+		AA7829DC260F9E0B00537B2D /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				AA7829DD260F9E2400537B2D /* ColorPicker.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		AA7829E7260FA05100537B2D /* ThemeCell */ = {
+			isa = PBXGroup;
+			children = (
+				AA7829E8260FA06100537B2D /* ThemeCell.swift */,
+				AA7829F0260FA08A00537B2D /* ThemeCell.xib */,
+			);
+			path = ThemeCell;
+			sourceTree = "<group>";
+		};
+		AA7829F5260FA28F00537B2D /* ThemeAlert */ = {
+			isa = PBXGroup;
+			children = (
+				AA7829F6260FA2A300537B2D /* ThemeAlertPresenter.swift */,
+				AA7829F7260FA2A300537B2D /* ThemeAlertRouter.swift */,
+				AA7829F8260FA2A300537B2D /* ThemeAlertViewController.swift */,
+				AA7829F9260FA2A300537B2D /* ThemeAlertInteractor.swift */,
+			);
+			path = ThemeAlert;
+			sourceTree = "<group>";
+		};
 		AA7978A92600FC950071297C /* NoteCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -777,6 +852,8 @@
 				AA52775725DC368700AE880D /* UITapGestureRecognizer+TextInLabel.swift */,
 				AA92734125F65D7000D0A4D9 /* CALayer + applyShadow.swift */,
 				AA763738260255A600017467 /* UILabel + Utils.swift */,
+				AA7829E2260F9FC800537B2D /* UIImage + Color.swift */,
+				AA782A04260FA49500537B2D /* UIViewController + SwiftUI.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -792,6 +869,7 @@
 		AA8F5280260633C100C55407 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
+				AA7829F5260FA28F00537B2D /* ThemeAlert */,
 				AA770D10260CEF8D0052FA92 /* TitleAlert */,
 				AA9DDEED260BA26A0002197F /* LanguageAlert */,
 				AA8F52902606341300C55407 /* TimeAlert */,
@@ -972,6 +1050,7 @@
 		AACAF55125D698F6009DE27C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AA7829DC260F9E0B00537B2D /* SwiftUI */,
 				AA52772F25DC1B8E00AE880D /* Designables */,
 				AA52772E25DC1B7600AE880D /* Xib */,
 			);
@@ -1120,9 +1199,12 @@
 				AA9DDEE4260B6DEF0002197F /* ConfigCell.xib in Resources */,
 				AA76A31625D58EAF00903401 /* OnBoarding.storyboard in Resources */,
 				AACAF56525D69A88009DE27C /* Assets.xcassets in Resources */,
+				AA7829D3260F951C00537B2D /* OptionCell.xib in Resources */,
 				AA76A36125D594A600903401 /* GoogleService-Info.plist in Resources */,
+				AA7829CA260F5D9300537B2D /* SettingsSectionHeader.xib in Resources */,
 				AA7613AE25FBCAC100E0B4E2 /* EmptyBackgroundView.xib in Resources */,
 				AA52774925DC240A00AE880D /* Toast.xib in Resources */,
+				AA7829F1260FA08A00537B2D /* ThemeCell.xib in Resources */,
 				AACAF58C25D69F63009DE27C /* LaunchScreen.storyboard in Resources */,
 				AA7A2C30260A40FE00D3F333 /* Cow.mp3 in Resources */,
 				AA92733825F65B5100D0A4D9 /* RootTabView.xib in Resources */,
@@ -1327,6 +1409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA7829C5260F5D8400537B2D /* SettingsSectionHeader.swift in Sources */,
 				AA76A17825D5645400903401 /* AppDelegate.swift in Sources */,
 				AA9D460A25D97A000014922B /* HomeModels.swift in Sources */,
 				AA855D6625DAC156008A3294 /* LoginPresenter.swift in Sources */,
@@ -1353,6 +1436,7 @@
 				AA7978AB2600FCA30071297C /* NoteCell.swift in Sources */,
 				AA8F52A3260634BC00C55407 /* TimeAlertPresenter.swift in Sources */,
 				AA92734225F65D7000D0A4D9 /* CALayer + applyShadow.swift in Sources */,
+				AA7829DE260F9E2400537B2D /* ColorPicker.swift in Sources */,
 				AA7978F326011B120071297C /* TutorialViewController.swift in Sources */,
 				AA8F528B260633EF00C55407 /* AlertsStoryboard.swift in Sources */,
 				AA855D6925DAC156008A3294 /* LoginInteractor.swift in Sources */,
@@ -1376,6 +1460,7 @@
 				AA76A1F725D567B500903401 /* RootNavigator.swift in Sources */,
 				AA76A21525D568F700903401 /* TopViewController.swift in Sources */,
 				AAB50F6225D6A6E700980169 /* HomeInteractor.swift in Sources */,
+				AA7829E3260F9FC800537B2D /* UIImage + Color.swift in Sources */,
 				AA855D8625DADA47008A3294 /* DataValidator.swift in Sources */,
 				AA855D8F25DADAB2008A3294 /* AppError.swift in Sources */,
 				AA855D7525DAC165008A3294 /* ConfirmRouter.swift in Sources */,
@@ -1383,6 +1468,7 @@
 				AA52773C25DC1C7B00AE880D /* CustomViewProtocol.swift in Sources */,
 				AA9272FD25F6559300D0A4D9 /* RootInteractor.swift in Sources */,
 				AA8F5299260634AE00C55407 /* DateAlertRouter.swift in Sources */,
+				AA7829FC260FA2A300537B2D /* ThemeAlertViewController.swift in Sources */,
 				AA95D7B025D94E5B00F94553 /* LanguageRouter.swift in Sources */,
 				AAB50F7D25D6AA3000980169 /* WelcomeInteractor.swift in Sources */,
 				AAA074C325E01D830061347E /* DeepLinkRouter.swift in Sources */,
@@ -1399,6 +1485,7 @@
 				AAB50F8F25D6B50800980169 /* RoundView.swift in Sources */,
 				AA52773725DC1C5400AE880D /* Toast.swift in Sources */,
 				AA76A28225D56E4D00903401 /* SplashScreenPresenter.swift in Sources */,
+				AA782A05260FA49500537B2D /* UIViewController + SwiftUI.swift in Sources */,
 				AAB50F7C25D6AA3000980169 /* WelcomeViewController.swift in Sources */,
 				AACED1CA25DECE3100C0EA4D /* DynamicLinksProtocol.swift in Sources */,
 				AA76A1FC25D567D300903401 /* SharedAssembly.swift in Sources */,
@@ -1411,6 +1498,7 @@
 				AA6EBA2F25F7939500FFF099 /* SettingsPresenter.swift in Sources */,
 				AAA074BE25E01A210061347E /* FirebaseError.swift in Sources */,
 				AA8F52A4260634BC00C55407 /* TimeAlertRouter.swift in Sources */,
+				AA7829FB260FA2A300537B2D /* ThemeAlertRouter.swift in Sources */,
 				AAB50F6025D6A6E700980169 /* HomeRouter.swift in Sources */,
 				AA95D7E125D9684D00F94553 /* UserDefaultsManager.swift in Sources */,
 				AAB50FBA25D6C35200980169 /* PermissionPresenter.swift in Sources */,
@@ -1437,15 +1525,19 @@
 				AA7613E025FBD4A500E0B4E2 /* CoreDataController.swift in Sources */,
 				AA8F5283260633E300C55407 /* AlertsAssembly.swift in Sources */,
 				AA76A31C25D58F8F00903401 /* OnBoardingStoryboard.swift in Sources */,
+				AA7829FA260FA2A300537B2D /* ThemeAlertPresenter.swift in Sources */,
 				AA76A1EF25D5674C00903401 /* Noty.swift in Sources */,
 				AA9DDEF2260BA2850002197F /* LanguageAlertPresenter.swift in Sources */,
 				AA8F529A260634AE00C55407 /* DateAlertViewController.swift in Sources */,
 				AA7978F426011B120071297C /* TutorialInteractor.swift in Sources */,
+				AA7829FD260FA2A300537B2D /* ThemeAlertInteractor.swift in Sources */,
 				AAB50FBD25D6C35200980169 /* PermissionInteractor.swift in Sources */,
+				AA7829E9260FA06100537B2D /* ThemeCell.swift in Sources */,
 				AAB50F8A25D6B27D00980169 /* VTextView.swift in Sources */,
 				AAB50FBB25D6C35200980169 /* PermissionRouter.swift in Sources */,
 				AA9DDEDF260B6DDF0002197F /* ConfigCell.swift in Sources */,
 				AACED18F25DEB10900C0EA4D /* DeepLinkManager.swift in Sources */,
+				AA7829D8260F952800537B2D /* OptionCell.swift in Sources */,
 				AA76A20325D5689200903401 /* UIApplicationProtocol.swift in Sources */,
 				AA76A22C25D56AB600903401 /* R.generated.swift in Sources */,
 				AA76A21025D568DC00903401 /* StoryboardProtocol.swift in Sources */,
