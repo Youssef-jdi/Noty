@@ -144,6 +144,12 @@
 		AAA0749525E0036C0061347E /* DeepLinkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA0749425E0036C0061347E /* DeepLinkError.swift */; };
 		AAA074BE25E01A210061347E /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA074BD25E01A210061347E /* FirebaseError.swift */; };
 		AAA074C325E01D830061347E /* DeepLinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA074C225E01D830061347E /* DeepLinkRouter.swift */; };
+		AAA1603B2610CF0A00757AA7 /* HSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA1603A2610CF0A00757AA7 /* HSV.swift */; };
+		AAA160402610CFBA00757AA7 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA1603F2610CFBA00757AA7 /* RGB.swift */; };
+		AAA160482610D79C00757AA7 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA160472610D79C00757AA7 /* ColorWheel.swift */; };
+		AAA160502610D9B300757AA7 /* CIHueSaturationValueGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA1604F2610D9B300757AA7 /* CIHueSaturationValueGradientView.swift */; };
+		AAA160552610DA1A00757AA7 /* CGFloat + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA160542610DA1A00757AA7 /* CGFloat + Utils.swift */; };
+		AAA1605D2610EB7A00757AA7 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA1605C2610EB7A00757AA7 /* CustomSlider.swift */; };
 		AAB50F5525D6A64400980169 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB50F5425D6A64400980169 /* Home.storyboard */; };
 		AAB50F5F25D6A6E700980169 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB50F5B25D6A6E700980169 /* HomePresenter.swift */; };
 		AAB50F6025D6A6E700980169 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB50F5C25D6A6E700980169 /* HomeRouter.swift */; };
@@ -339,6 +345,12 @@
 		AAA0749425E0036C0061347E /* DeepLinkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkError.swift; sourceTree = "<group>"; };
 		AAA074BD25E01A210061347E /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
 		AAA074C225E01D830061347E /* DeepLinkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkRouter.swift; sourceTree = "<group>"; };
+		AAA1603A2610CF0A00757AA7 /* HSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSV.swift; sourceTree = "<group>"; };
+		AAA1603F2610CFBA00757AA7 /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		AAA160472610D79C00757AA7 /* ColorWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
+		AAA1604F2610D9B300757AA7 /* CIHueSaturationValueGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIHueSaturationValueGradientView.swift; sourceTree = "<group>"; };
+		AAA160542610DA1A00757AA7 /* CGFloat + Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + Utils.swift"; sourceTree = "<group>"; };
+		AAA1605C2610EB7A00757AA7 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		AAB50F5425D6A64400980169 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		AAB50F5B25D6A6E700980169 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		AAB50F5C25D6A6E700980169 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -739,6 +751,9 @@
 			isa = PBXGroup;
 			children = (
 				AA7829DD260F9E2400537B2D /* ColorPicker.swift */,
+				AAA160472610D79C00757AA7 /* ColorWheel.swift */,
+				AAA1604F2610D9B300757AA7 /* CIHueSaturationValueGradientView.swift */,
+				AAA1605C2610EB7A00757AA7 /* CustomSlider.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -854,6 +869,7 @@
 				AA763738260255A600017467 /* UILabel + Utils.swift */,
 				AA7829E2260F9FC800537B2D /* UIImage + Color.swift */,
 				AA782A04260FA49500537B2D /* UIViewController + SwiftUI.swift */,
+				AAA160542610DA1A00757AA7 /* CGFloat + Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -959,6 +975,8 @@
 			isa = PBXGroup;
 			children = (
 				AA9D4EEF25E157C900AF70EA /* Notif.swift */,
+				AAA1603A2610CF0A00757AA7 /* HSV.swift */,
+				AAA1603F2610CFBA00757AA7 /* RGB.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1438,6 +1456,7 @@
 				AA92734225F65D7000D0A4D9 /* CALayer + applyShadow.swift in Sources */,
 				AA7829DE260F9E2400537B2D /* ColorPicker.swift in Sources */,
 				AA7978F326011B120071297C /* TutorialViewController.swift in Sources */,
+				AAA160482610D79C00757AA7 /* ColorWheel.swift in Sources */,
 				AA8F528B260633EF00C55407 /* AlertsStoryboard.swift in Sources */,
 				AA855D6925DAC156008A3294 /* LoginInteractor.swift in Sources */,
 				AA7613F725FBD81D00E0B4E2 /* Note + Extension.swift in Sources */,
@@ -1445,6 +1464,7 @@
 				AA9DDEE9260B83830002197F /* SettingsCollectionViewUtilities.swift in Sources */,
 				AA855DA225DAE673008A3294 /* UIView+shake.swift in Sources */,
 				AA52774125DC1EF300AE880D /* ToastManager.swift in Sources */,
+				AAA160502610D9B300757AA7 /* CIHueSaturationValueGradientView.swift in Sources */,
 				AA9272FA25F6559300D0A4D9 /* RootPresenter.swift in Sources */,
 				AAB50FBC25D6C35200980169 /* PermissionViewController.swift in Sources */,
 				AA76A18225D5645500903401 /* Noty.xcdatamodeld in Sources */,
@@ -1498,12 +1518,15 @@
 				AA6EBA2F25F7939500FFF099 /* SettingsPresenter.swift in Sources */,
 				AAA074BE25E01A210061347E /* FirebaseError.swift in Sources */,
 				AA8F52A4260634BC00C55407 /* TimeAlertRouter.swift in Sources */,
+				AAA1605D2610EB7A00757AA7 /* CustomSlider.swift in Sources */,
+				AAA160552610DA1A00757AA7 /* CGFloat + Utils.swift in Sources */,
 				AA7829FB260FA2A300537B2D /* ThemeAlertRouter.swift in Sources */,
 				AAB50F6025D6A6E700980169 /* HomeRouter.swift in Sources */,
 				AA95D7E125D9684D00F94553 /* UserDefaultsManager.swift in Sources */,
 				AAB50FBA25D6C35200980169 /* PermissionPresenter.swift in Sources */,
 				AA8F52A6260634BC00C55407 /* TimeAlertInteractor.swift in Sources */,
 				AA9D4EF025E157C900AF70EA /* Notif.swift in Sources */,
+				AAA160402610CFBA00757AA7 /* RGB.swift in Sources */,
 				AA855D9725DADAD7008A3294 /* DataValidationError.swift in Sources */,
 				AA7978F226011B120071297C /* TutorialRouter.swift in Sources */,
 				AA9272FC25F6559300D0A4D9 /* RootViewController.swift in Sources */,
@@ -1537,6 +1560,7 @@
 				AAB50FBB25D6C35200980169 /* PermissionRouter.swift in Sources */,
 				AA9DDEDF260B6DDF0002197F /* ConfigCell.swift in Sources */,
 				AACED18F25DEB10900C0EA4D /* DeepLinkManager.swift in Sources */,
+				AAA1603B2610CF0A00757AA7 /* HSV.swift in Sources */,
 				AA7829D8260F952800537B2D /* OptionCell.swift in Sources */,
 				AA76A20325D5689200903401 /* UIApplicationProtocol.swift in Sources */,
 				AA76A22C25D56AB600903401 /* R.generated.swift in Sources */,

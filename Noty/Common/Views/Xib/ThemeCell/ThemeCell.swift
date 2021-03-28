@@ -7,4 +7,6 @@
 
 import UIKit
 
-class ThemeCell: UICollectionViewCell {}
+class ThemeCell: UICollectionViewCell {
+    @IBOutlet weak var colorImage: UIImageView!
+}

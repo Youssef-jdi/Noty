@@ -44,7 +44,7 @@ class ThemeAlertViewController: UIViewController, ThemeAlertViewControllerProtoc
     override func viewDidLoad() {
         super.viewDidLoad()
         let colorPicker = ColorPicker()
-        addSubSwiftUIView(colorPicker, to: containerView)
+        addSubSwiftUIView(colorPicker, to: view)
     }
 
     // MARK: Actions

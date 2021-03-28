@@ -50,6 +50,9 @@
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="493" height="50"/>
+            <connections>
+                <outlet property="colorImage" destination="83r-tF-N0l" id="daM-gG-9gh"/>
+            </connections>
             <point key="canvasLocation" x="-86.231884057971016" y="0.6696428571428571"/>
         </collectionViewCell>
     </objects>

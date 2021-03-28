@@ -51,6 +51,7 @@ class SettingsCollectionViewUtilities: NSObject, SettingsCollectionViewUtilities
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.themeCell.identifier, for: indexPath) as? ThemeCell else { return UICollectionViewCell() }
+            cell.colorImage.image = UIImage(color: R.color.vonoBlue()!)
             return cell
         case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.optionCell.identifier, for: indexPath) as? OptionCell else { return UICollectionViewCell() }

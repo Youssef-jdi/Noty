@@ -141,12 +141,18 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 10 colors.
+  /// This `R.color` struct is generated, and contains static references to 13 colors.
   struct color {
+    /// Color `Outline`.
+    static let outline = Rswift.ColorResource(bundle: R.hostingBundle, name: "Outline")
     /// Color `PurcahseBlue`.
     static let purcahseBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "PurcahseBlue")
     /// Color `PurchaseGray`.
     static let purchaseGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "PurchaseGray")
+    /// Color `ShadowInner`.
+    static let shadowInner = Rswift.ColorResource(bundle: R.hostingBundle, name: "ShadowInner")
+    /// Color `ShadowOuter`.
+    static let shadowOuter = Rswift.ColorResource(bundle: R.hostingBundle, name: "ShadowOuter")
     /// Color `appLightRed`.
     static let appLightRed = Rswift.ColorResource(bundle: R.hostingBundle, name: "appLightRed")
     /// Color `facebookBlue`.
@@ -165,6 +171,15 @@ struct R: Rswift.Validatable {
     static let vonoYellow = Rswift.ColorResource(bundle: R.hostingBundle, name: "vonoYellow")
 
     #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Outline", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func outline(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.outline, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIColor(named: "PurcahseBlue", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
@@ -179,6 +194,24 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func purchaseGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.purchaseGray, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "ShadowInner", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func shadowInner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.shadowInner, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "ShadowOuter", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func shadowOuter(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.shadowOuter, compatibleWith: traitCollection)
     }
     #endif
 
@@ -255,6 +288,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(watchOS)
+    /// `UIColor(named: "Outline", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func outline(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.outline.name)
+    }
+    #endif
+
+    #if os(watchOS)
     /// `UIColor(named: "PurcahseBlue", bundle: ..., traitCollection: ...)`
     @available(watchOSApplicationExtension 4.0, *)
     static func purcahseBlue(_: Void = ()) -> UIKit.UIColor? {
@@ -267,6 +308,22 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func purchaseGray(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.purchaseGray.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "ShadowInner", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func shadowInner(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.shadowInner.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "ShadowOuter", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func shadowOuter(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.shadowOuter.name)
     }
     #endif
 
