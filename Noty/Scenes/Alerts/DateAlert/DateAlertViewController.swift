@@ -21,6 +21,7 @@ protocol DateAlertViewControllerProtocol: class, UIViewControllerRouting {
     // add the functions that are called from the presenter
     func display(date: Date, year: String, dateText: String)
     func display(date: String, year: String)
+    func display(theme color: UIColor)
 }
 
 class DateAlertViewController: UIViewController, DateAlertViewControllerProtocol {
@@ -54,7 +55,8 @@ class DateAlertViewController: UIViewController, DateAlertViewControllerProtocol
             containerView.layer.cornerRadius = 25
         }
     }
-
+    @IBOutlet weak var labelsView: UIView!
+    
     // MARK: Properties
     var note: NoteModel?
 
@@ -90,6 +92,10 @@ extension DateAlertViewController {
             self.dateLabel.text = date
             self.yearLabel.text = year
         }
+    }
+
+    func display(theme color: UIColor) {
+        self.labelsView.backgroundColor = color
     }
 
     @objc func datePickerValueChanged() {

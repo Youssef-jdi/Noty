@@ -61,15 +61,15 @@ struct ColorWheel: View {
                         let saturation = min(distance(center, value.location) / (self.radius / 2), 1)
 
                         self.rgbColour = HSV(h: hue, s: saturation, v: self.brightness).rgb
+                        self.shareThemeColor()
                     }
             )
         }
         .frame(width: self.radius, height: self.radius)
     }
-}
 
-struct ColorWheel_Previews: PreviewProvider {
-    static var previews: some View {
-        ColorWheel(radius: 350, rgbColour: .constant(RGB(r: 1, g: 1, b: 1)), brightness: .constant(0))
+    private func shareThemeColor() {
+        let userInfo: [AnyHashable: Any] = ["rgb": self.rgbColour]
+        NotificationCenter.default.post(name: newColor, object: nil, userInfo: userInfo)
     }
 }

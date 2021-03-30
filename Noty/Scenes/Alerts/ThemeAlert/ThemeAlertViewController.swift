@@ -14,45 +14,52 @@
 import UIKit
 
 protocol ThemeAlertViewControllerProtocol: class, UIViewControllerRouting {
-    func set(interactor: ThemeAlertInteractorProtocol)
-    func set(router: ThemeAlertRouterProtocol)
-
-    // add the functions that are called from the presenter
-    func display(error: Error)
+    func set(userDefaults: UserDefaultsManagerProtocol)
 }
 
-class ThemeAlertViewController: UIViewController, ThemeAlertViewControllerProtocol {
+class ThemeAlertViewController: UIViewController, ThemeAlertViewControllerProtocol, WillReceiveNewColor {
 
     // MARK: DI
-    var interactor: ThemeAlertInteractorProtocol?
-    var router: ThemeAlertRouterProtocol?
-
-    func set(interactor: ThemeAlertInteractorProtocol) {
-        self.interactor = interactor
-    }
-
-    func set(router: ThemeAlertRouterProtocol) {
-        self.router = router
+    func set(userDefaults: UserDefaultsManagerProtocol) {
+        self.userDefaults = userDefaults
     }
     
     // MARK: Outlets
     @IBOutlet weak var containerView: RoundedView!
 
     // MARK: Properties
+    var userDefaults: UserDefaultsManagerProtocol?
+    var choosenColor: UIColor?
 
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let colorPicker = ColorPicker()
-        addSubSwiftUIView(colorPicker, to: view)
+        setupView()
+        observeColorChange()
     }
 
-    // MARK: Actions
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let color = self.choosenColor else { return }
+        self.userDefaults?.themeColor = color
+    }
 
+    // MARK: Private Methods
+    private func observeColorChange() {
+        handleNewColorReceived {[weak self] color in
+            guard let self = self else { return }
+            self.choosenColor = color
+        }
+    }
 }
 
 // MARK: Methods
 extension ThemeAlertViewController {
 
-    func display(error: Error) {}
+    private func setupView() {
+        guard let currentColor = userDefaults?.themeColor.rgba else { return }
+        let currentRGB = RGB(r: currentColor.red, g: currentColor.green, b: currentColor.blue)
+        let colorPicker = ColorPicker(rgbColour: currentRGB)
+        addSubSwiftUIView(colorPicker, to: view)
+    }
 }

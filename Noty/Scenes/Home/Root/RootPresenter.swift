@@ -20,6 +20,7 @@ protocol RootPresenterProtocol {
     // add the functions that are called from interactor
     func present(with state: RootTabView.State)
     func presentContainerTabView(_ state: RootTabView.State)
+    func present(saved color: UIColor)
 }
 
 class RootPresenter: RootPresenterProtocol {
@@ -53,5 +54,9 @@ extension  RootPresenter {
 
     func presentContainerTabView(_ state: RootTabView.State) {
         viewController?.displayContainerTabView(state)
+    }
+
+    func present(saved color: UIColor) {
+        viewController?.display(theme: color)
     }
 }

@@ -18,11 +18,11 @@ protocol SettingsViewControllerProtocol: class, UIViewControllerRouting {
     func set(router: SettingsRouterProtocol)
     func set(utilities: SettingsCollectionViewUtilitiesProtocol)
 
-    // add the functions that are called from the presenter
     func display(config: [Config])
+    func display(new color: UIColor)
 }
 
-class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
+class SettingsViewController: UIViewController, SettingsViewControllerProtocol, WillReceiveNewColor {
 
     // MARK: DI
     var interactor: SettingsInteractorProtocol?
@@ -49,10 +49,21 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        handleViewDidLoad()
+    }
+
+    // MARK: Private Methods
+    private func handleViewDidLoad() {
         setupCollectionView()
         interactor?.prepareConfigDataSource()
+        interactor?.handleThemeColor()
+        observeColorChange()
     }
-    // MARK: Actions
+
+    // MARK: - Object Lifecycle
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 // MARK: Methods
@@ -61,6 +72,10 @@ extension SettingsViewController {
     func display(config: [Config]) {
         utilities?.set(dataSource: config)
         collectionView.reloadData()
+    }
+
+    func display(new color: UIColor) {
+        utilities?.set(new: color)
     }
 
     private func setupCollectionView() {
@@ -76,6 +91,16 @@ extension SettingsViewController {
         collectionView.register(
             UINib(resource: R.nib.themeCell),
             forCellWithReuseIdentifier: R.reuseIdentifier.themeCell.identifier)
+    }
+
+    private func observeColorChange() {
+        handleNewColorReceived {[weak self] color in
+            DispatchQueue.main.async {[weak self] in
+                guard let self = self else { return }
+                self.utilities?.set(new: color)
+                self.collectionView.reloadData()
+            }
+        }
     }
 }
 

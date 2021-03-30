@@ -16,6 +16,7 @@ import UIKit
 protocol TimeAlertInteractorProtocol {
     func convertDate(date: Date)
     func addNotif(on date: Date, with note: NoteModel)
+    func handleThemeColor()
 }
 
 class TimeAlertInteractor: TimeAlertInteractorProtocol {
@@ -26,23 +27,30 @@ class TimeAlertInteractor: TimeAlertInteractorProtocol {
     var permissionManager: PermissionManagerProtocol
     var notificationManager: NotificationManagerProtocol
     var errorHandler: ErrorHandlerProtocol
+    var userDefaults: UserDefaultsManagerProtocol
     
     init(
         presenter: TimeAlertPresenterProtocol,
         dateFormatter: DateFormatterProtocol,
         permissionManager: PermissionManagerProtocol,
         notificationManager: NotificationManagerProtocol,
-        errorHandler: ErrorHandlerProtocol
+        errorHandler: ErrorHandlerProtocol,
+        userDefaults: UserDefaultsManagerProtocol
         ) {
         self.presenter = presenter
         self.dateFormatter = dateFormatter
         self.permissionManager = permissionManager
         self.notificationManager = notificationManager
         self.errorHandler = errorHandler
+        self.userDefaults = userDefaults
     }
 }
 
 extension TimeAlertInteractor {
+    func handleThemeColor() {
+        presenter.present(theme: userDefaults.themeColor)
+    }
+
     func convertDate(date: Date) {
         presenter.present(time: dateFormatter.get(date: date, in: "h:mm a"))
     }

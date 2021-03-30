@@ -58,6 +58,7 @@ struct CustomSlider: View {
                             }
                             .onEnded { _ in
                                 self.isTouchingKnob = false
+                                self.shareThemeColor()
                             }
                         )
                     Spacer()
@@ -66,10 +67,9 @@ struct CustomSlider: View {
         }
         .frame(height: 40)
     }
-}
 
-struct CustomSlider_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomSlider(rgbColour: .constant(RGB(r: 0.5, g: 0.1, b: 0.9)), value: .constant(10), range: 1...100)
+    private func shareThemeColor() {
+        let userInfo: [AnyHashable: Any] = ["rgb": self.rgbColour]
+        NotificationCenter.default.post(name: newColor, object: nil, userInfo: userInfo)
     }
 }

@@ -18,6 +18,7 @@ protocol DateAlertPresenterProtocol {
 
     func present(date: Date, year: String, dateText: String)
     func present(date: String, year: String)
+    func present(theme color: UIColor)
 }
 
 class DateAlertPresenter: DateAlertPresenterProtocol {
@@ -38,5 +39,9 @@ extension  DateAlertPresenter {
 
     func present(date: String, year: String) {
         viewController?.display(date: date, year: year)
+    }
+
+    func present(theme color: UIColor) {
+        viewController?.display(theme: color)
     }
 }

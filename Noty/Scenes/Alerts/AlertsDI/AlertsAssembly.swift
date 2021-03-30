@@ -9,6 +9,7 @@ import Swinject
 import SwinjectAutoregistration
 
 class AlertsAssemly: Assembly {
+    // swiftlint:disbale function_body_length
     func assemble(container: Container) {
         // MARK: Date Alert vc
         container.register(DateAlertRouterProtocol.self) { resolver in
@@ -49,12 +50,14 @@ class AlertsAssemly: Assembly {
             let router = resolver ~> (TimeAlertRouterProtocol.self)
             let presenter = resolver ~> (TimeAlertPresenterProtocol.self)
             let interactor = resolver ~> (TimeAlertInteractorProtocol.self)
+            let alertPresenter = resolver ~> (AlertPresenterProtocol.self)
 
             router.set(viewController: vc)
             presenter.set(viewController: vc)
 
             vc.set(router: router)
             vc.set(interactor: interactor)
+            vc.set(alertPresenter: alertPresenter)
         }
 
         // MARK: Language Alert vc
@@ -104,25 +107,10 @@ class AlertsAssemly: Assembly {
         }
 
         // MARK: Theme Alert VC
-        container.register(ThemeAlertRouterProtocol.self) { resolver in
-            return ThemeAlertRouter(
-                rootNavigator: resolver ~> (RootNavigatorProtocol.self),
-                alertsStoryboard: resolver ~> (Storyboard.self, name: R.storyboard.alerts.name))
-        }
-
-        container.autoregister(ThemeAlertPresenterProtocol.self, initializer: ThemeAlertPresenter.init)
-        container.autoregister(ThemeAlertInteractorProtocol.self, initializer: ThemeAlertInteractor.init)
-
         container.storyboardInitCompleted(ThemeAlertViewController.self) { resolver, vc in
-            let router = resolver ~> (ThemeAlertRouterProtocol.self)
-            let presenter = resolver ~> (ThemeAlertPresenterProtocol.self)
-            let interactor = resolver ~> (ThemeAlertInteractorProtocol.self)
+            let userDefaults = resolver ~> (UserDefaultsManagerProtocol.self)
 
-            router.set(viewController: vc)
-            presenter.set(viewController: vc)
-
-            vc.set(router: router)
-            vc.set(interactor: interactor)
+            vc.set(userDefaults: userDefaults)
         }
     }
 }

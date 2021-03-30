@@ -19,6 +19,7 @@ protocol TimeAlertPresenterProtocol {
     func present(time: String)
     func present(permission error: HomeModels.PermissionError)
     func presentAddingNotif()
+    func present(theme color: UIColor)
 }
 
 class TimeAlertPresenter: TimeAlertPresenterProtocol {
@@ -47,5 +48,9 @@ extension TimeAlertPresenter {
 
     func presentAddingNotif() {
         viewController?.displayAddingnotif()
+    }
+
+    func present(theme color: UIColor) {
+        viewController?.display(theme: color)
     }
 }

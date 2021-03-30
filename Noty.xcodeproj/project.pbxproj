@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4A3897A855F5ECCAD229EE41 /* Pods_Noty_NotyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2765F70893663883719B642 /* Pods_Noty_NotyUITests.framework */; };
 		72914BA272AA9B5AD2EB2166 /* Pods_Noty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936FDC04147F2B2DB33A17B2 /* Pods_Noty.framework */; };
+		AA4D86CD261217A70074A869 /* UIColor + RGBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D86CC261217A70074A869 /* UIColor + RGBA.swift */; };
+		AA4D86D226121DE60074A869 /* UIViewController + WillReceiveNewColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D86D126121DE60074A869 /* UIViewController + WillReceiveNewColor.swift */; };
 		AA52772725DC177D00AE880D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52772625DC177D00AE880D /* AuthManager.swift */; };
 		AA52773725DC1C5400AE880D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52773625DC1C5400AE880D /* Toast.swift */; };
 		AA52773C25DC1C7B00AE880D /* CustomViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52773B25DC1C7B00AE880D /* CustomViewProtocol.swift */; };
@@ -66,10 +68,7 @@
 		AA7829E3260F9FC800537B2D /* UIImage + Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829E2260F9FC800537B2D /* UIImage + Color.swift */; };
 		AA7829E9260FA06100537B2D /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829E8260FA06100537B2D /* ThemeCell.swift */; };
 		AA7829F1260FA08A00537B2D /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7829F0260FA08A00537B2D /* ThemeCell.xib */; };
-		AA7829FA260FA2A300537B2D /* ThemeAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829F6260FA2A300537B2D /* ThemeAlertPresenter.swift */; };
-		AA7829FB260FA2A300537B2D /* ThemeAlertRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829F7260FA2A300537B2D /* ThemeAlertRouter.swift */; };
 		AA7829FC260FA2A300537B2D /* ThemeAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829F8260FA2A300537B2D /* ThemeAlertViewController.swift */; };
-		AA7829FD260FA2A300537B2D /* ThemeAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829F9260FA2A300537B2D /* ThemeAlertInteractor.swift */; };
 		AA782A05260FA49500537B2D /* UIViewController + SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA782A04260FA49500537B2D /* UIViewController + SwiftUI.swift */; };
 		AA7832222608D5530090096D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7832212608D5530090096D /* NotificationManager.swift */; };
 		AA7978AB2600FCA30071297C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978AA2600FCA30071297C /* NoteCell.swift */; };
@@ -204,6 +203,8 @@
 		936FDC04147F2B2DB33A17B2 /* Pods_Noty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Noty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2765F70893663883719B642 /* Pods_Noty_NotyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Noty_NotyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2A08D525DD33E400333543 /* Noty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Noty.entitlements; sourceTree = "<group>"; };
+		AA4D86CC261217A70074A869 /* UIColor + RGBA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + RGBA.swift"; sourceTree = "<group>"; };
+		AA4D86D126121DE60074A869 /* UIViewController + WillReceiveNewColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + WillReceiveNewColor.swift"; sourceTree = "<group>"; };
 		AA52772625DC177D00AE880D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		AA52773625DC1C5400AE880D /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		AA52773B25DC1C7B00AE880D /* CustomViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewProtocol.swift; sourceTree = "<group>"; };
@@ -267,10 +268,7 @@
 		AA7829E2260F9FC800537B2D /* UIImage + Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Color.swift"; sourceTree = "<group>"; };
 		AA7829E8260FA06100537B2D /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 		AA7829F0260FA08A00537B2D /* ThemeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeCell.xib; sourceTree = "<group>"; };
-		AA7829F6260FA2A300537B2D /* ThemeAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertPresenter.swift; sourceTree = "<group>"; };
-		AA7829F7260FA2A300537B2D /* ThemeAlertRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertRouter.swift; sourceTree = "<group>"; };
 		AA7829F8260FA2A300537B2D /* ThemeAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertViewController.swift; sourceTree = "<group>"; };
-		AA7829F9260FA2A300537B2D /* ThemeAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertInteractor.swift; sourceTree = "<group>"; };
 		AA782A04260FA49500537B2D /* UIViewController + SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + SwiftUI.swift"; sourceTree = "<group>"; };
 		AA7832212608D5530090096D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		AA7978AA2600FCA30071297C /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
@@ -770,10 +768,7 @@
 		AA7829F5260FA28F00537B2D /* ThemeAlert */ = {
 			isa = PBXGroup;
 			children = (
-				AA7829F6260FA2A300537B2D /* ThemeAlertPresenter.swift */,
-				AA7829F7260FA2A300537B2D /* ThemeAlertRouter.swift */,
 				AA7829F8260FA2A300537B2D /* ThemeAlertViewController.swift */,
-				AA7829F9260FA2A300537B2D /* ThemeAlertInteractor.swift */,
 			);
 			path = ThemeAlert;
 			sourceTree = "<group>";
@@ -870,6 +865,8 @@
 				AA7829E2260F9FC800537B2D /* UIImage + Color.swift */,
 				AA782A04260FA49500537B2D /* UIViewController + SwiftUI.swift */,
 				AAA160542610DA1A00757AA7 /* CGFloat + Utils.swift */,
+				AA4D86CC261217A70074A869 /* UIColor + RGBA.swift */,
+				AA4D86D126121DE60074A869 /* UIViewController + WillReceiveNewColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1520,8 +1517,8 @@
 				AA8F52A4260634BC00C55407 /* TimeAlertRouter.swift in Sources */,
 				AAA1605D2610EB7A00757AA7 /* CustomSlider.swift in Sources */,
 				AAA160552610DA1A00757AA7 /* CGFloat + Utils.swift in Sources */,
-				AA7829FB260FA2A300537B2D /* ThemeAlertRouter.swift in Sources */,
 				AAB50F6025D6A6E700980169 /* HomeRouter.swift in Sources */,
+				AA4D86D226121DE60074A869 /* UIViewController + WillReceiveNewColor.swift in Sources */,
 				AA95D7E125D9684D00F94553 /* UserDefaultsManager.swift in Sources */,
 				AAB50FBA25D6C35200980169 /* PermissionPresenter.swift in Sources */,
 				AA8F52A6260634BC00C55407 /* TimeAlertInteractor.swift in Sources */,
@@ -1548,12 +1545,10 @@
 				AA7613E025FBD4A500E0B4E2 /* CoreDataController.swift in Sources */,
 				AA8F5283260633E300C55407 /* AlertsAssembly.swift in Sources */,
 				AA76A31C25D58F8F00903401 /* OnBoardingStoryboard.swift in Sources */,
-				AA7829FA260FA2A300537B2D /* ThemeAlertPresenter.swift in Sources */,
 				AA76A1EF25D5674C00903401 /* Noty.swift in Sources */,
 				AA9DDEF2260BA2850002197F /* LanguageAlertPresenter.swift in Sources */,
 				AA8F529A260634AE00C55407 /* DateAlertViewController.swift in Sources */,
 				AA7978F426011B120071297C /* TutorialInteractor.swift in Sources */,
-				AA7829FD260FA2A300537B2D /* ThemeAlertInteractor.swift in Sources */,
 				AAB50FBD25D6C35200980169 /* PermissionInteractor.swift in Sources */,
 				AA7829E9260FA06100537B2D /* ThemeCell.swift in Sources */,
 				AAB50F8A25D6B27D00980169 /* VTextView.swift in Sources */,
@@ -1569,6 +1564,7 @@
 				AA9272FB25F6559300D0A4D9 /* RootRouter.swift in Sources */,
 				AA95D7AF25D94E5B00F94553 /* LanguagePresenter.swift in Sources */,
 				AA76373426024F1800017467 /* TutorialStateManager.swift in Sources */,
+				AA4D86CD261217A70074A869 /* UIColor + RGBA.swift in Sources */,
 				AAB50F5F25D6A6E700980169 /* HomePresenter.swift in Sources */,
 				AA8F529B260634AE00C55407 /* DateAlertInteractor.swift in Sources */,
 			);

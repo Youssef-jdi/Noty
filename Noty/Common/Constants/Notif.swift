@@ -8,3 +8,4 @@
 import Foundation
 
 let emailSent = NSNotification.Name(rawValue: "email_sent")
+let newColor = NSNotification.Name(rawValue: "new_color")

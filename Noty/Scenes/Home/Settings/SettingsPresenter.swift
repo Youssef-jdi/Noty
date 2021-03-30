@@ -18,6 +18,7 @@ protocol SettingsPresenterProtocol {
 
     // add the functions that are called from interactor
     func present(locale: Locale)
+    func present(new color: UIColor)
 }
 
 class SettingsPresenter: SettingsPresenterProtocol {
@@ -49,5 +50,9 @@ extension  SettingsPresenter {
                 flagImage: nil)
         ]
         viewController?.display(config: configs)
+    }
+
+    func present(new color: UIColor) {
+        viewController?.display(new: color)
     }
 }

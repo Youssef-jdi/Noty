@@ -23,6 +23,7 @@ class RootTabView: UIView, CustomViewProtocol {
         }
     }
     @IBOutlet weak var toggleView: UIView!
+    @IBOutlet weak var containerStackView: UIStackView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,6 +44,11 @@ class RootTabView: UIView, CustomViewProtocol {
                 animations: {
                     self.setupToggle(state: state)
             })
+    }
+
+    func setView(with color: UIColor) {
+        self.toggleView.backgroundColor = color
+        self.containerStackView.backgroundColor = color
     }
 
     private func setupToggle(state: State) {

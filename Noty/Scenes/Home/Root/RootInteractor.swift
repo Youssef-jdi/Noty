@@ -22,13 +22,19 @@ class RootInteractor: RootInteractorProtocol {
 
     // MARK: DI
     var presenter: RootPresenterProtocol
+    var userDefaults: UserDefaultsManagerProtocol
 
-    init(presenter: RootPresenterProtocol) {
+    init(
+        presenter: RootPresenterProtocol,
+        userDefaults: UserDefaultsManagerProtocol
+    ) {
         self.presenter = presenter
+        self.userDefaults = userDefaults
     }
 
     func handleViewDidLoad() {
         presenter.present(with: .new)
+        presenter.present(saved: userDefaults.themeColor)
     }
 
     func handleChangeState(state: RootTabView.State) {

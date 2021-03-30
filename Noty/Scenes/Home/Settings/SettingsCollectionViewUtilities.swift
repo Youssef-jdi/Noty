@@ -9,6 +9,7 @@ import UIKit
 
 protocol SettingsCollectionViewUtilitiesProtocol: UICollectionViewDataSource {
     func set(dataSource: [Config])
+    func set(new color: UIColor)
 
     var dataSource: [Config] { get set }
 }
@@ -16,6 +17,7 @@ protocol SettingsCollectionViewUtilitiesProtocol: UICollectionViewDataSource {
 class SettingsCollectionViewUtilities: NSObject, SettingsCollectionViewUtilitiesProtocol {
 
     var dataSource: [Config] = []
+    var imageColor: UIColor?
     let optionsDataSource = [
         "Enable Noty to send notifications",
         "Automatically start recording",
@@ -27,6 +29,10 @@ class SettingsCollectionViewUtilities: NSObject, SettingsCollectionViewUtilities
 
     func set(dataSource: [Config]) {
         self.dataSource = dataSource
+    }
+
+    func set(new color: UIColor) {
+        self.imageColor = color
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,8 +56,8 @@ class SettingsCollectionViewUtilities: NSObject, SettingsCollectionViewUtilities
             cell.configureCell(with: dataSource[indexPath.row])
             return cell
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.themeCell.identifier, for: indexPath) as? ThemeCell else { return UICollectionViewCell() }
-            cell.colorImage.image = UIImage(color: R.color.vonoBlue()!)
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.themeCell.identifier, for: indexPath) as? ThemeCell, let color = self.imageColor else { return UICollectionViewCell() }
+            cell.colorImage.image = UIImage(color: color)
             return cell
         case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.optionCell.identifier, for: indexPath) as? OptionCell else { return UICollectionViewCell() }

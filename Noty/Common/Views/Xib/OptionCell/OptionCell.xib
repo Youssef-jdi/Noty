@@ -32,20 +32,20 @@
                         </subviews>
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adx-40-SzL">
-                        <rect key="frame" x="0.0" y="47" width="489" height="2"/>
+                        <rect key="frame" x="0.0" y="48" width="391" height="1"/>
                         <color key="backgroundColor" name="vonoBlue"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="2" id="Lhs-GN-GLa"/>
+                            <constraint firstAttribute="height" constant="1" id="Lhs-GN-GLa"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ZFs-o8-fUM" firstAttribute="leading" secondItem="1Ol-6R-ysm" secondAttribute="leading" constant="8" id="PFY-xG-hDd"/>
+                    <constraint firstItem="adx-40-SzL" firstAttribute="leading" secondItem="1Ol-6R-ysm" secondAttribute="leading" id="R82-od-1K6"/>
                     <constraint firstAttribute="trailing" secondItem="ZFs-o8-fUM" secondAttribute="trailing" constant="8" id="UtM-at-fie"/>
                     <constraint firstAttribute="bottom" secondItem="ZFs-o8-fUM" secondAttribute="bottom" constant="12" id="d8O-QE-wiY"/>
                     <constraint firstItem="ZFs-o8-fUM" firstAttribute="top" secondItem="1Ol-6R-ysm" secondAttribute="top" constant="12" id="dHN-1u-a3g"/>
-                    <constraint firstItem="adx-40-SzL" firstAttribute="centerX" secondItem="1Ol-6R-ysm" secondAttribute="centerX" id="o5N-kg-ceE"/>
-                    <constraint firstItem="adx-40-SzL" firstAttribute="width" secondItem="1Ol-6R-ysm" secondAttribute="width" id="qaT-Ug-Vqh"/>
+                    <constraint firstItem="adx-40-SzL" firstAttribute="width" secondItem="1Ol-6R-ysm" secondAttribute="width" multiplier="0.8" id="qaT-Ug-Vqh"/>
                     <constraint firstAttribute="bottom" secondItem="adx-40-SzL" secondAttribute="bottom" constant="1" id="s9E-vQ-zNd"/>
                 </constraints>
             </collectionViewCellContentView>

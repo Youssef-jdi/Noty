@@ -23,19 +23,23 @@ class DateAlertInteractor: DateAlertInteractorProtocol {
     // MARK: DI
     var presenter: DateAlertPresenterProtocol
     var dateFormatter: DateFormatterProtocol
+    var userDefaults: UserDefaultsManagerProtocol
 
     init(
         presenter: DateAlertPresenterProtocol,
-        dateFormatter: DateFormatterProtocol
+        dateFormatter: DateFormatterProtocol,
+        userDefaults: UserDefaultsManagerProtocol
         ) {
         self.presenter = presenter
         self.dateFormatter = dateFormatter
+        self.userDefaults = userDefaults
     }
 }
 
 extension DateAlertInteractor {
 
     func handleViewDidLoad() {
+        presenter.present(theme: userDefaults.themeColor)
         presenter.present(
             date: dateFormatter.currentDate(),
             year: dateFormatter.get(date: Date(), in: "yyyy"),

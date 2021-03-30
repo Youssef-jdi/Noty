@@ -16,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootTabView" customModule="Noty" customModuleProvider="target">
             <connections>
                 <outlet property="bottomBorderView" destination="zh6-aL-Ksd" id="M2d-ay-dtE"/>
+                <outlet property="containerStackView" destination="DCq-jo-a14" id="BeM-hR-A9f"/>
                 <outlet property="toggleView" destination="flS-kt-erB" id="WBm-50-nt7"/>
             </connections>
         </placeholder>

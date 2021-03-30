@@ -20,9 +20,10 @@ protocol RootViewControllerProtocol: class, UIViewControllerRouting {
     // add the functions that are called from the presenter
     func display(_ child: UIViewController)
     func displayContainerTabView(_ state: RootTabView.State)
+    func display(theme color: UIColor)
 }
 
-class RootViewController: UIViewController, RootViewControllerProtocol {
+class RootViewController: UIViewController, RootViewControllerProtocol, WillReceiveNewColor {
 
     // MARK: DI
     var interactor: RootInteractorProtocol?
@@ -61,10 +62,13 @@ class RootViewController: UIViewController, RootViewControllerProtocol {
         super.viewDidLoad()
         interactor?.handleViewDidLoad()
         setupNavigationBar()
+        observeColorChange()
     }
 
-    // MARK: Actions
-
+    // MARK: - Object Lifecycle
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 fileprivate extension RootViewController {
@@ -90,6 +94,15 @@ fileprivate extension RootViewController {
     @objc func goToSettings() {
         router?.route(to: .settings)
     }
+
+    func observeColorChange() {
+        handleNewColorReceived {[weak self] color in
+            DispatchQueue.main.async {[weak self] in
+                guard let self = self else { return }
+                self.rootTabView.setView(with: color)
+            }
+        }
+    }
 }
 
 // MARK: Methods
@@ -114,5 +127,9 @@ extension RootViewController {
 
     func displayContainerTabView(_ state: RootTabView.State) {
         rootTabView.toggle(state: state)
+    }
+
+    func display(theme color: UIColor) {
+        rootTabView.setView(with: color)
     }
 }

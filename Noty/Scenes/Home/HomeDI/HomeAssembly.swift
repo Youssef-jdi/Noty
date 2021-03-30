@@ -136,5 +136,12 @@ class HomeAssembly: Assembly {
             vc.set(interactor: interactor)
             vc.set(utilities: utilities)
         }
+
+        // MARK: Home Navigation Controller
+        container.storyboardInitCompleted(HomeNavigationController.self) { resolver, vc in
+            let userDefaults = resolver ~> (UserDefaultsManagerProtocol.self)
+
+            vc.set(userDefaults: userDefaults)
+        }
     }
 }

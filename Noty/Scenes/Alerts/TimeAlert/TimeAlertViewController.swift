@@ -23,6 +23,7 @@ protocol TimeAlertViewControllerProtocol: class, UIViewControllerRouting {
     func display(time: String, isAm: Bool)
     func display(permission errors: HomeModels.PermissionError)
     func displayAddingnotif()
+    func display(theme color: UIColor)
 }
 
 class TimeAlertViewController: UIViewController, TimeAlertViewControllerProtocol {
@@ -65,6 +66,7 @@ class TimeAlertViewController: UIViewController, TimeAlertViewControllerProtocol
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var amLabel: UILabel!
     @IBOutlet weak var pmLabel: UILabel!
+    @IBOutlet weak var labelView: UIView!
 
     // MARK: Properties
     var date: Date?
@@ -75,6 +77,7 @@ class TimeAlertViewController: UIViewController, TimeAlertViewControllerProtocol
     override func viewDidLoad() {
         super.viewDidLoad()
         checkDate()
+        interactor?.handleThemeColor()
     }
 
     // MARK: Actions
@@ -110,7 +113,15 @@ extension TimeAlertViewController {
     }
 
     func display(permission errors: HomeModels.PermissionError) {
-        alertPresenter?.presentPermissionAlert(with: .notif)
+        DispatchQueue.main.async {[weak self] in
+            guard let self = self else { return }
+            self.hideSpinner()
+            self.alertPresenter?.presentPermissionAlert(with: .notif)
+        }
+    }
+
+    func display(theme color: UIColor) {
+        labelView.backgroundColor = color
     }
 
     private func checkDate() {

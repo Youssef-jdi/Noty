@@ -130,6 +130,7 @@
                         <outlet property="containerView" destination="fxy-3m-9kv" id="gVS-J7-Vbs"/>
                         <outlet property="dateLabel" destination="j7D-C4-SsW" id="ZjA-PL-9kW"/>
                         <outlet property="datePicker" destination="lW2-gf-wbw" id="PMq-nN-s5H"/>
+                        <outlet property="labelsView" destination="MUx-aa-AQq" id="s0r-RP-9ya"/>
                         <outlet property="yearLabel" destination="a4e-eB-VMQ" id="WOx-K6-Bt5"/>
                     </connections>
                 </viewController>
@@ -277,6 +278,7 @@
                     <connections>
                         <outlet property="amLabel" destination="vco-1O-ipg" id="5zC-Ir-DWb"/>
                         <outlet property="containerView" destination="Rqg-Nn-go4" id="4o9-Z5-niY"/>
+                        <outlet property="labelView" destination="hfF-4a-Vrw" id="YNb-aQ-ud4"/>
                         <outlet property="pmLabel" destination="hbN-hi-cGg" id="4zI-8Y-fFy"/>
                         <outlet property="timeLabel" destination="vJc-cf-1C9" id="0dE-MH-keu"/>
                         <outlet property="timePicker" destination="ajv-P0-Uwe" id="qum-Ie-HBY"/>
@@ -295,10 +297,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CQ-6w-KBH" customClass="RoundedView" customModule="Noty" customModuleProvider="target">
-                                <rect key="frame" x="32" y="237" width="350" height="432"/>
+                                <rect key="frame" x="32" y="227.5" width="350" height="451"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="5lg-Z8-DgG">
-                                        <rect key="frame" x="32" y="32" width="286" height="368"/>
+                                        <rect key="frame" x="32" y="32" width="286" height="387"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8L-V6-X6w">
                                                 <rect key="frame" x="0.0" y="0.0" width="286" height="57.5"/>
@@ -309,10 +311,10 @@ Preferred language</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="yXo-vi-mdq">
-                                                <rect key="frame" x="0.0" y="89.5" width="286" height="216"/>
+                                                <rect key="frame" x="0.0" y="89.5" width="286" height="225.5"/>
                                             </pickerView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrL-7z-3zS" customClass="AppButton" customModule="Noty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="337.5" width="286" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="347" width="286" height="40"/>
                                                 <state key="normal" title="OK">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -366,10 +368,10 @@ Preferred language</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcG-MU-NOJ" customClass="RoundedView" customModule="Noty" customModuleProvider="target">
-                                <rect key="frame" x="32" y="247.5" width="350" height="411.5"/>
+                                <rect key="frame" x="32" y="254.5" width="350" height="397"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="vse-zb-ba0">
-                                        <rect key="frame" x="32" y="32" width="286" height="347.5"/>
+                                        <rect key="frame" x="32" y="32" width="286" height="333"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="C0T-h8-MHH">
                                                 <rect key="frame" x="0.0" y="0.0" width="286" height="85.5"/>
@@ -389,10 +391,10 @@ Preferred language</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xh5-xc-2zT">
-                                                <rect key="frame" x="0.0" y="117.5" width="286" height="34"/>
+                                                <rect key="frame" x="0.0" y="117.5" width="286" height="19.5"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Mm-7U-b7I" customClass="AppTextField" customModule="Noty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="286" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="286" height="19.5"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -406,7 +408,7 @@ Preferred language</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jad-ur-OOy">
-                                                <rect key="frame" x="0.0" y="183.5" width="286" height="164"/>
+                                                <rect key="frame" x="0.0" y="169" width="286" height="164"/>
                                                 <subviews>
                                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="9PJ-2W-3Xb">
                                                         <rect key="frame" x="0.0" y="0.0" width="286" height="44"/>
@@ -527,16 +529,16 @@ Preferred language</string>
     </scenes>
     <designables>
         <designable name="2V5-GL-cBU">
-            <size key="intrinsicContentSize" width="83" height="30"/>
+            <size key="intrinsicContentSize" width="103" height="40"/>
         </designable>
         <designable name="32P-gB-dTU">
-            <size key="intrinsicContentSize" width="61" height="30"/>
+            <size key="intrinsicContentSize" width="81" height="40"/>
         </designable>
         <designable name="3Mm-7U-b7I">
-            <size key="intrinsicContentSize" width="58" height="34"/>
+            <size key="intrinsicContentSize" width="50" height="19.5"/>
         </designable>
         <designable name="FrL-7z-3zS">
-            <size key="intrinsicContentSize" width="30" height="30"/>
+            <size key="intrinsicContentSize" width="50" height="40"/>
         </designable>
     </designables>
     <resources>

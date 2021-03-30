@@ -13,19 +13,42 @@
 
 import UIKit
 
-class HomeNavigationController: UINavigationController {
+class HomeNavigationController: UINavigationController, WillReceiveNewColor {
+
+    // MARK: DI
+    func set(userDefaults: UserDefaultsManagerProtocol) {
+        self.userDefaults = userDefaults
+    }
+
+    // MARK: Properties
+    var userDefaults: UserDefaultsManagerProtocol?
 
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        observeColorChange()
         self.delegate = self
     }
 
     func setup() {
-        navigationBar.barTintColor = R.color.vonoBlue()
+        navigationBar.barTintColor = userDefaults?.themeColor
         navigationBar.tintColor = .white
         navigationBar.isTranslucent = false
+    }
+
+    func observeColorChange() {
+        handleNewColorReceived {[weak self] color in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.navigationBar.barTintColor = color
+            }
+        }
+    }
+
+    // MARK: - Object Lifecycle
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

@@ -15,6 +15,7 @@ import UIKit
 
 protocol SettingsInteractorProtocol {
     func prepareConfigDataSource()
+    func handleThemeColor()
 }
 
 class SettingsInteractor: SettingsInteractorProtocol {
@@ -35,5 +36,9 @@ class SettingsInteractor: SettingsInteractorProtocol {
 extension SettingsInteractor {
     func prepareConfigDataSource() {
         presenter.present(locale: userDefaults.selectedLanguage)
+    }
+
+    func handleThemeColor() {
+        presenter.present(new: userDefaults.themeColor)
     }
 }
