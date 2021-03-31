@@ -46,7 +46,7 @@ extension NotysRouter {
 
     enum Scene {
         case tuto
-        case date(note: NoteModel)
+        case date(note: NoteModel, from: DidSaveReminderDelegate?)
     }
 
     func route(to scene: NotysRouter.Scene) {
@@ -56,9 +56,10 @@ extension NotysRouter {
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
             viewController?.present(vc, animated: true, completion: nil)
-        case .date(let note):
+        case .date(let note, let delegate):
             guard let vc = alertsStoryboard.viewController(identifier: AlertsStoryboardId.date) as? DateAlertViewController else { assertionFailure(); return }
             vc.set(note: note)
+            vc.set(delegate: delegate)
             viewController?.present(vc, animated: true, completion: nil)
         }
     }

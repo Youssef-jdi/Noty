@@ -19,6 +19,7 @@ protocol TimeAlertViewControllerProtocol: class, UIViewControllerRouting {
     func set(date: Date)
     func set(note: NoteModel)
     func set(alertPresenter: AlertPresenterProtocol)
+    func set(delegate: DidSaveReminderDelegate?)
 
     func display(time: String, isAm: Bool)
     func display(permission errors: HomeModels.PermissionError)
@@ -52,6 +53,10 @@ class TimeAlertViewController: UIViewController, TimeAlertViewControllerProtocol
         self.alertPresenter = alertPresenter
     }
 
+    func set(delegate: DidSaveReminderDelegate?) {
+        self.delegate = delegate
+    }
+
     // MARK: Outlets
     @IBOutlet weak var timePicker: UIDatePicker! {
         didSet {
@@ -72,6 +77,7 @@ class TimeAlertViewController: UIViewController, TimeAlertViewControllerProtocol
     var date: Date?
     var note: NoteModel?
     var alertPresenter: AlertPresenterProtocol?
+    weak var delegate: DidSaveReminderDelegate?
 
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -109,6 +115,8 @@ extension TimeAlertViewController {
     }
 
     func displayAddingnotif() {
+        guard let note = self.note else { return }
+        delegate?.reminderSaved(on: note)
         dismiss(adding: true)
     }
 
@@ -146,4 +154,8 @@ extension TimeAlertViewController {
             }
         }
     }
+}
+
+protocol DidSaveReminderDelegate: class {
+    func reminderSaved(on note: NoteModel)
 }

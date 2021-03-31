@@ -52,8 +52,7 @@ extension TitleAlertInteractor {
             title: title,
             text: text,
             isFavorite: false,
-            isReminded: false,
-            remindedDate: nil)
+            isReminded: false)
         noteService.save(from: &model) {[weak self] result in
             guard let self = self else { return }
             self.presenter.present(save: result)

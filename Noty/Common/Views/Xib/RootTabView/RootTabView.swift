@@ -24,6 +24,8 @@ class RootTabView: UIView, CustomViewProtocol {
     }
     @IBOutlet weak var toggleView: UIView!
     @IBOutlet weak var containerStackView: UIStackView!
+    @IBOutlet weak var newLabel: UILabel!
+    @IBOutlet weak var notysLabel: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,6 +51,15 @@ class RootTabView: UIView, CustomViewProtocol {
     func setView(with color: UIColor) {
         self.toggleView.backgroundColor = color
         self.containerStackView.backgroundColor = color
+        if color.isTooBright {
+            newLabel.textColor = .black
+            notysLabel.textColor = .black
+            bottomBorderView.backgroundColor = .black
+        } else {
+            newLabel.textColor = .white
+            notysLabel.textColor = .white
+            bottomBorderView.backgroundColor = .white
+        }
     }
 
     private func setupToggle(state: State) {

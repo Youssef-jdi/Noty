@@ -25,7 +25,6 @@ extension Note {
         noteEntity.title = noteModel.title
         noteEntity.isFavourite = noteModel.isFavorite
         noteEntity.isReminded = noteModel.isReminded
-        noteEntity.remindedDate = Int64(noteModel.remindedDate ?? .zero)
     }
 
     static func updateIsFavorite(_ noteEntity: Note, from noteModel: NoteModel) {
@@ -33,7 +32,13 @@ extension Note {
         noteEntity.text = noteModel.text
         noteEntity.title = noteModel.title
         noteEntity.isFavourite = !noteModel.isFavorite
-        noteEntity.isReminded = noteModel.isReminded
-        noteEntity.remindedDate = Int64(noteModel.remindedDate ?? .zero)
+    }
+
+    static func updateRemindedDate(_ noteEntity: Note, from noteModel: NoteModel) {
+        noteEntity.id = noteModel.id
+        noteEntity.text = noteModel.text
+        noteEntity.title = noteModel.title
+        noteEntity.isFavourite = noteModel.isFavorite
+        noteEntity.isReminded = !noteModel.isReminded
     }
 }

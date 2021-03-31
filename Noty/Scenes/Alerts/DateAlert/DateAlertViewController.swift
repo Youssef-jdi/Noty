@@ -17,6 +17,7 @@ protocol DateAlertViewControllerProtocol: class, UIViewControllerRouting {
     func set(interactor: DateAlertInteractorProtocol)
     func set(router: DateAlertRouterProtocol)
     func set(note: NoteModel)
+    func set(delegate: DidSaveReminderDelegate?)
 
     // add the functions that are called from the presenter
     func display(date: Date, year: String, dateText: String)
@@ -42,6 +43,10 @@ class DateAlertViewController: UIViewController, DateAlertViewControllerProtocol
         self.note = note
     }
 
+    func set(delegate: DidSaveReminderDelegate?) {
+        self.delegate = delegate
+    }
+
     // MARK: Outlets
     @IBOutlet weak var datePicker: UIDatePicker! {
         didSet {
@@ -59,6 +64,7 @@ class DateAlertViewController: UIViewController, DateAlertViewControllerProtocol
     
     // MARK: Properties
     var note: NoteModel?
+    weak var delegate: DidSaveReminderDelegate?
 
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -69,7 +75,7 @@ class DateAlertViewController: UIViewController, DateAlertViewControllerProtocol
     // MARK: Actions
     @IBAction func okClicked(_ sender: Any) {
         guard let note = note else { return }
-        router?.route(to: .time(date: datePicker.date, note: note))
+        router?.route(to: .time(date: datePicker.date, note: note, from: delegate))
     }
 
     @IBAction func cancelClicked(_ sender: Any) {

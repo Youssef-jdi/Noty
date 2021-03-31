@@ -16,15 +16,13 @@ struct NoteModel {
     let text: String
     var isFavorite: Bool
     var isReminded: Bool
-    var remindedDate: Int64?
 
     static func map(from entity: Note) -> NoteModel {
         return NoteModel(id: entity.id,
                          title: entity.title ?? "",
                          text: entity.text ?? "",
                          isFavorite: entity.isFavourite,
-                         isReminded: entity.isReminded,
-                         remindedDate: entity.remindedDate)
+                         isReminded: entity.isReminded)
     }
 }
 

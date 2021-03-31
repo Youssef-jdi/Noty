@@ -13,7 +13,8 @@ protocol NoteServiceProtocol {
     func save(from note: inout NoteModel, _ completion: @escaping RequestLocalCompletion<Note>)
     func deleteAllNotes()
     func deleteNote(_ note: NoteModel)
-    func updateNote(from note: NoteModel, _ completion: @escaping RequestLocalCompletion<Note>)
+    func updateNoteFavorite(from note: NoteModel, _ completion: @escaping RequestLocalCompletion<Note>)
+    func updateNoteDate(from note: NoteModel, _ completion: @escaping RequestLocalCompletion<Note>)
     func getNotesCount() -> Int
 }
 
@@ -72,7 +73,7 @@ class NoteDataService: NoteServiceProtocol {
         return coreDataController.getCount(entityName: Note.entityName)
     }
 
-    func updateNote(from note: NoteModel, _ completion: @escaping RequestLocalCompletion<Note>) {
+    func updateNoteFavorite(from note: NoteModel, _ completion: @escaping RequestLocalCompletion<Note>) {
         guard let id = note.id else { return }
         let context = coreDataController.backgroundContext
         let predicate = NSPredicate(format: "id == %@", id as NSString)
@@ -84,6 +85,30 @@ class NoteDataService: NoteServiceProtocol {
             case .success(let notes):
                 guard let noteEntity = notes.first as? Note else { return }
                 Note.updateIsFavorite(noteEntity, from: note)
+                self.saveChanges(context, noteEntity: noteEntity) { result in
+                    switch result {
+                    case .success: completion(.success(noteEntity))
+                    case .failure(let error): completion(.failure(error))
+                    }
+                }
+
+            case .failure(let error): completion(.failure(error))
+            }
+        }
+    }
+
+    func updateNoteDate(from note: NoteModel, _ completion: @escaping RequestLocalCompletion<Note>) {
+        guard let id = note.id else { return }
+        let context = coreDataController.backgroundContext
+        let predicate = NSPredicate(format: "id == %@", id as NSString)
+        coreDataController.fetch(
+            entityName: Note.entityName,
+            predicate: predicate,
+            context: context) { result in
+            switch result {
+            case .success(let notes):
+                guard let noteEntity = notes.first as? Note else { return }
+                Note.updateRemindedDate(noteEntity, from: note)
                 self.saveChanges(context, noteEntity: noteEntity) { result in
                     switch result {
                     case .success: completion(.success(noteEntity))

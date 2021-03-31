@@ -17,6 +17,8 @@
             <connections>
                 <outlet property="bottomBorderView" destination="zh6-aL-Ksd" id="M2d-ay-dtE"/>
                 <outlet property="containerStackView" destination="DCq-jo-a14" id="BeM-hR-A9f"/>
+                <outlet property="newLabel" destination="cl3-aG-er2" id="3F3-Jw-tJ1"/>
+                <outlet property="notysLabel" destination="xwE-D7-KIi" id="gFg-fu-bgc"/>
                 <outlet property="toggleView" destination="flS-kt-erB" id="WBm-50-nt7"/>
             </connections>
         </placeholder>

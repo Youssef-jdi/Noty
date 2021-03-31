@@ -57,7 +57,7 @@ extension NotysInteractor {
     }
 
     func updateNoteWithFavorite(note: NoteModel) {
-        noteService.updateNote(from: note) {[weak self] result in
+        noteService.updateNoteFavorite(from: note) {[weak self] result in
             guard let self = self else { return }
             self.presenter.presentIsFavorite(result: result, on: note)
         }

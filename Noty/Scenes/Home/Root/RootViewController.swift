@@ -48,12 +48,14 @@ class RootViewController: UIViewController, RootViewControllerProtocol, WillRece
 
     // MARK: Properties
     private var currentState: RootTabView.State = .new
-    private lazy var settingsButton: UIBarButtonItem? = {
+    private lazy var settingsButton: UIButton = {
         let btn = UIButton(type: .custom)
-        btn.setImage(R.image.settings_icon(), for: .normal)
-        btn.setTitleColor(.white, for: .normal)
         btn.addTarget(self, action: #selector(goToSettings), for: .touchUpInside)
-        let uibarbutton = UIBarButtonItem(customView: btn)
+        return btn
+    }()
+
+    private lazy var settingsBarButton: UIBarButtonItem? = {
+        let uibarbutton = UIBarButtonItem(customView: settingsButton)
         return uibarbutton
     }()
 
@@ -88,7 +90,7 @@ fileprivate extension RootViewController {
     }
 
     func setupNavigationBar() {
-        navigationItem.rightBarButtonItem = settingsButton
+        navigationItem.rightBarButtonItem = settingsBarButton
     }
 
     @objc func goToSettings() {
@@ -100,6 +102,7 @@ fileprivate extension RootViewController {
             DispatchQueue.main.async {[weak self] in
                 guard let self = self else { return }
                 self.rootTabView.setView(with: color)
+                self.setSettingsButton(with: color)
             }
         }
     }
@@ -131,5 +134,16 @@ extension RootViewController {
 
     func display(theme color: UIColor) {
         rootTabView.setView(with: color)
+        setSettingsButton(with: color)
+    }
+
+    private func setSettingsButton(with color: UIColor) {
+        if color.isTooBright {
+            settingsButton.setImage(R.image.settings_icon()?.withTintColor(.black), for: .normal)
+            settingsButton.setTitleColor(.black, for: .normal)
+        } else {
+            settingsButton.setImage(R.image.settings_icon(), for: .normal)
+            settingsButton.setTitleColor(.white, for: .normal)
+        }
     }
 }

@@ -104,7 +104,7 @@ private extension NotysViewController {
 
 extension NotysViewController: NoteUtilsDelegate {
     func setReminder(on note: NoteModel, at indexPath: IndexPath) {
-        router?.route(to: .date(note: note))
+        router?.route(to: .date(note: note, from: self))
     }
 
     func setFavorite(on note: NoteModel, at indexPath: IndexPath) {
@@ -130,4 +130,13 @@ extension NotysViewController: EmptyBackgroundViewDelegate {
     }
 
     func tapNewNote() {}
+}
+
+// MARK: Saved Reminder
+extension NotysViewController: DidSaveReminderDelegate {
+    func reminderSaved(on note: NoteModel) {
+        if let index = tableViewUtils?.data.firstIndex(of: note) {
+            tableViewUtils?.data[index].isReminded = true
+        }
+    }
 }

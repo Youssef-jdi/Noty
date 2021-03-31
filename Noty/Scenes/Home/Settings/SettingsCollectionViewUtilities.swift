@@ -60,7 +60,8 @@ class SettingsCollectionViewUtilities: NSObject, SettingsCollectionViewUtilities
             cell.colorImage.image = UIImage(color: color)
             return cell
         case 2:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.optionCell.identifier, for: indexPath) as? OptionCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.optionCell.identifier, for: indexPath) as? OptionCell, let color = self.imageColor else { return UICollectionViewCell() }
+            cell.configure(with: color)
             cell.titleLabel.text = optionsDataSource[indexPath.row]
             return cell
         default: assertionFailure()

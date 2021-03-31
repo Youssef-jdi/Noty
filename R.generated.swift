@@ -455,7 +455,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 101 images.
+  /// This `R.image` struct is generated, and contains static references to 102 images.
   struct image {
     /// Image `Arrow_icon_black`.
     static let arrow_icon_black = Rswift.ImageResource(bundle: R.hostingBundle, name: "Arrow_icon_black")
@@ -595,6 +595,8 @@ struct R: Rswift.Validatable {
     static let ic_arrow_back_gray = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_arrow_back_gray")
     /// Image `ic_arrow_back_white`.
     static let ic_arrow_back_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_arrow_back_white")
+    /// Image `ic_arrow_back`.
+    static let ic_arrow_back = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_arrow_back")
     /// Image `ic_arrow_down_sharp_black`.
     static let ic_arrow_down_sharp_black = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_arrow_down_sharp_black")
     /// Image `ic_arrow_right_grey`.
@@ -1126,6 +1128,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ic_alert_group_2", bundle: ..., traitCollection: ...)`
     static func ic_alert_group_2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ic_alert_group_2, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_arrow_back", bundle: ..., traitCollection: ...)`
+    static func ic_arrow_back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_arrow_back, compatibleWith: traitCollection)
     }
     #endif
 

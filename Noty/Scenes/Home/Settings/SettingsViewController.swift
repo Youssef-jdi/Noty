@@ -76,6 +76,7 @@ extension SettingsViewController {
 
     func display(new color: UIColor) {
         utilities?.set(new: color)
+        collectionView.reloadData()
     }
 
     private func setupCollectionView() {
@@ -108,6 +109,7 @@ extension SettingsViewController {
 extension SettingsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
+            // MARK: Settings
         case 0:
             switch indexPath.item {
             case 0: Console.log(type: .success, "Share noty")
@@ -115,6 +117,7 @@ extension SettingsViewController: UICollectionViewDelegate, UICollectionViewDele
             case 2: Console.log(type: .success, "Report an issue")
             default: break
             }
+            // MARK: Theme
         case 1:
             router?.route(to: .theme)
         default: break

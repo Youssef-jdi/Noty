@@ -18,4 +18,12 @@ extension UIColor {
 
         return (red, green, blue, alpha)
     }
+
+    /// - Get component red green and blue component from color
+    /// - Source: https://www.w3.org/WAI/ER/WD-AERT/#color-contrast
+    var isTooBright: Bool {
+        let brightness = ((self.rgba.red * 299) + (self.rgba.green * 587) + (self.rgba.blue * 114)) / 1000
+        guard brightness < 0.5 else { return true }
+        return false
+    }
 }

@@ -28,6 +28,7 @@ class TimeAlertInteractor: TimeAlertInteractorProtocol {
     var notificationManager: NotificationManagerProtocol
     var errorHandler: ErrorHandlerProtocol
     var userDefaults: UserDefaultsManagerProtocol
+    var noteService: NoteServiceProtocol
     
     init(
         presenter: TimeAlertPresenterProtocol,
@@ -35,7 +36,8 @@ class TimeAlertInteractor: TimeAlertInteractorProtocol {
         permissionManager: PermissionManagerProtocol,
         notificationManager: NotificationManagerProtocol,
         errorHandler: ErrorHandlerProtocol,
-        userDefaults: UserDefaultsManagerProtocol
+        userDefaults: UserDefaultsManagerProtocol,
+        noteService: NoteServiceProtocol
         ) {
         self.presenter = presenter
         self.dateFormatter = dateFormatter
@@ -43,6 +45,7 @@ class TimeAlertInteractor: TimeAlertInteractorProtocol {
         self.notificationManager = notificationManager
         self.errorHandler = errorHandler
         self.userDefaults = userDefaults
+        self.noteService = noteService
     }
 }
 
@@ -55,7 +58,6 @@ extension TimeAlertInteractor {
         presenter.present(time: dateFormatter.get(date: date, in: "h:mm a"))
     }
 
-    #warning("update object's isReminded and (remindedDate: wth is this for ?)")
     func addNotif(on date: Date, with note: NoteModel) {
         requestNotifPermission {[weak self] in
             guard let self = self else { return }
@@ -63,9 +65,22 @@ extension TimeAlertInteractor {
                 note: note, on: date) {[weak self] result in
                 guard let self = self else { return }
                 switch result {
-                case .success: self.presenter.presentAddingNotif()
+                case .success: self.updateNote(on: note, with: date)
                 case .failure(let error): self.errorHandler.handle(error)
                 }
+            }
+        }
+    }
+
+    private func updateNote(on note: NoteModel, with date: Date) {
+        noteService.updateNoteDate(from: note) { result in
+            switch result {
+            case .success(let storable):
+                guard let note = storable as? Note else { return }
+                let noteModel = NoteModel.map(from: note)
+                Console.log(type: .success, "\(noteModel)")
+                self.presenter.presentAddingNotif()
+            case .failure(let error): self.errorHandler.handle(error)
             }
         }
     }

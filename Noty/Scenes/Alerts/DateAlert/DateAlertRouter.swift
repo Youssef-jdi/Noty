@@ -48,17 +48,18 @@ class DateAlertRouter: NSObject, DateAlertRouterProtocol {
 extension DateAlertRouter {
 
     enum Scene {
-        case time(date: Date, note: NoteModel)
+        case time(date: Date, note: NoteModel, from: DidSaveReminderDelegate?)
     }
 
     func route(to scene: DateAlertRouter.Scene) {
         switch scene {
-        case .time(let date, let note):
+        case .time(let date, let note, let delegate):
             guard let vc = alertsStoryboard.viewController(identifier: AlertsStoryboardId.time) as? TimeAlertViewController else { assertionFailure(); return }
             vc.modalPresentationStyle = .currentContext
             vc.transitioningDelegate = self
             vc.set(date: date)
             vc.set(note: note)
+            vc.set(delegate: delegate)
             viewController?.present(vc, animated: true, completion: nil)
         }
     }

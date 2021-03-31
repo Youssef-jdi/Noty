@@ -13,35 +13,55 @@
 
 import UIKit
 
-class HomeNavigationController: UINavigationController, WillReceiveNewColor {
+protocol HomeNavigationControllerProtocol: class, UINavigationControllerRouting {
+    func set(interactor: HomeNavigationInteractorProtocol)
+
+    func display(color: UIColor)
+}
+
+class HomeNavigationController: UINavigationController, HomeNavigationControllerProtocol, WillReceiveNewColor {
 
     // MARK: DI
-    func set(userDefaults: UserDefaultsManagerProtocol) {
-        self.userDefaults = userDefaults
+    var interactor: HomeNavigationInteractorProtocol?
+
+    func set(interactor: HomeNavigationInteractorProtocol) {
+        self.interactor = interactor
     }
 
     // MARK: Properties
-    var userDefaults: UserDefaultsManagerProtocol?
+    private lazy var backButton: UIButton = {
+        let backButton = UIButton(type: .close)
+        return backButton
+    }()
+    private lazy var backItem: UIBarButtonItem = {
+        let item = UIBarButtonItem(customView: backButton)
+        return item
+    }()
 
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        // setup()
+        interactor?.handleViewDidLoad()
         observeColorChange()
         self.delegate = self
     }
 
-    func setup() {
-        navigationBar.barTintColor = userDefaults?.themeColor
-        navigationBar.tintColor = .white
-        navigationBar.isTranslucent = false
-    }
+//    private func setup() {
+//        guard let color = userDefaults?.themeColor else { return }
+//        navigationBar.barTintColor = color
+//        navigationBar.tintColor = color.isTooBright ? .black : .white
+//        navigationBar.isTranslucent = false
+//    }
 
     func observeColorChange() {
         handleNewColorReceived {[weak self] color in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.navigationBar.barTintColor = color
+//                self.navigationBar.barTintColor = color
+//                self.navigationBar.tintColor = color.isTooBright ? .black : .white
+//                color.isTooBright ? self.backButton.setImage(R.image.ic_arrow_back(), for: .normal) : self.backButton.setImage(R.image.ic_arrow_back_white(), for: .normal)
+                self.display(color: color)
             }
         }
     }
@@ -50,13 +70,22 @@ class HomeNavigationController: UINavigationController, WillReceiveNewColor {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+
+    // MARK: Methods
+    func display(color: UIColor) {
+        navigationBar.barTintColor = color
+        navigationBar.tintColor = color.isTooBright ? .black : .white
+        navigationBar.isTranslucent = false
+        setBackButton(with: color)
+    }
+
+    private func setBackButton(with color: UIColor) {
+        color.isTooBright ? backButton.setImage(R.image.ic_arrow_back(), for: .normal) : backButton.setImage(R.image.ic_arrow_back_white(), for: .normal)
+    }
 }
 
 extension HomeNavigationController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        let backButton = UIButton(type: .close)
-        backButton.setImage(R.image.ic_arrow_back_white(), for: .normal)
-        let item = UIBarButtonItem(customView: backButton)
-        viewController.navigationItem.backBarButtonItem = item
+        viewController.navigationItem.backBarButtonItem = backItem
     }
 }

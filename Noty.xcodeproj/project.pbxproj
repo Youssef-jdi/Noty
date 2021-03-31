@@ -149,6 +149,8 @@
 		AAA160502610D9B300757AA7 /* CIHueSaturationValueGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA1604F2610D9B300757AA7 /* CIHueSaturationValueGradientView.swift */; };
 		AAA160552610DA1A00757AA7 /* CGFloat + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA160542610DA1A00757AA7 /* CGFloat + Utils.swift */; };
 		AAA1605D2610EB7A00757AA7 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA1605C2610EB7A00757AA7 /* CustomSlider.swift */; };
+		AAA8DFAF2614D4C500D6EFBF /* HomeNavigationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8DFAE2614D4C500D6EFBF /* HomeNavigationInteractor.swift */; };
+		AAA8DFB72614D55C00D6EFBF /* HomeNavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8DFB62614D55C00D6EFBF /* HomeNavigationPresenter.swift */; };
 		AAB50F5525D6A64400980169 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB50F5425D6A64400980169 /* Home.storyboard */; };
 		AAB50F5F25D6A6E700980169 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB50F5B25D6A6E700980169 /* HomePresenter.swift */; };
 		AAB50F6025D6A6E700980169 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB50F5C25D6A6E700980169 /* HomeRouter.swift */; };
@@ -349,6 +351,8 @@
 		AAA1604F2610D9B300757AA7 /* CIHueSaturationValueGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIHueSaturationValueGradientView.swift; sourceTree = "<group>"; };
 		AAA160542610DA1A00757AA7 /* CGFloat + Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + Utils.swift"; sourceTree = "<group>"; };
 		AAA1605C2610EB7A00757AA7 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		AAA8DFAE2614D4C500D6EFBF /* HomeNavigationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationInteractor.swift; sourceTree = "<group>"; };
+		AAA8DFB62614D55C00D6EFBF /* HomeNavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationPresenter.swift; sourceTree = "<group>"; };
 		AAB50F5425D6A64400980169 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		AAB50F5B25D6A6E700980169 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		AAB50F5C25D6A6E700980169 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -875,6 +879,8 @@
 			isa = PBXGroup;
 			children = (
 				AA88FE2425F78B1000DCD844 /* HomeNavigationViewController.swift */,
+				AAA8DFAE2614D4C500D6EFBF /* HomeNavigationInteractor.swift */,
+				AAA8DFB62614D55C00D6EFBF /* HomeNavigationPresenter.swift */,
 			);
 			path = HomeNavigationController;
 			sourceTree = "<group>";
@@ -1488,6 +1494,7 @@
 				AA7829FC260FA2A300537B2D /* ThemeAlertViewController.swift in Sources */,
 				AA95D7B025D94E5B00F94553 /* LanguageRouter.swift in Sources */,
 				AAB50F7D25D6AA3000980169 /* WelcomeInteractor.swift in Sources */,
+				AAA8DFB72614D55C00D6EFBF /* HomeNavigationPresenter.swift in Sources */,
 				AAA074C325E01D830061347E /* DeepLinkRouter.swift in Sources */,
 				AA95D7B225D94E5B00F94553 /* LanguageInteractor.swift in Sources */,
 				AA92734D25F6604600D0A4D9 /* NotysViewController.swift in Sources */,
@@ -1531,6 +1538,7 @@
 				AA7832222608D5530090096D /* NotificationManager.swift in Sources */,
 				AA76A20B25D568B100903401 /* UIViewControllerRouting.swift in Sources */,
 				AACAF55325D6990B009DE27C /* AppButton.swift in Sources */,
+				AAA8DFAF2614D4C500D6EFBF /* HomeNavigationInteractor.swift in Sources */,
 				AA7978F126011B120071297C /* TutorialPresenter.swift in Sources */,
 				AA76A29825D56FDC00903401 /* SplashScreenStoryboard.swift in Sources */,
 				AA8F52A5260634BC00C55407 /* TimeAlertViewController.swift in Sources */,

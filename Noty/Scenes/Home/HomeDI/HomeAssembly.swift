@@ -138,10 +138,14 @@ class HomeAssembly: Assembly {
         }
 
         // MARK: Home Navigation Controller
+        container.autoregister(HomeNavigationInteractorProtocol.self, initializer: HomeNavigationInteractor.init)
+        container.autoregister(HomeNavigationPresenterProtocol.self, initializer: HomeNavigationPresenter.init)
         container.storyboardInitCompleted(HomeNavigationController.self) { resolver, vc in
-            let userDefaults = resolver ~> (UserDefaultsManagerProtocol.self)
+            let interactor = resolver ~> (HomeNavigationInteractorProtocol.self)
+            let presenter = resolver ~> (HomeNavigationPresenterProtocol.self)
 
-            vc.set(userDefaults: userDefaults)
+            vc.set(interactor: interactor)
+            presenter.set(viewController: vc)
         }
     }
 }
