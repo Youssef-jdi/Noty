@@ -71,6 +71,7 @@
 		AA7829FC260FA2A300537B2D /* ThemeAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7829F8260FA2A300537B2D /* ThemeAlertViewController.swift */; };
 		AA782A05260FA49500537B2D /* UIViewController + SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA782A04260FA49500537B2D /* UIViewController + SwiftUI.swift */; };
 		AA7832222608D5530090096D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7832212608D5530090096D /* NotificationManager.swift */; };
+		AA78DEB02621FA840001E997 /* SplashAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = AA78DEAF2621FA840001E997 /* SplashAnimation.json */; };
 		AA7978AB2600FCA30071297C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978AA2600FCA30071297C /* NoteCell.swift */; };
 		AA7978B32600FCAE0071297C /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7978B22600FCAE0071297C /* NoteCell.xib */; };
 		AA7978F126011B120071297C /* TutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7978ED26011B120071297C /* TutorialPresenter.swift */; };
@@ -204,7 +205,6 @@
 		8B73340DF5285C961AAC6F91 /* Pods-Noty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Noty.debug.xcconfig"; path = "Target Support Files/Pods-Noty/Pods-Noty.debug.xcconfig"; sourceTree = "<group>"; };
 		936FDC04147F2B2DB33A17B2 /* Pods_Noty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Noty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2765F70893663883719B642 /* Pods_Noty_NotyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Noty_NotyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA2A08D525DD33E400333543 /* Noty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Noty.entitlements; sourceTree = "<group>"; };
 		AA4D86CC261217A70074A869 /* UIColor + RGBA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + RGBA.swift"; sourceTree = "<group>"; };
 		AA4D86D126121DE60074A869 /* UIViewController + WillReceiveNewColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + WillReceiveNewColor.swift"; sourceTree = "<group>"; };
 		AA52772625DC177D00AE880D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -273,6 +273,8 @@
 		AA7829F8260FA2A300537B2D /* ThemeAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertViewController.swift; sourceTree = "<group>"; };
 		AA782A04260FA49500537B2D /* UIViewController + SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + SwiftUI.swift"; sourceTree = "<group>"; };
 		AA7832212608D5530090096D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		AA78DEAF2621FA840001E997 /* SplashAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SplashAnimation.json; sourceTree = "<group>"; };
+		AA78DEE12621FC920001E997 /* Noty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Noty.entitlements; sourceTree = "<group>"; };
 		AA7978AA2600FCA30071297C /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		AA7978B22600FCAE0071297C /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
 		AA7978ED26011B120071297C /* TutorialPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPresenter.swift; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 		AA76A1E525D566D600903401 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				AA78DEAF2621FA840001E997 /* SplashAnimation.json */,
 				AA7A2C2E260A409F00D3F333 /* Notifications */,
 				AACAF56425D69A87009DE27C /* Assets.xcassets */,
 				AACAF55725D69A4A009DE27C /* Colors.xcassets */,
@@ -620,7 +623,7 @@
 			isa = PBXGroup;
 			children = (
 				AA76A36025D594A600903401 /* GoogleService-Info.plist */,
-				AA2A08D525DD33E400333543 /* Noty.entitlements */,
+				AA78DEE12621FC920001E997 /* Noty.entitlements */,
 				AA76A18825D5645500903401 /* Info.plist */,
 			);
 			path = Settings;
@@ -1215,6 +1218,7 @@
 				AA7A2C3D260A45B600D3F333 /* Naughty.mp3 in Resources */,
 				AA76A27A25D56E3900903401 /* SplashScreen.storyboard in Resources */,
 				AA76A26C25D56DC900903401 /* SplashAnimation.json in Resources */,
+				AA78DEB02621FA840001E997 /* SplashAnimation.json in Resources */,
 				AA8F527C2606330600C55407 /* Alerts.storyboard in Resources */,
 				AACAF55925D69A4A009DE27C /* Colors.xcassets in Resources */,
 				AA9DDEE4260B6DEF0002197F /* ConfigCell.xib in Resources */,
@@ -1733,6 +1737,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Noty/Settings/Noty.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R9GPA4UB8P;
 				INFOPLIST_FILE = Noty/Settings/Info.plist;
@@ -1742,6 +1747,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youssef.Noty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1754,6 +1760,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Noty/Settings/Noty.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R9GPA4UB8P;
 				INFOPLIST_FILE = Noty/Settings/Info.plist;
@@ -1763,6 +1770,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youssef.Noty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
